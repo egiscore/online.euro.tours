@@ -32,7 +32,7 @@
             <div class="container top-line-menu">
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
-                        <a class="nav-link active" href="//euro.tours">Главная</a>
+                        <a class="nav-link active" href="//euro.tours">Главная1</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/cl_refer?">Агентствам</a>
