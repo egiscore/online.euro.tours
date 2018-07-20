@@ -1,5 +1,6 @@
 <?php
     $server_conf = realpath(__DIR__.'/../conf/server.conf');
+
     if (file_exists($server_conf)) {
         if ($cfg = parse_ini_file($server_conf)) {
             if (isset($cfg['WEBROOT'])) {
