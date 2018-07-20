@@ -1,0 +1,32 @@
+.samo_container .container {
+    width: 960px;
+}
+@media print {
+    #claim_unpaid .buttons, #claim_unpaid .controls, #claim_unpaid .invoice, #claim_unpaid .psbank {
+        display: none;
+    }
+	#claim_unpaid span + br {
+		display: none;
+	}
+	#claim_unpaid span {
+		padding-right: 10px;
+	}
+}
+@media screen {
+	#claims td.link {
+		cursor: pointer;
+	}
+	#claims td.psbank {
+		background-image: url('../../pict/logo_psbank.gif');
+		width: 135px;		
+		height: 37px;
+		background-repeat: no-repeat;
+	}
+	#claims td.invoice {
+		text-decoration: underline;
+		color: blue;
+	}
+	#claims td {
+		height: 37px;
+	}
+}

@@ -1,0 +1,1 @@
+{extends file="../search_hotel/stats.tpl"}

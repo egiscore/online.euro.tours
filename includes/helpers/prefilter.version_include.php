@@ -1,0 +1,2 @@
+<?php
+function smarty_prefilter_version_include($tpl_source, $smarty) { return preg_replace_callback( '~\{include\s+file="(.*\.tpl)"~', function ($matches) use ($smarty) { $file = $matches[1]; $version = $smarty->moduleVersion; $template_dir = $smarty->getTemplateDir(0); $path = $template_dir . $version . '_' . $file; return '{include file="' . ((file_exists($path)) ? $version . '_' . $file : $file) . '"'; }, $tpl_source ); } 

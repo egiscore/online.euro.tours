@@ -1,0 +1,2 @@
+<?php
+ function smarty_modifier_icon_popup($title, $popuptext = '', $class = '', $charset = 'windows-1251') { if (!strlen($title)) { return ''; } if (strpos("\n",$title) !== false && !strlen($popuptext)) { $popuptext = $title; } $title = preg_replace('~(?<!\\\\)"~', '\\"', $title); if (strlen($popuptext)) { $popuptext = sprintf('data-popup-text="%s"',preg_replace('~(?<!\\\\)"~', '\\"', $popuptext)); } $return = '<span class="'.$class.' icon-info popup-note" title="'.$title.'" '.$popuptext.'></span>'; return $return; } ?>

@@ -1,0 +1,2 @@
+<?php
+ class State extends BaseType { public $inc; public $alias; public $name; public $lname; public $phprefix; public $stamp; public $phpunit_test; public $online_document = 0; public $ISO_number; public $www; } 

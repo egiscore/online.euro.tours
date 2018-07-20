@@ -1,0 +1,53 @@
+#agreement .res .ui-icon {
+    display: inline-block;
+}
+@media screen {
+    #buttons {
+        padding-top: 40px;
+        text-align: center;
+    }
+}
+@media print {
+    body {
+        width: 670px;
+    }
+    button {display: none;}
+}
+
+.partner_info_container {
+    width: 680px;
+    height: 350px;
+    overflow: auto;
+    text-align: left;
+}
+
+.partner_info_container .frm-row .frm-value {
+    text-align: left;
+}
+
+.submit {
+    padding: 4px !important;
+}
+
+#agreement span.progressbar {
+    display: initial !important;
+}
+#e_doc table.std tr:last-child td {
+    border-bottom: none;
+}
+
+tr.agreement td {
+    font-weight: bold;
+}
+
+.samo_container .resultset {
+    padding: 0;
+}
+#agreement {
+    margin: auto;
+    width: 960px;
+}
+
+#agreement .resultset fieldset.panel .ui-icon {
+    display: inline-block;
+}

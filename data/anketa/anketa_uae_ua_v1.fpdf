@@ -1,0 +1,136 @@
+<?php
+function get_text_from_combobox($combobox, $inc){
+    $tmp = '';
+    foreach($combobox as $prof){
+        if($prof['Inc'] == $inc){
+            $tmp = $prof['Name'];
+            break;
+        }
+    }
+    return $tmp;
+}
+$pdf = new tFPDF();
+
+$pdf->AddPage();
+$pdf->AddFont('DejaVu_times','','DejaVuSerif.ttf',true);
+
+$y = 15;
+$x = 10;
+$fsz1 = 14;
+$h1 = 5;
+$fsz2 = 10;
+$h2 = 3;
+$fsz3 = 8;
+$fsz4 = 6;
+$h3 = 2;
+
+$pdf->SetFillColor(255, 255, 255);
+$pdf->SetXY($x,0);
+
+$pdf->SetFont('DejaVu_times','',$fsz3);
+
+$w1 = 70;
+$w2 = 120;
+
+$pdf->SetXY($x+80,$y);
+$pdf->MultiCell($w1, $h1, 'Анкета ТУРИСТА', 0, 'С');
+
+$y = $y+15;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1-30, $h1, 'Фамилия:', 0, 'L');
+$pdf->SetXY($x+40,$y);
+$pdf->MultiCell($w2, $h1, $fields['FirstLName']['Value'], 0, 'L');
+
+$y = $y + $h1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1-30, $h1, 'Имя:', 0, 'L');
+$pdf->SetXY($x+40,$y);
+$pdf->MultiCell($w2, $h1, $fields['LastLName']['Value'], 0, 'L');
+
+$y = $y + $h1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1-30, $h1, 'Пол:', 0, 'L');
+$pdf->SetXY($x+40,$y+1);
+if($fields['sex']['Value'] == 0){
+   $pdf->MultiCell($w2, $h2, 'M', 0, 'L');
+} else {
+   $pdf->MultiCell($w2, $h2, 'F', 0, 'L');
+}
+
+$y = $y + $h1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1-30, $h1, 'Дата рождения:', 0, 'L');
+$pdf->SetXY($x+40,$y);
+$pdf->MultiCell($w2, $h1, date('d-m-Y',$fields['BornDate']['Value']), 0, 'L');
+
+$y = $y + $h1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1-30, $h1, 'Страна рождения', 0, 'L');
+$pdf->SetXY($x+40,$y);
+$pdf->MultiCell($w2, $h1,  $fields['PlaceBorn_Text']['Value'], 0, 'L');
+
+
+$y = $y + $h1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1-30, $h1, 'Гражданство:', 0, 'L');
+$pdf->SetXY($x+40,$y);
+$pdf->MultiCell($w2, $h1, $fields['CitizenBorn_Text']['Value'], 0, 'L');
+
+$y = $y + $h1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1-30, $h1, 'Паспорт:', 0, 'L');
+$pdf->SetXY($x+40,$y);
+$pdf->MultiCell($w2, $h1, $fields['Passport']['Value'], 0, 'L');
+
+
+$y = $y + $h1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1-30, $h1, 'Паспорт выдан:', 0, 'L');
+$pdf->SetXY($x+40,$y);
+$pdf->MultiCell($w2, $h1,  date('d-m-Y',$fields['PGivenDate']['Value']) , 0, 'L');
+
+$y = $y + $h1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1-30, $h1, 'Действителен до:', 0, 'L');
+$pdf->SetXY($x+40,$y);
+$pdf->MultiCell($w2, $h1,  date('d-m-Y',$fields['PValid']['Value']), 0, 'L');
+
+$y = $y + $h1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1-30, $h1, 'Выдан:', 0, 'L');
+$pdf->SetXY($x+40,$y);
+$pdf->MultiCell($w2, $h1, $fields['PGivenOrg']['Value'], 0, 'L');
+
+$y = $y + $h1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1-30, $h1, 'Имя супруга:', 0, 'L');
+$pdf->SetXY($x+40,$y);
+$pdf->MultiCell($w2, $h1, $fields['HusbandName']['Value'], 0, 'L');
+
+$y = $y + $h1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1-30, $h1, 'Имя отца:', 0, 'L');
+$pdf->SetXY($x+40,$y);
+$pdf->MultiCell($w2, $h1,  $fields['FatherName']['Value'], 0, 'L');
+
+$y = $y + $h1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1-30, $h1, 'Имя матери:', 0, 'L');
+$pdf->SetXY($x+40,$y);
+$pdf->MultiCell($w2, $h1,  $fields['MotherName']['Value'], 0, 'L');
+
+$y = $y + $h1+10;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1-30, $h1, 'Фотография', 0, 'L');
+if(isset($photo_url) && !empty($photo_url)){
+    $pdf->Image(_ROOT.$photo_url,$x+5,$y+10, 0, 50);
+}
+
+$y=$y+70;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1-30, $h1, 'Копия паспорта', 0, 'L');
+if(isset($page1_url) && !empty($page1_url)){
+    $pdf->Image(_ROOT.$page1_url,$x+5,$y+10, 0, 75);
+}
+
+?>

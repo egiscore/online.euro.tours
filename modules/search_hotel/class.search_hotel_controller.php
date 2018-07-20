@@ -1,0 +1,2 @@
+<?php
+ class Search_Hotel_Controller extends Search_Tour_Controller { public function __construct() { parent::__construct(); array_unshift($this->actions['INIT'], 'STATEFROM'); $this->actions['STATEFROM'] = $this->actions['TOWNFROMINC']; $this->persistent = array_diff($this->persistent, ['TOWNFROMINC']); } public function construct() { parent::construct(); $this->options_only[] = 'STATEFROM'; } } 

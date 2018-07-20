@@ -1,0 +1,42 @@
+<?php
+if (!defined('ROUTES_PATH')) { define('ROUTES_PATH', _ROOT . 'routes.php'); } include_once ROUTES_PATH; if (!isset($routes['d_flights_monitor'])) { die(Get_Message_Lang($LNG, 'adm_module_disabled')); } ?>
+    <body>
+
+<?php get_help_button('onlinest:sistema_upravlenija:remote_fill_freight') ?>
+<?= style_css() ?>
+<FORM name="start" action="" method="post">
+    <input type="hidden" name="LNG" value="<?= $LNG ?>">
+    <input type=hidden name="SHOW" value="">
+    <input type=hidden name="ADD" value="">
+    <input type=hidden name="EDIT" value="">
+    <input type=hidden name="SAVE" value="">
+    <input type=hidden name="DELETE" value="">
+    <input type=hidden name="UNLOCK" value="">
+    <script>
+        function Vars(add, edit, save, del, unlock) {
+            <?php
+ if ($_ACCESS == 0) { echo 'alert("Вам разрешен только просмотр. Only view.");'; } elseif ($_ACCESS == 1) { ?>
+            document.start.ADD.value = add;
+            document.start.EDIT.value = edit;
+            document.start.SAVE.value = save;
+            document.start.DELETE.value = del;
+            document.start.UNLOCK.value = unlock;
+            document.start.submit();
+            <?php
+ } ?>
+        }
+    </script>
+<?php
+include_once $folder_site . "admin/includes/site/function.php"; if (!isset($CHECKIN1) or ($CHECKIN1 == '')) { $date1 = date('d/m/Y'); } else { $date1 = $CHECKIN1; } if (!isset($CHECKIN2) or ($CHECKIN2 == '')) { $date2 = mktime(0, 0, 0, date('m'), date('d') + 14, date('Y')); $date2 = date('d/m/Y', $date2); } else { $date2 = $CHECKIN2; } $CHECKIN1 = $date1; if (isset($_POST['CHECKIN1']) or isset($_GET['CHECKIN1'])) { $CHECKIN1 = isset($_POST['CHECKIN1']) ? $_POST['CHECKIN1'] : $_GET['CHECKIN1']; } Check_Date($CHECKIN1); $CHECKIN2 = $date2; if (isset($_POST['CHECKIN2']) or isset($_GET['CHECKIN2'])) { $CHECKIN2 = isset($_POST['CHECKIN2']) ? $_POST['CHECKIN2'] : $_GET['CHECKIN2']; } Check_Date($CHECKIN2); $FIRMCODE = 0; if (isset($_POST['FIRMCODE']) or isset($_GET['FIRMCODE'])) { $FIRMCODE = isset($_POST['FIRMCODE']) ? $_POST['FIRMCODE'] : $_GET['FIRMCODE']; } $TOURINC = 0; if (isset($_POST['TOURINC']) or isset($_GET['TOURINC'])) { $TOURINC = isset($_POST['TOURINC']) ? $_POST['TOURINC'] : $_GET['TOURINC']; } Is_Digital($TOURINC); $CLASS = 0; if (isset($_POST['CLASS']) or isset($_GET['CLASS'])) { $CLASS = isset($_POST['CLASS']) ? $_POST['CLASS'] : $_GET['CLASS']; } Is_Digital($CLASS); set_time_limit(0); $str = ''; $partner_not_found = 0; $PARTNER = -2; $PARTTYPE = 0; $str .= '<input type="hidden" name="USER" value="' . $USER . '">'; $SHOW = 0; if (isset($_POST['SHOW']) or isset($_GET['SHOW'])) { $SHOW = isset($_POST['SHOW']) ? $_POST['SHOW'] : $_GET['SHOW']; } $STATEFROMINC = 0; if (isset($_POST['STATEFROMINC']) or isset($_GET['STATEFROMINC'])) { $STATEFROMINC = isset($_POST['STATEFROMINC']) ? $_POST['STATEFROMINC'] : $_GET['STATEFROMINC']; } Is_Digital($STATEFROMINC); $STATETOINC = 0; if (isset($_POST['STATETOINC']) or isset($_GET['STATETOINC'])) { $STATETOINC = isset($_POST['STATETOINC']) ? $_POST['STATETOINC'] : $_GET['STATETOINC']; } Is_Digital($STATETOINC); $TOWNFROMINC = 0; if (isset($_POST['TOWNFROMINC']) or isset($_GET['TOWNFROMINC'])) { $TOWNFROMINC = isset($_POST['TOWNFROMINC']) ? $_POST['TOWNFROMINC'] : $_GET['TOWNFROMINC']; } Is_Digital($TOWNFROMINC); $TOWNTOINC = 0; if (isset($_POST['TOWNTOINC']) or isset($_GET['TOWNTOINC'])) { $TOWNTOINC = isset($_POST['TOWNTOINC']) ? $_POST['TOWNTOINC'] : $_GET['TOWNTOINC']; } Is_Digital($TOWNTOINC); $t_inc = array(); $t_name = array(); $t_lname = array(); $sql = $db->formatExec( '<OFFICEDB>.[dbo].[up_WEB_3_ADMIN_d_xxx_all_tour]', [ 'STATEFROM' => $STATEFROMINC, 'TOWNFROM' => $TOWNFROMINC, 'TOWNTO' => $TOWNTOINC, 'STATETO' => $STATETOINC, 'USER' => $USER, 'dataset' => 1, ] ); if ($res = $db->fetchAll($sql)) { foreach ($res as $row) { $t_inc[] = htmlspecialchars($row['inc'], ENT_QUOTES, 'cp1251'); $t_name[] = htmlspecialchars($row['name'], ENT_QUOTES, 'cp1251'); $t_lname[] = htmlspecialchars($row['lname'], ENT_QUOTES, 'cp1251'); } } $classs = array(); $sql = "EXEC " . OFFICE_SQLSERVER . "." . OFFICEDB . ".dbo.sp_executesql N'SELECT DISTINCT [Inc], [Name], [Lname] FROM [dbo].[class] [cl] WHERE [cl].[Inc] > 0'"; if ($res = $db->fetchAll($sql)) { foreach ($res as $row) { $classs[] = $row; } if ($CLASS == 0) { $CLASS = $classs[0]['Inc']; } } if (!isset($CHECKIN1) or ($CHECKIN1 == '')) { $date1 = date('d/m/Y'); } else { $date1 = $CHECKIN1; } if (!isset($CHECKIN2) or ($CHECKIN2 == '')) { $date2 = mktime(0, 0, 0, date('m'), date('d') + 14, date('Y')); $date2 = date('d/m/Y', $date2); } else { $date2 = $CHECKIN2; } function __safe($val) { if (is_numeric($val)) { return $val; } else { return addslashes($val); } } $partners = array(); $sql = 'exec ' . OFFICE_SQLSERVER . '.' . OFFICEDB . '.dbo.up_WEB_3_ADMIN_d_Freight_Monitor_Partner'; if ($res = $db->fetchAll($sql)) { foreach ($res as $row) { $partners[] = array_map('__safe', $row); } } $states_from = array(); $states_from[] = array('Inc' => 0, 'LName' => '---'); $sql = 'exec ' . OFFICE_SQLSERVER . '.' . OFFICEDB . '.dbo.up_WEB_3_ADMIN_d_Freight_Monitor_StateFrom @USER = ' . $USER; if ($res = $db->fetchAll($sql)) { foreach ($res as $row) { $states_from[] = array_map('__safe', $row); } } $states_to = array(); $states_to[] = array('Inc' => 0, 'LName' => '---'); $sql = 'exec ' . OFFICE_SQLSERVER . '.' . OFFICEDB . '.dbo.up_WEB_3_ADMIN_d_Freight_Monitor_StateTo @STATEFROM=' . $STATEFROMINC . ', @USER = ' . $USER; if ($res = $db->fetchAll($sql)) { foreach ($res as $row) { $states_to[] = array_map('__safe', $row); } } $town_from = array(); $town_from[] = array('Inc' => 0, 'LName' => '---'); $sql = 'exec ' . OFFICE_SQLSERVER . '.' . OFFICEDB . '.dbo.up_WEB_3_ADMIN_d_Freight_Monitor_TownFrom @STATEFROM = ' . $STATEFROMINC; if ($res = $db->fetchAll($sql)) { foreach ($res as $row) { $town_from[] = array_map('__safe', $row); } } $town_to = array(); $town_to[] = array('Inc' => 0, 'LName' => '---'); $sql = 'exec ' . OFFICE_SQLSERVER . '.' . OFFICEDB . '.dbo.up_WEB_3_ADMIN_d_Freight_Monitor_TownTo @STATETO = ' . $STATETOINC; if ($res = $db->fetchAll($sql)) { foreach ($res as $row) { $town_to[] = array_map('__safe', $row); } } if ( $CLASS > 0 && $date1 <> '' && $date2 <> '' ) { $d1 = substr($date1, 6, 4) . substr($date1, 3, 2) . substr($date1, 0, 2); $d2 = substr($date2, 6, 4) . substr($date2, 3, 2) . substr($date2, 0, 2); if (!isset($FIRMCODE) or ($FIRMCODE == 0)) { $FIRMCODE = Get_Config_Value('FIRMCODE'); } $r_freight_name = array(); $r_ssrctime = array(); $r_strgtime = array(); $r_block = array(); $r_reserve = array(); $r_percent = array(); $r_freight_back = array(); $r_tsrcport = array(); $r_blockback = array(); $r_reserveback = array(); $r_percentback = array(); if ($SHOW == 1) { $r_date = array(); $sql = 'exec ' . OFFICE_SQLSERVER . '.' . OFFICEDB . '.dbo.up_WEB_3_ADMIN_d_Freight_Monitor
+                    @dbeg = \'' . $d1 . '\',
+                    @dend = \'' . $d2 . '\',
+                    @class = ' . $CLASS . ',
+                    @tour = ' . $TOURINC . ',
+                    @tourname = \'\',
+                    @FrirmCode = ' . $FIRMCODE . ',
+                    @Statefrom = ' . $STATEFROMINC . ',
+                    @Stateto = ' . $STATETOINC . ',
+                    @Townfrom = ' . $TOWNFROMINC . ',
+                    @Townto = ' . $TOWNTOINC . ',
+                    @USER = ' . $USER . '
+                '; if ($res = $db->fetchAll($sql)) { foreach ($res as $row) { $result[] = $row; $r_date[] = $row['date']; $r_freight_name[] = htmlspecialchars($row['FreightName'], ENT_QUOTES, 'cp1251'); $r_ssrctime[] = htmlspecialchars($row['ssrctime'], ENT_QUOTES, 'cp1251'); $r_strgtime[] = htmlspecialchars($row['tsrctime'], ENT_QUOTES, 'cp1251'); $r_block[] = htmlspecialchars($row['Block'], ENT_QUOTES, 'cp1251'); $r_reserve[] = htmlspecialchars($row['Reserve'], ENT_QUOTES, 'cp1251'); $r_percent[] = htmlspecialchars($row['Percent'], ENT_QUOTES, 'cp1251'); $r_freight_back[] = htmlspecialchars($row['FreightNameBack'], ENT_QUOTES, 'cp1251'); $r_tsrcport[] = htmlspecialchars($row['tsrcport'], ENT_QUOTES, 'cp1251'); $r_blockback[] = htmlspecialchars($row['BlockBack'], ENT_QUOTES, 'cp1251'); $r_reserveback[] = htmlspecialchars($row['ReserveBack'], ENT_QUOTES, 'cp1251'); $r_percentback[] = htmlspecialchars($row['PercentBack'], ENT_QUOTES, 'cp1251'); } } } } $file_template = 'template.php'; include $file_template; 

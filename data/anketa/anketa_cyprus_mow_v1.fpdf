@@ -1,0 +1,118 @@
+<?php
+$pdf = new tFPDF();
+$pdf->AddPage();
+$pdf->AddFont('DejaVu_times','','DejaVuSerif.ttf',true);
+
+$y = 15;
+$x = 10;
+$fsz1 = 14;
+$h1 = 5;
+$fsz2 = 10;
+$h2 = 3;
+$fsz3 = 8;
+$fsz4 = 6;
+$h3 = 2;
+
+$pdf->SetFont('DejaVu_times','',$fsz1);
+$pdf->SetFillColor(255, 255, 255);
+$pdf->SetXY($x,$y);
+$w1 = 80;
+$w2 = 110;
+
+$pdf->Line($x, $y-5, $x+$w1+$w2, $y-5);
+$pdf->MultiCell($w1+$w2, $h1, 'Предварительная виза (про-виза) для посещения Республики Кипр'.PHP_EOL.'Pro-Visa for the Republic of Cyprus', 0, 'C');
+$y = $y + $h2*5;
+$pdf->Line($x, $y, $x+$w1+$w2, $y);
+
+$pdf->SetFont('DejaVu_times','',$fsz2);
+$pdf->MultiCell($w1+$w2, $h1, PHP_EOL.PHP_EOL.PHP_EOL.'Просьба иметь при себе настоящий бланк предварительной визы и предъявить по просьбе авиакомпании для подтверждения при прохождении регистрации.', 0, 'J');
+$pdf->SetFont('DejaVu_times','',$fsz3);
+$pdf->MultiCell($w1+$w2, $h2, PHP_EOL.'You are required to bring this paper Pro-Visa with you as the airline requires you to produce it for verification when you check-in.', 0, 'J');
+
+$pdf->SetFont('DejaVu_times','',$fsz2);
+$y = $y + $h2*18;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, 'Pro-Visa Number:', 0, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h2, $fields['ProVisaVisanum']['Value'], 0, 'L');
+
+$y = $y + $h2*2;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, 'Name:', 0, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h2, $fields['LastLName']['Value'], 0, 'L');
+
+$y = $y + $h2*2;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, 'Sex:', 0, 'L');
+$pdf->SetXY($x+$w1,$y);
+$tmp = '';
+if($fields['sex']['Value'] == 1){
+    $tmp = 'M';
+}else{
+    $tmp = 'F';
+}
+$pdf->MultiCell($w2, $h2, $tmp, 0, 'L');
+
+$y = $y + $h2*2;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, 'Date of Birth:', 0, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h2, date('d-m-Y',$fields['BornDate']['Value']), 0, 'L');
+
+$y = $y + $h2*2;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, 'Nationality:', 0, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h2, 'RUS', 0, 'L');
+
+$y = $y + $h2*2;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, 'Passport Number:', 0, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h2, $fields['Passport']['Value'], 0, 'L');
+
+$y = $y + $h2*2;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, 'Pro-Visa Issue Date:', 0, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h2, ((isset($fields['ProVisaIssueDate']['Value']) && $fields['ProVisaIssueDate']['Value'] != '') ? date('d-m-Y', $fields['ProVisaIssueDate']['Value']) : ''), 0, 'L');
+
+$y = $y + $h2*2;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, 'Pro-Visa Expiry Date:', 0, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h2, ((isset($fields['ProVisaExpiryDate']['Value']) && $fields['ProVisaExpiryDate']['Value'] != '') ? date('d-m-Y', $fields['ProVisaExpiryDate']['Value']) : ''), 0, 'L');
+
+$y = $y + $h2*2;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, 'Type of Visa:', 0, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h2, /*$fields['ProVisaGroup']['Value']*/'C-Single Entry', 0, 'L');
+
+$y = $y + $h2*2;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, 'Period of Stay:', 0, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h2, $fields['ProVisaPeriodOfStay']['Value'], 0, 'L');
+
+$y = $y + $h2*2;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, 'Remarks:', 0, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h2, $fields['Passport']['Value'], 0, 'L');
+
+$y = $y + $h2*4;
+$pdf->Line($x, $y, $x+$w1+$w2, $y);
+$pdf->Image(_ROOT.'data/hedit/Image/anketa_cyprus_mow_v1_consul.gif',$x+$w2,$y-20,70,70,'');
+
+$pdf->SetFont('DejaVu_times','',$fsz2);
+$pdf->MultiCell($w1+$w2, $h1, PHP_EOL.PHP_EOL.PHP_EOL.'Просьба иметь при себе настоящий бланк предварительной визы и предъявить по просьбе авиакомпании для подтверждения при прохождении регистрации.', 0, 'J');
+$pdf->SetFont('DejaVu_times','',$fsz3);
+$pdf->MultiCell($w1+$w2, $h2, PHP_EOL.'Настоящая предварительная виза выдана на основании сведений, указанных в представленной вами анкете с вашего ведома и согласия. Настоящая предварительная виза действительна при предъявлении действующего паспорта, номер которого совпадает с указанным выше.', 0, 'J');
+
+$pdf->SetFont('DejaVu_times','',$fsz2);
+$pdf->MultiCell($w1+$w2, $h1, PHP_EOL.PHP_EOL.PHP_EOL.'You are required to bring this paper Pro-Visa with you as the airline requires you to produce it for verification when you check-in.', 0, 'J');
+$pdf->SetFont('DejaVu_times','',$fsz3);
+$pdf->MultiCell($w1+$w2, $h2, PHP_EOL.'This Pro-Visa is issued to you based on the information provided in the application you submitted for which you are fully aware and had consented to. This Pro-Visa is valid provided you hold a valid passport with the same number as shown above', 0, 'J');
+?>

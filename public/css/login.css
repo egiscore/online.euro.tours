@@ -1,0 +1,300 @@
+#logonform {
+    margin-top: 200px;
+}
+
+#basicModalContent #logonform {
+    margin-top: 0;
+}
+
+.samo_container .submit {
+    margin-top: 10px;
+}
+
+.samo_container .submit input {
+    width: 80px;
+    height: 30px;
+}
+
+h1.flash_message, h1.cookie_help {
+    padding: 10px;
+    text-align: center;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    width: 340px;
+    margin-left: -180px;
+    font-size: 14px;
+    color: black;
+    font-weight: bold;
+    font-family: Tahoma;
+    background-color: InfoBackground;
+    border: solid 1px ActiveBorder;
+    z-index: 1000;
+    box-shadow: 0px 9px 10px -7px #B7B7B7;
+}
+
+h1.cookie_help {
+    width: 520px;
+    margin-left: -260px;
+    display: none;
+}
+
+.samo_container a.bron_person {
+    font-weight: bold;
+}
+
+.samo_container .auth_input {
+    width: 130px !important;
+    text-align: center;
+    height: 30px;
+}
+
+.samo_container #captchaForm .submit input {
+    height: 22px;
+    padding: 0px 10px;
+}
+
+.samo_container div.logon-wrapper {
+    color: #222;
+    width: 360px;
+    margin: auto;
+    max-height: 400px;
+    font-family: tahoma, arial, 'sans serif';
+    margin-top: 180px;
+}
+
+#logonContainer div.logon-wrapper {
+    margin-top: 12px !important;
+}
+
+#logonContainer div.logon-wrapper div.header {
+    display: none;
+}
+
+#logonContainer div.logon-wrapper div.panel {
+    border-top-left-radius: 4px;
+}
+
+.samo_container div.logon-wrapper * {
+    text-align: left;
+}
+
+.samo_container div.logon-wrapper div.header div.legend {
+    width: 35%;
+    text-align: center;
+    padding: 10px;
+    float: left;
+    font-weight: bold;
+    margin: 0 !important;
+    height: 16px;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.samo_container div.logon-wrapper.person div.header div.legend {
+    float: right;
+    width: 51%;
+}
+
+.samo_container div.logon-wrapper div.header a.button {
+    display: block;
+    background-color: #ddd;
+    border: solid 1px #eee;
+    padding: 7px;
+    text-align: center;
+    float: right;
+    width: 90%;
+}
+
+.samo_container div.logon-wrapper.person div.header a.button {
+    float: left;
+}
+
+.samo_container div.logon-wrapper div.header div.button-wrapper {
+    float: left;
+    width: 59%;
+}
+
+.samo_container div.logon-wrapper.person div.header div.button-wrapper {
+    width: 42%;
+}
+
+.samo_container div.logon-wrapper div.header a.button,
+.samo_container div.logon-wrapper div.header div.button-wrapper,
+.samo_container div.logon-wrapper div.header div.legend,
+.samo_container div.logon-wrapper div.panel {
+    border-radius: 4px;
+}
+
+.samo_container div.logon-wrapper div.header div.button-wrapper {
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+}
+
+.samo_container div.logon-wrapper div.header div.legend {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-style: none;
+}
+
+.samo_container div.logon-wrapper div.panel {
+    border-top-left-radius: 0;
+}
+
+.samo_container div.logon-wrapper.person div.panel {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 0;
+}
+
+.samo_container div.logon-wrapper div.header a.button {
+    -moz-box-shadow: 0px 9px 10px -7px #B7B7B7;
+    -webkit-box-shadow: 0px 9px 10px -7px #B7B7B7;
+    box-shadow: 0px 9px 10px -7px #B7B7B7;
+}
+
+.samo_container div.logon-wrapper div.panel {
+    padding: 10px;
+    clear: both;
+    height: 140px;
+    border-top: 0px;
+}
+
+.samo_container div.logon-wrapper div.panel div.choose span.legend {
+    display: block;
+    float: left;
+    width: 147px;
+    text-align: left;
+    color: #366383;
+}
+
+.samo_container div.logon-wrapper div.panel div.choose a {
+    display: block;
+    float: right;
+}
+
+.samo_container div.logon-wrapper div.fixer {
+    display: block;
+    clear: both;
+    margin-bottom: 10px;
+}
+
+.samo_container div.logon-wrapper div.panel div.choose {
+    margin-top: 10px;
+    padding-bottom: 20px;
+}
+
+.samo_container div.logon-wrapper div.panel div.row a.forgot {
+    text-align: right;
+    line-height: 32px;
+}
+
+.samo_container div.logon-wrapper div.panel div.row input, div.logon-wrapper div.panel div.row button {
+    float: right;
+    width: 60%;
+}
+
+.samo_container div.logon-wrapper div.panel div.row input {
+    border: solid 1px #999999;
+    border-radius: 4px;
+    font-size: 18px;
+    padding-left: 4px;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #fbfbfb inset;
+}
+
+.samo_container input#login, .samo_container input#passwd {
+    background-image: url('../pict/login.png');
+    background-position: right 4px;
+    background-repeat: no-repeat;
+    background-color: white;
+    color: #222;
+}
+
+.samo_container input#passwd {
+    background-position: right -14px;
+}
+
+.samo_container input#passwd::-ms-clear,
+.samo_container input#login::-ms-clear {
+    width: 0;
+    height: 0;
+}
+
+.samo_container div.logon-wrapper button {
+    width: 80px;
+    height: 30px;
+    text-align: center;
+}
+
+#loginbox label {
+    display: inline !important;
+    font-weight: normal;
+}
+
+#loginbox input {
+    margin: 0 !important;
+}
+
+#loginbox span.icon-help {
+    background: url("../pict/inline-help.png") no-repeat;
+    cursor: help;
+    height: 16px;
+    width: 16px;
+    display: inline-block;
+    margin-left: 4px;
+    vertical-align: middle;
+}
+
+#loginbox span.icon-help:after {
+    color: black;
+    background: #fff9c9;
+    font-size: 15px;
+    -webkit-box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.23);
+    -moz-box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.23);
+    box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.23);
+}
+
+#loginbox span.icon-help:hover:after {
+    left: -170px;
+}
+
+[data-title]:after {
+    background: #fff9c9;
+    color: black;
+    font-size: 15px;
+    -webkit-box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.23);
+    -moz-box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.23);
+    box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.23);
+    padding: 15px;
+}
+
+.logon-wrapper.person .row .button {
+    width: 45% !important;
+}
+
+a.bron-person-autoregistration.button {
+    display: inline-block;
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    text-decoration: none;
+    padding: 1px 10px;
+    height: 17px;
+    cursor: default;
+    font-size: 13px;
+    font-weight: bold !important;
+    color: ButtonText;
+    vertical-align: bottom;
+    text-align: center;
+    background-color: ButtonFace;
+    border-style: outset;
+    border-width: 1px;
+}
+
+#basicModalContent a.bron-person-autoregistration.button, #basicModalContent #loginForm .forgot {
+    display: none;
+}

@@ -1,0 +1,49 @@
+#all_prices table.std table {
+    width:100%;
+}
+.samo_container .n1 {
+    width: 70%;
+}
+.samo_container .n2 {
+    width: 30%;
+}
+#all_prices .controls {
+    width: 42em;
+    margin: auto;
+}
+#all_prices .resultset tr.red_row td {
+    background-color: red;
+    color: white;
+}
+#all_prices .resultset tr.green_row td {
+    background-color: green;
+    color: white;	
+}
+#all_prices .resultset tr.white_row td {
+    background-color: white;	
+}
+#all_prices .resultset td.bron {
+    font-weight: bold;
+}
+#all_prices .resultset td.stop {
+    font-style: italic;
+    text-decoration: line-through;
+}
+#all_prices .resultset td.bron, #all_prices  .resultset td.stop {
+    cursor: pointer;
+}
+#all_prices .stop{
+    background-color: #FFE5E7 !important;    
+}
+#all_prices .confirm_now{
+    background-color: green;
+}
+#all_prices .selected {
+    color: blue !important;
+}
+
+
+#all_prices .resultset .l {
+    width: 250px !important;
+    border-right-width: 1px;
+}

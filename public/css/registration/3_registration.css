@@ -1,0 +1,32 @@
+#registration .control, #registration .password_prepare, #registration .post_password {
+    display: none;
+}
+#registration fieldset {
+    margin: auto;
+}
+#registration .panel table {
+    width: 100%;
+}
+#registration  fieldset div.row {
+    clear: both;
+    margin-bottom: 4px;
+}
+#registration .panel table td {
+    padding-bottom: 4px;
+}
+#registration .panel table .label {
+    width: 110px;
+}
+#registration input.date {
+    padding-right: 0;
+    background-image: none;
+    width: 100px;
+}
+
+#registration .container .resultset {
+    padding-left: 0;
+    padding-right: 0;
+}
+#registration .container .resultset .res {
+    width: 100%;
+}

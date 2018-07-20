@@ -1,0 +1,106 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 07.06.2018, 14:17:06
+    Author     : console
+*/
+
+/* SAMO */
+#header, .samo_container {margin-bottom: 0; font-family: 'PT Sans';}
+.samo_container .panel, #modalContainer div.modalTitle, #logonContainer div.modalTitle {background: #FFF; }
+#search_tour td.footer {padding: 0 20px 20px 20px; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;}
+.hotels_container .footer .btn {color: #FFF;}
+.hotels_container.panel {border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;}
+
+.direction.panel {border-top: solid 3px #dc232f; margin-bottom: 0;}
+.samo_container .panel { position: relative;}
+.user_info { background: #FFF;}
+
+/* SAMO */
+
+
+/* WESITE */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-style: none;
+	vertical-align: baseline;
+}
+
+body {background: #fff; font: 16px 'PT Sans', sans-serif; overflow-x: hidden; background: url('../pict/bg.jpg') no-repeat fixed; background-size: cover; overflow-y: scroll;}
+
+*, ::after, ::before {box-sizing: inherit;}
+
+.drop-shadow {box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3); position: relative; z-index: 1;}
+.nopadding {padding: 0 !important;}
+.nomargin {margin: 0 !important;}
+.clear {clear: both;}
+
+h1 {font-size: 28px; line-height: 36px; color: #222; text-transform: uppercase; font-weight: bold; padding-top: 20px;}
+h2 {font:bold 25px/30px 'PT Sans' !important; padding:0; margin:30px 0 20px 0;}
+h3 {font:bold 21px/26px  'PT Sans' !important; padding:0; margin:30px 0 20px 0;}
+h4 {font:bold 17px/20px  'PT Sans' !important; text-decoration: underline; margin: 20px 0 12px 0;}
+
+.top-line {height: 80px; background: url('../pict/bg-black-line.png') repeat-x; box-shadow: 0px 30px 71px -30px #000000;}
+.top-line-menu .nav-item { background: #dc232f; border-top-left-radius: 8px; border-top-right-radius: 8px; margin: 0 5px 0 0;}
+.top-line-menu .nav-item a {color: #FFF;}
+.top-line-menu {padding-top: 7px; position: relative; z-index: 2;}
+.top-line-menu .nav-link.active{color: #007bff;}
+.top-line-menu .nav-link.active_2 {background: #FFF; color: #333;}
+
+.nav {border-bottom: none;}
+.main {background-color: #FFF; border-top-left-radius: 10px; border-top-right-radius: 10px; margin-top: -33px; padding: 5px 15px 0px 15px; min-height: 290px; min-height: 82vh;}
+
+.geo-city {padding: 20px 0 0 50px;}
+.bg-geo-city img {position: relative; top: 8px; position: relative; left: 5px;}
+.geo-city-text {font-size: 12px; position: relative; left: 8px;}
+.geo-city-title {font-size: 22px; font-weight: bold; position: relative; left: 8px;}
+
+.contacts {padding: 20px 20px 0 0;}
+.contacts-text {font-size: 14px; width: 100%;}
+.contacts-text-title {font-size: 18px; font-weight: bold;}
+
+/*.menu {background-color: #f0ede4; margin-top: 20px;}*/
+.menu .nav-link {background: #FAFAFA; border-top: solid 1px #f0ede4; border-right: solid 1px #f0ede4; min-width: 120px;}
+.menu .nav-link:hover{background: #FFF;}
+.menu .nav-link:hover a{
+	text-decoration: none;
+}
+.main-menu {padding-top: 25px;}
+.menu .nav-link.current-menu-item,
+.menu .nav-link.current-menu-parent
+{border-top: none; background: #FFF; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3); position: relative; z-index: 1;}
+.main-menu-country-flag {width: 24px; height: 22px; background-image: url("../pict/flags32.png"); background-repeat: no-repeat; -ms-border-radius: 100%; border-radius: 100%; -webkit-box-shadow: 0 0 4px #b6b5b3; -ms-box-shadow: 0 0 4px #b6b5b3; box-shadow: 0 0 4px #b6b5b3; margin: 0 auto; display: block;}
+.main-menu-country-flag-greece {background-position: 0 -3269px;}
+#menu-item-73 .main-menu-country-flag {background-position: 0 -3269px;}
+.main-menu-country-flag-finljandija {background-position: 0 -2725px;}
+.main-menu-country-flag-kipr {background-position: -4px -2245px;}
+.main-menu-country-name {padding: 5px 6px 0 6px; font-size: 14px; color: #000; text-transform: uppercase; font-weight: bold;}
+
+.submenu {height: auto; padding: 5px 0 5px 0;}
+.submenu .nav {padding: 0 20px 0 15px;}
+.submenu .nav li {border-right: dotted 1px #CCC; line-height: 18px; margin: 3px 0 3px 0;}
+.submenu .nav li:last-child {border-right: none;}
+.submenu .nav-sub-link {color: #FFF; text-transform: uppercase; font-weight: bold; font-size: 18px; padding: 0 20px 0 20px;}
+.submenu .nav-sub-link:hover {text-decoration: none; color: #ff9614;}
+
+.footer.website { background-color: #2e2e2f; padding-top: 20px; color: #969ba5;}
+.footer.website {background: #666767; padding: 20px 0 20px 0;}
+.footer.website .footer-title { color: #ddd; font-size: 18px; margin-bottom: 20px; font-weight: 600; }
+.footer.website ul li { padding: 4px 0; }
+.footer.website ul.footer-social { display: table; }
+.footer.website ul.footer-social li { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; float: left; width: 71px; height: 49px; margin: 0 14px 14px 0;  border: 1px solid #e0e0e0; border-radius: 3px; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; background: #fff;}
+
+.footer.website .footer-bottom { margin-top: 30px; padding-bottom: 10px; padding-top: 30px; margin-bottom: 50px; font-size: 14px; border-top: solid 1px #969ba5;}
+.footer.website .footer-global { float: left; }
+.footer.website .footer-global a { padding-left: 30px; display: inline-block; height: 20px; line-height: 20px; background: url(../pict/global-icon.png) no-repeat; color: #000; text-decoration: none; font-size: 14px; }
+.footer.website .footer-global a:hover { color: #33b9ff; }
+.footer.website .footer-copy { float: right; }
+.footer.website .footer-copy a { padding: 3px 10px 3px 0; display: inline-block; font-size: 13px; color: #969696; border-right: 1px solid #7c7c7c; margin-right: 5px; }
+.footer.website .footer-copy span { padding: 3px 10px 3px 0; display: inline-block; font-size: 13px; color: #969696; margin-right: 5px; }
+.footer.website .footer-list { padding-top: 20px; }
+.footer.website a {color: #FFF; font-size: 12px;}

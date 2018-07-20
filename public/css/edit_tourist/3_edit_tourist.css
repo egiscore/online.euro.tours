@@ -1,0 +1,19 @@
+#edit_tourist  div.save {
+    text-align: center;
+}
+
+.samo_container .form-container {
+    margin:  auto;
+    width: 60em;
+}
+
+#edit_tourist div.warning {
+    padding: 10px;
+    background-color: pink;
+    font-weight: bold;
+}
+
+#edit_tourist input.date { 
+    background-image: none;
+    padding-right: 0px;
+}

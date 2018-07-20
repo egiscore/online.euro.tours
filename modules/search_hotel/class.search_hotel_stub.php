@@ -1,0 +1,2 @@
+<?php
+ class Search_Hotel_Stub extends Search_Tour_Stub { protected $api_name = 'Search_Hotel_Api'; public function __construct() { $this->defaults['TOWNFROMINC'] = Samo::TOWNFROMHOTELINC; $this->defaults['STATEFROM'] = (defined('STATEFROM') ? STATEFROM : Samo_Request::intval('STATEFROM', 1, 99999)); $this->defaults['STATEINC'] = Samo_Request::intval('STATEINC', 1, 99999); parent::__construct(); } } 

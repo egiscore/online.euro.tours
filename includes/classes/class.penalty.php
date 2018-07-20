@@ -1,0 +1,2 @@
+<?php
+ class Penalty extends Samo { public function PenaltyByClaim($claim) { return $this->getPenaltyInfo($claim, null); } public function PenaltyByClaimDocument($claimdocument) { return $this->getPenaltyInfo(null, $claimdocument); } protected function getPenaltyInfo($claim, $claimdocument) { $sql = $this->db->formatExec( '<OFFICEDB>.dbo.up_WEB_3_PenaltyInfo', [ 'Claim' => $claim, 'Claimdocument' => $claimdocument, 'UserCode' => $this->internet_user(), ] ); return $this->db->fetchAll($sql); } } 

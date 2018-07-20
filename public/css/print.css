@@ -1,0 +1,76 @@
+ #resultset table.border, #resultset table.border td, #resultset table.border th  {    
+    border: 1px solid #6589BE;    
+}
+
+#resultset table {
+    border-collapse: collapse;
+    width: 640px;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+#resultset table td, #resultset table th  {
+    padding: 4px;
+    font-size: 9px;    
+}
+
+#resultset table thead th  {
+    text-align: center;
+    font-weight: bold;
+    font-size: 10px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-weight: bold !important;
+}
+
+h2 {
+    font-size: 14px;
+}
+
+h3 {
+    font-size: 13px;
+}
+
+#resultset {
+    width: 640px;
+    margin: auto;
+    text-align: left;
+}
+#resultset  p {
+    text-indent: 15px;
+}
+#buttons {
+    text-align: center;
+}
+
+body {
+    text-align: center;
+}
+
+@media print {
+    #resultset {
+        width: auto;
+    }
+    #resultset table {
+        width: 640px;
+    }
+    #buttons, .debug-warning, .noprint {
+        display: none;
+    }
+    .break-before {
+        page-break-before: always;
+    }
+}
+
+b {
+    font-weight: bold;
+}
+
+i {
+    font-style: italic;
+}
+
+#preloader, #samo-preloader {
+    display: none;
+}

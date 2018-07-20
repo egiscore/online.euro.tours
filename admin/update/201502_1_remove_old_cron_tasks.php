@@ -1,0 +1,2 @@
+<?php
+ class Remove_Old_Cron_Tasks extends UpdateModel { public $title = 'Purge old cron tasks'; public function make() { $return = 0; $spool = defined('MAIL_SPOOL') ? MAIL_SPOOL : _ROOT . 'data/spool/'; $files = glob($spool . 'cron_*_once.*'); if ($files && count($files)) { $return = count($files); foreach ($files as $file) { @unlink($file); $return--; } } return $return; } } 

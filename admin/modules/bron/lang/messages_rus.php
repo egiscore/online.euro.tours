@@ -1,0 +1,32 @@
+<?php
+
+$language['rus']['adm_bron_manager'] = "Менеджер";
+$language['rus']['adm_bron_rule'] = "Доступ";
+$language['rus']['adm_bron_only_view'] = "Только просмотр";
+$language['rus']['adm_bron_full_permition'] = "Полный доступ";
+$language['rus']['adm_bron_rule_preview_permitions'] = "Права доступа к модулю 'Сохранение заявки'";
+$language['rus']['adm_agreement_text'] = "Текст соглашения перед бронированием";
+$language['rus']['adm_bron_owner'] = "Проверять наличие договора с владельцем заявки";
+$language['rus']['adm_bron_check_agreement_date'] = "Запретить бронирование если дата регистрации партнёра ещё не наступила, либо, дата прекращения деятельности партнёра уже прошла.";
+$language['rus']['adm_bron_show_cost_service_required'] = "Показывать цены услуг, обязательных для бронирования";
+$language['rus']['adm_bron_autofill_human'] = "Автоматически заполнять поле MR/MRS/CHD/INF";
+$language['rus']['adm_bron_freight_cross_classes'] = "Разрешить бронировать места разных классов на рейсах";
+$language['rus']['adm_bron_insignificant_agreement'] = "Нет";
+$language['rus']['adm_bron_required_agreement'] = "Да";
+$language['rus']['adm_bron_owner_select'] = "Да, нужно выбрать владельца";
+$language['rus']['adm_bron_seat_youngest_infant_with_adult'] = "На транспорте сажать младшего младенца с взрослым";
+$language['rus']['adm_bron_calculated_claim_text'] = "Условия сохранения предварительной заявки";
+$language['rus']['adm_config_today_bron'] = "Разрешать бронирование заявок с сегодняшней датой начала тура";
+$language['rus']['adm_config_used_in_bron'] = "Используется в модуле 'Бронирования'";
+$language['rus']['adm_config_internet_partner_commission'] = "Партнер для которого описана дополнительная скидка";
+$language['rus']['adm_config_freight_stoptime'] = "Запретить бронировать за n часов до вылета";
+$language['rus']['adm_config_children_place_inavia'] = "Разрешить выбор отдельного места для дополнительного младенца в транспорте";
+$language['rus']['adm_bron_enable_price_calendar'] = "Отображать календарь низких цен";
+$language['rus']['adm_config_contacts_bron'] = "Заполнять контактную информацию агента?";
+$language['rus']['adm_bron_contracts_no'] = "Нет";
+$language['rus']['adm_bron_contracts_yes'] = "Да";
+$language['rus']['adm_bron_contracts_required'] = "Обязательно";
+$language['rus']['adm_config_reklama_bron'] = 'Заполнять "как вы узнали о предложении?" <br />(<a href="http://dokuwiki.samo.ru/doku.php?id=st:other_199" target="_blank">Мини-классификатор: Реклама</a>) ';
+$language['rus']['adm_bron_reklama_no'] = "Нет";
+$language['rus']['adm_bron_reklama_yes'] = "Да";
+$language['rus']['adm_bron_reklama_required'] = "Обязательно";

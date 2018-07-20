@@ -1,0 +1,12 @@
+<IfModule mod_expires.c>  
+    ExpiresActive On 
+    ExpiresDefault "access plus 10 years" 
+</IfModule>
+<IfModule mod_headers.c>
+    Header append Cache-Control "public" 
+</IfModule>
+<IfModule mod_mime.c>
+	AddType "text/html; charset=windows-1251" .html .html
+	AddType "text/javascript; charset=windows-1251" .js
+	AddType "text/css; charset=windows-1251" .css
+</IfModule>

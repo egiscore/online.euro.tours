@@ -1,0 +1,2 @@
+<?php
+ namespace Samo\Api; use Samo\DB\DB; class PartnersApi extends Api { const ERROR_PARTNER_INC = 1; public function __construct($params) { parent::__construct($params); $this->addPublicMethods(['getInfo']); } public function getInfo() { $procParams = ['partner' => $this->session->partner()]; $query = $this->db->prepare('up_WEB_3_partner_GetInfo', $procParams); return $this->db->result($query, DB::FETCH_ROW); } } 

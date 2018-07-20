@@ -1,0 +1,21 @@
+#the_best .container.std {
+    width: 97%;
+}
+#the_best .container.std td {
+    padding: 0 0 0 15px;
+}
+#the_best .container.std td:last-child {
+    padding-right: 15px;
+}
+#the_best td.price {
+    font-style: italic;
+    color: #666;
+}
+#the_best td.active {
+    font-weight: bold;
+    font-style: normal;
+    color: black;
+}
+#the_best td.active, #the_best  td.notactive {
+    cursor: pointer;
+}

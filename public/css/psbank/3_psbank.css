@@ -1,0 +1,99 @@
+#psbank {
+    margin: auto;
+}
+#psbank  fieldset {
+    margin: auto;
+}
+
+#psbank div.row {
+    clear: both;
+    margin-bottom: 4px;
+}
+
+#psbank div.row input{
+    width: 60%;
+    width: "58%";
+}
+#psbank div.row {
+    margin: 5px 0 10px;
+}
+#psbank div.row select.PAYER, #psbank div.row #BANK {
+    width: 162px;
+    margin-top: -4px
+}
+#psbank fieldset div.row {
+    margin: 0;
+}
+
+#psbank div.row label.left_column {
+    height: 20px;
+}
+
+#psbank div.row label, #psbank div.row input, #psbank div.row span.input {
+    float: left;
+}
+
+#psbank  div.save {
+    text-align: center;
+}
+
+#psbank input.date {
+    padding-right: 0;
+    background-image: none;
+    width: 7em;
+}
+
+#psbank #MAX_AMOUNT {
+    margin-top: -4px;
+    text-align: right;
+    width: 127px !important;
+}
+#psbank #DIV_AMOUNT {
+    float: right;
+    margin-top: 3px;
+    width: 212px !important;
+    text-align: left;
+}
+#psbank #DIV_AMOUNT input {
+    width: auto !important;
+}
+#psbank #DIV_AMOUNT label {
+    width: 100%;
+}
+#psbank .rrr{
+    float: right;
+    text-align: right;
+}
+#KVITOK{
+    width: 640px;
+}
+#KVITOK td{
+    font-size: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+@media print {
+    #buttons {
+        display: none;
+    }
+}
+#BANKLIST{
+    text-align: left;
+}
+
+#preloader {display: none;}
+
+@media print {
+    #buttons, .debug-warning, .noprint {
+        display: none;
+    }
+    .break-before {
+        page-break-before: always;
+    }
+}
+#psbank div.warning {
+    background-color: pink;
+    display: none;
+    font-weight: bold;
+    padding: 10px;
+}

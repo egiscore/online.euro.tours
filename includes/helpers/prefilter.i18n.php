@@ -1,0 +1,2 @@
+<?php
+function smarty_prefilter_i18n($tpl_source, $smarty) { return preg_replace_callback('/##(.+?)##/', '_compile_lang', $tpl_source); } if (!function_exists('_compile_lang')) { function _compile_lang($matches) { $messages = Samo_Registry::get('messages'); $key = $matches[1]; return (isset($messages[$key])) ? $messages[$key] : $key; } } 

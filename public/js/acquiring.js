@@ -1,0 +1,16 @@
+
+if(typeof samo.acquiring=='undefined'){(function($){samo.acquiring={};var self=samo.acquiring;self.work=function(moduleName){var $container=$('#acquiring_'+moduleName+'_container');var $form=$container.find('form');var getPayData=true;var wasSubmited=false;function loadNewPayData(showManual){var $loading=$form.find('.acquiring-loading-text');var $manual=$form.find('.acquiring_submit_manual');var $auto=$form.find('.acquiring_submit');$form.find('[name="ORDER"]').val('');$form.find('[name="CLAIM"]').val('');$form.find('[name="PEOPLE"]').val('');$form.find('[name="OPEOPLE"]').val('');var func=function(){if(showManual){$manual.show();}
+setTimeout(function(){if(!$loading.is(':visible')&&!$manual.is(':visible')&&!$auto.is(':visible')){$auto.show();}
+if($manual.is(':visible')||$loading.is(':visible')){$auto.hide();}},200);$loading.hide();};if($form.attr('method')=='POST'){$loading.show();var params={};params.samo_action='GET_PAY_DATA';params.CLAIM=samo.CLAIM;$('input,textarea',$container).each(function(i,e){if(e.name!='amount'||e.id=='pv_amount'){params[e.name]=e.value;}});$.ajax({url:samo.ROUTES[moduleName].url+$.param(params),dataType:"script",success:func,error:func});}else{func();}}
+var html2=false;function preAmount(){if($form.find('input[name="amount"]').not('#pv_amount').length){html2=String($form.find('#pv_amount').get(0).outerHTML);$form.find('#pv_amount').replaceWith('<span id="pv_amount_container"></span>');}}
+function postAmount(){if(html2){$('#pv_amount_container').replaceWith(html2);html2=false;}}
+function checkAmount(){var amo=$('#pv_amount');var err=false;if(amo.size()){var val=amo.val();val=parseFloat(val.replace(',','.'));if(isNaN(val)||val==0){val=0;err=samo.i18n('NO_CLAIM_PAYMENT');}else{var m=parseFloat(amo.data('max')).toFixed(2);if(m&&val>m){err=samo.i18n('PAYER_AMOUNT_BIG')+' '+m;}else{m=parseFloat(amo.data('min')).toFixed(2);if(val<m){err=samo.i18n('PAYER_AMOUNT_LITTLE')+' '+m;}}}
+amo.val(val);if(err){amo.addClass('error');}else{amo.removeClass('error');}
+if(err){amo.errorField(err);}}
+return!err?true:false;}
+window[moduleName+'_result']=function(getParams){getPayData=false;var $amount=$form.find('#pv_amount');if(!wasSubmited){$amount.hide().after($amount.val());}
+if(getParams){var $inp;$form.find('input').remove();for(var ind in getParams){$inp=$form.find('input[name="'+ind+'"]');if(!$inp.size()){$inp=$('<input>').attr('type','hidden').attr('name',ind);$form.append($inp);}
+$inp.val(getParams[ind]);}}
+var $auto=$form.find('.acquiring_submit');$form.find('.acf-visible-field').attr('disabled','disabled');if(!wasSubmited){preAmount();$auto.trigger('click').hide();postAmount();wasSubmited=true;setTimeout(function(){loadNewPayData(true);},100);}};$form.find('.acquiring_submit_manual','click',function(){getPayData=false;});$form.bind('submit',function(){if(!checkAmount())return false;if(!getPayData){$form.find('.acquiring_submit_manual').hide();if(wasSubmited){setTimeout(function(){postAmount();loadNewPayData(true);},100);}
+preAmount();setTimeout(function(){postAmount();},100);return true;}
+$form.find('.acquiring_submit').hide();loadNewPayData();return false;});if($.getParameter('DOPAY',true)==1){$form.submit();}};})(samo.jQuery);}

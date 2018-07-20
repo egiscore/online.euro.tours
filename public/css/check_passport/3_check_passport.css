@@ -1,0 +1,33 @@
+#check_passport {
+    width: 350px;
+    margin: 0 auto;
+}
+
+#check_passport td {
+    padding: 8px;
+}
+
+#check_passport td:first-child {
+    width: 100px;
+}
+
+#check_passport .result {
+    font-weight: bold;
+}
+
+#check_passport .result.error {
+    color: #d00c13;
+}
+
+#check_passport table.controls, #check_passport table.controls select {
+    width: 100%;
+}
+
+#check_passport .result span.ruleNote {
+    display: block;
+    background: #ffffcc;
+    padding: 3px;
+    margin-top: 5px;
+    font-size: 11px;
+    font-weight: normal;
+}

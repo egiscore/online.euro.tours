@@ -1,0 +1,8 @@
+
+function Field(validate){if(validate.required!=null)this.required=validate.required;if(validate.mask!=null)this.regexp=validate.mask;}
+Field.prototype={regexp:/^[A-z0-9-_+. ,@]{1,}$/ig,valid:false,required:true,nullify:function(){this.valid=false;}};var Validator={fields:{},errors:{},errorFields:{},result:false,userForm:false,nullifyValues:function(){for(i in this.fields){this.fields[i].nullify();}},check:function(){if(this.userForm){this.nullifyValues();for(var i=0;i<this.userForm.elements.length;i++){var oField=this.userForm.elements[i];if(this.fields[oField.name]instanceof Field){switch(oField.type){case"button":case"submit":case"reset":case"checkbox":case"radio":break;default:oField.value=oField.value.replace(/^\s*/,'').replace(/\s*$/,'');if(!oField.value){oField.value='';}
+if(!this.fields[oField.name].required){this.fields[oField.name].valid=true;this.userForm[i].style.border="";}else{var match=this.fields[oField.name].regexp.test(oField.value);if(match){this.fields[oField.name].valid=true;this.userForm[i].style.border="";}
+this.fields[oField.name].regexp.test(oField.value);}}}}
+var validForm=0;var fieldsLength=0;this.errorFields={};this.result=false;for(i in this.fields){fieldsLength++;if(this.fields[i].valid){validForm++;}
+else{this.userForm[i].style.border="1px solid #FF0000";this.errorFields[i]=this.errors[this.userForm[i].name];}}
+if(validForm!=fieldsLength){this.nullifyValues();}else{this.result=true;}}}};

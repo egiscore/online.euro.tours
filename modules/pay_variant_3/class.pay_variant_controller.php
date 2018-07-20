@@ -1,0 +1,2 @@
+<?php
+ class Pay_Variant_Controller extends Samo_Controller { public function default_action() { try { $rules = $this->model->permissions(); $this->model->is_enabled(); $this->view->js_var('samo.print', $rules)->assign('rules', $rules); $this->view->assign('CLAIM', $this->model->defaults['CLAIM']) ->assign('variants', $this->model->payVariants()) ->assign('claim_info', $this->model->defaults['claim_info']); parent::default_action(); } catch (Samo_Exception $e) { $this->view->error($e->getMessage()); } } } 

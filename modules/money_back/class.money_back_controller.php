@@ -1,0 +1,2 @@
+<?php
+ class Money_Back_Controller extends Samo_Controller { public function default_action() { parent::default_action(); if (!extension_loaded('phalcon')) { $this->view->error('Phalcon extension is not installed. Contact the tour operator.'); } } } 

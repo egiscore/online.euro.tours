@@ -1,0 +1,5 @@
+<Files ~ "\.(fpdf|tpl)$">
+  Order allow,deny
+  Deny From All
+</Files>
+

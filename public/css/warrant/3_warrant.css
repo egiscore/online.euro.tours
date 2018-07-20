@@ -1,0 +1,54 @@
+#warrant .res .ui-icon {
+    display: inline-block;
+}
+#warrant table.res td, #warrant  table.res th {
+    text-align: center;
+}
+#warrant table.res td, #warrant  table.res th {
+    vertical-align: center;
+}
+#warrant  table.res th.no_border {
+    border-bottom: 0;
+}
+h3 {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold !important;
+}
+
+#warrant div.warr {    
+    margin-top: 15px;
+    width: 800px;
+    margin: auto;
+    text-align: left;
+    font-size: 18px;
+}
+#buttons {
+    text-align: center;
+}
+
+@media print {
+    button {
+        display: none;
+    }
+}
+#new_warrant fieldset div.row label, #new_warrant fieldset div.row input, #new_warrant fieldset div.row span.input {
+    float: left;
+    text-align: left;
+}
+#new_warrant fieldset div.row label {
+    margin-right:1.6%;
+    width:38%;
+}
+#new_warrant fieldset div.row input {
+    width:60%;
+}
+#new_warrant input.date {
+    background-image:none;
+    padding-right:0;
+}
+
+#warrant {
+    width: 960px;
+    margin: auto;
+}

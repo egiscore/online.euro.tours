@@ -1,0 +1,683 @@
+<?php
+/*
+    сайт Посольства Республики Болгария: http://www.mfa.bg/embassies/russia/ll/833/index.html
+    сайт Визового Сервисного Центра Болгарии в России: http://bulgariavac.ru/application-forms.aspx
+*/
+function get_text_from_combobox($combobox, $inc){
+    $tmp = '';
+    foreach($combobox as $prof){
+        if($prof['Inc'] == $inc){
+            $tmp = $prof['Name'];
+            break;
+        }
+    }
+    return $tmp;
+}
+
+$pdf = new Samo_TFPDF();
+$pdf->AddPage();
+$pdf->AddFont('DejaVu_times','','times.ttf',true);
+$pdf->AddFont('DejaVu_timesB','','timesbd.ttf',true);
+
+$y = 15;
+$x = 5;
+$fsz1 = 14;
+$h1 = 5;
+$fsz2 = 10;
+$h2 = 4;//3.7;
+$fsz3 = 8;
+$fsz4 = 10;
+$h3 = 2;
+
+$pdf->SetFont('DejaVu_timesB','',$fsz1);
+$pdf->SetFillColor(255, 255, 255);
+$pdf->SetXY($x,$y);
+$w1 = 30;
+$w2 = 140;
+$w3 = 30;
+//$pdf->MultiCell($w1, $h2, PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.' ', 0, 'L');
+$pdf->Image(_ROOT.'public/pict/anketa_bulgaria.jpg',90,5,30,30,'');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h1, PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.'ЗАЯВЛЕНИЕ НА ПОЛУЧЕНИЕ БОЛГАРСКОЙ ВИЗЫ', 0, 'C');
+$pdf->SetXY($x+$w1+$w2,$y);
+$pdf->MultiCell($w3, $h2, PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.'наклейте'.PHP_EOL.PHP_EOL.'оригинал'.PHP_EOL.PHP_EOL.'фото'.PHP_EOL.' ', 1, 'C');
+if(isset($photo_url) && !empty($photo_url)){
+//    $pdf->Image(_ROOT.$photo_url,$x+$w1+$w2+3,$y+1, 20+3);   // отключено отображение фотографии
+}
+
+$pdf->SetFont('DejaVu_timesB','',$fsz2);
+$pdf->SetXY($x+$w1,$y-$h2);
+$pdf->MultiCell($w2, $h2, PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.'/бесплатная форма/', 0, 'C');
+
+$y = $y + $h2*10;
+
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1+$w2, $h2, '1. Фамилия (х)'.PHP_EOL.' ', 1, 'L');
+$pdf->SetFont('DejaVu_timesB','',$fsz3+2);
+$pdf->SetXY($x+30,$y+2);
+$pdf->MultiCell($w1+$w2-30, $h2, $fields['LastLName']['Value'], 0, 'L');
+
+$pdf->SetFont('DejaVu_times','',$fsz4-2);
+$pdf->SetXY($x+$w1+$w2,$y);
+$pdf->MultiCell($w3, $h2, str_repeat(PHP_EOL, 51).' ', 1, 'L');
+$pdf->SetFont('DejaVu_timesB','',$fsz4-2);
+$pdf->SetXY($x+$w1+$w2,$y);
+$pdf->MultiCell($w3, $h2, '
+ЗАПОЛНЯЕТСЯ
+ОРГАНОМ,
+ВЫДАЮЩИМ
+ВИЗУ
+
+Дата  заявки:
+
+
+
+Номер заявления:
+
+
+
+Место подачи
+заявления:
+
+□ Посольство /
+Консульство
+□ Визовый центр
+□ Посторонний
+исполнитель
+□ Торговый
+посредник
+□ Граница
+   Имя:
+
+
+□ Другое
+
+Заявление
+обработано:
+
+
+
+Подтверждающие
+документы:
+
+□ Действительный
+паспорт
+□ Финансовые
+средства
+□ Приглашение
+□ Средства на
+транспорт
+□ Полис
+медицинской
+страховки
+□ Другие:
+', 0, 'L');
+
+
+$y = $y + $h2*2;
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1+$w2, $h2, '2. Фамилия по рождению (прежняя фамилия(и)  имя(имена))  (х)'.PHP_EOL.PHP_EOL.' ', 1, 'L');
+$pdf->SetFont('DejaVu_timesB','',$fsz3+2);
+$pdf->SetXY($x+30,$y+2);
+$pdf->MultiCell($w1+$w2-75, $h2, PHP_EOL.(isset($fields['BirthSurName']['Value']) ? $fields['BirthSurName']['Value'] : ' '), 0, 'L');
+
+$y = $y + $h2*3;
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1+$w2, $h2, '3. Имя (х)'.PHP_EOL.' ', 1, 'L');
+$pdf->SetFont('DejaVu_timesB','',$fsz3+2);
+$pdf->SetXY($x+30,$y+2);
+$pdf->MultiCell($w1+$w2-30, $h2, $fields['FirstLName']['Value'], 0, 'L');
+
+$w1 = 50;
+$w2 = 50;
+$w3 = 70;
+$y = $y + $h2*2;
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, '4. Дата рождения '.PHP_EOL.'    (день - месяц - год)'.str_repeat(PHP_EOL, 3).' ', 1, 'L');
+$pdf->SetFont('DejaVu_timesB','',$fsz3+2);
+$pdf->SetXY($x,$y+3*$h2);
+$pdf->MultiCell($w1, $h2, $fields['BornDate']['Value']->format('d.m.Y'), 0, 'C');
+
+$pdf->SetXY($x+$w1,$y);
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->MultiCell($w2, $h2, '5. Место рождения'.str_repeat(PHP_EOL, 3).'6. Государство рождения'.PHP_EOL.' ', 1, 'L');
+$pdf->SetFont('DejaVu_timesB','',$fsz3+2);
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h2, PHP_EOL.$fields['BirthPlace']['Value'], 0, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h2, str_repeat(PHP_EOL, 4).get_text_from_combobox($fields['BirthCountry']['Variants'], $fields['BirthCountry']['Value']), 0, 'L');
+
+$pdf->SetXY($x+$w1+$w2,$y);
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->MultiCell($w3, $h2, '7. Настоящее гражданство'.str_repeat(PHP_EOL, 3).'Гражданство по рождению, если отличается'.PHP_EOL.' ', 1, 'L');
+$pdf->SetFont('DejaVu_timesB','',$fsz3+2);
+$pdf->SetXY($x+$w1+$w2,$y);
+$pdf->MultiCell($w3, $h2, PHP_EOL.get_text_from_combobox($fields['Nationality']['Variants'], $fields['Nationality']['Value']), 0, 'L');
+$pdf->SetXY($x+$w1+$w2,$y);
+$pdf->MultiCell($w3, $h2, str_repeat(PHP_EOL, 4).get_text_from_combobox($fields['NationalityOriginal']['Variants'], $fields['NationalityOriginal']['Value']), 0, 'L');
+
+$w2 = $w2 + $w3;
+$y = $y + $h2*5;
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, '8. Пол'.PHP_EOL.'□ Мужчина'.PHP_EOL.'□ Женщина'.PHP_EOL.' ', 1, 'L');
+$pdf->SetFont('DejaVu_timesB','',$fsz3+2);
+$pdf->SetXY($x,$y);
+if($fields['sex']['Value'] == 1){
+    $pdf->MultiCell($w1, $h2, PHP_EOL.'x', 0, 'L');
+}else{
+    $pdf->MultiCell($w1, $h2, str_repeat(PHP_EOL, 2).'x', 0, 'L');
+}
+
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h2, '9. Семейное положение         □ Неженат/ Не замужем '.PHP_EOL.'  □ Женат/ Замужем                □ Разведенный/Разведенная'.PHP_EOL.'  □ Живу отдельно                  □ Вдовец/Вдова'.PHP_EOL.'  □ Другое (указать):', 1, 'L');
+$pdf->SetFont('DejaVu_timesB','',$fsz3+2);
+$pdf->SetXY($x+$w1,$y);
+
+if($fields['MaritalStatus']['Value'] == 0){
+    $pdf->MultiCell($w2, $h2, PHP_EOL.'  x', 0, 'L');
+}elseif($fields['MaritalStatus']['Value'] == 1){
+    $pdf->MultiCell($w2, $h2, '                                                  x', 0, 'L');
+}elseif($fields['MaritalStatus']['Value'] == 2){
+    $pdf->MultiCell($w2, $h2, str_repeat(PHP_EOL, 2).'  x', 0, 'L');
+}elseif($fields['MaritalStatus']['Value'] == 3){
+    $pdf->MultiCell($w2, $h2, PHP_EOL.'                                                  x', 0, 'L');
+}elseif($fields['MaritalStatus']['Value'] == 4){
+    $pdf->MultiCell($w2, $h2, str_repeat(PHP_EOL, 2).'                                                  x', 0, 'L');
+}
+
+$w1 = $w1 + $w2;
+$y = $y + $h2*4;
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, '10. Для несовершеннолетних: фамилия, имя, адрес (если отличается от адреса кандидата) и гражданство лица, осуществляющего права родителя/опекуна'.str_repeat(PHP_EOL,2).' ', 1, 'L');
+$pdf->SetFont('DejaVu_timesB','',$fsz3+2);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, str_repeat(PHP_EOL, 2).(isset($fields['Spokesman']['Value']) ? $fields['Spokesman']['Value'] : ' '), 0, 'L');
+
+$y = $y + $h2*4;
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, '11. Национальный идентификационный номер, если имеется'.PHP_EOL.' ', 1, 'L');
+$pdf->SetFont('DejaVu_timesB','',$fsz3+2);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, PHP_EOL.'                                                                 '.(isset($fields['ID']['Value']) ? $fields['ID']['Value'] : ' '), 0, 'L');
+
+$y = $y + $h2*2;
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, '12. Вид документа для заграничной поездки:'.PHP_EOL.'  □ Обычный паспорт                                   □ Дипломатический паспорт                      □ Служебный  паспорт'.PHP_EOL.'  □ Официальный паспорт                           □ Специальный паспорт'.PHP_EOL.'  □ Другой документ для заграничной поездки (указать)', 1, 'L');
+$pdf->SetFont('DejaVu_timesB','',$fsz3+2);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, PHP_EOL.'  x', 0, 'L');
+
+$w1 = 60;
+$w2 = 30;
+$w3 = 35;
+$w4 = 45;
+$y = $y + $h2*4;
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, '13. Номер документа для заграничной поездки'.str_repeat(PHP_EOL, 2).' ', 1, 'L');
+$pdf->SetFont('DejaVu_timesB','',$fsz3+2);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, str_repeat(PHP_EOL, 2).$fields['Passport']['Value'], 0, 'L');
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h2, '14.Дата выдачи'.str_repeat(PHP_EOL, 3).' ', 1, 'L');
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetFont('DejaVu_timesB','',$fsz3+2);
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h2, str_repeat(PHP_EOL, 2).$fields['PGivenDate']['Value']->format('d.m.Y'), 0, 'L');
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x+$w1+$w2,$y);
+$pdf->MultiCell($w3, $h2, '15.Срок действия до'.str_repeat(PHP_EOL, 3).' ', 1, 'L');
+$pdf->SetFont('DejaVu_timesB','',$fsz3+2);
+$pdf->SetXY($x+$w1+$w2,$y);
+$pdf->MultiCell($w3, $h2, str_repeat(PHP_EOL, 2).$fields['PValid']['Value']->format('d.m.Y'), 0, 'L');
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x+$w1+$w2+$w3,$y);
+$pdf->MultiCell($w4, $h2, '16. Выданный (кем)'.str_repeat(PHP_EOL, 3).' ', 1, 'L');
+$pdf->SetFont('DejaVu_timesB','',$fsz3+2);
+$pdf->SetXY($x+$w1+$w2+$w3,$y);
+$pdf->MultiCell($w4, $h2, str_repeat(PHP_EOL, 2).$fields['Anketa_PGiven']['Value'], 0, 'L');
+
+$w1 = 110;
+$w2 = 60;
+$y = $y + $h2*4;
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, '17. Домашний адрес и электронный адрес кандидата'.PHP_EOL.'(ЛИЦА, ЗАПРАШИВАЮЩЕГО ВИЗУ)'.str_repeat(PHP_EOL, 2).' ', 1, 'L');
+$pdf->SetFont('DejaVu_timesB','',$fsz3+2);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, str_repeat(PHP_EOL, 2).$fields['Address_town']['Value'].', '.$fields['Address']['Value'].', '.(isset($fields['Email']['Value']) ? $fields['Email']['Value'] : ' '), 0, 'L');
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h2, ' Номер телефона'.str_repeat(PHP_EOL, 3).' ', 1, 'L');
+$pdf->SetFont('DejaVu_timesB','',$fsz3+2);
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h2, str_repeat(PHP_EOL, 2).$fields['Phone']['Value'], 0, 'L');
+
+$w1 = $w1 + $w2;
+$y = $y + $h2*4;
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, '18. Пребывание в государстве, отличном от государства нынешнего гражданства'.PHP_EOL.' □ Нет   □ Да.'.PHP_EOL.' Разрешение на пребывание или аналогичный документ ….. номер …….. срок действия ………..', 1, 'L');
+$pdf->SetFont('DejaVu_timesB','',$fsz3+2);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, PHP_EOL.' x', 0, 'L');
+
+$y = $y + $h2*3;
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, '*19. Актуальная профессия', 1, 'L');
+$pdf->SetFont('DejaVu_timesB','',$fsz3+2);
+$pdf->SetXY($x+50,$y);
+$pdf->MultiCell($w1-70, $h2, $fields['Occupation']['Value'], 0, 'L');
+
+$y = $y + $h2;
+$pdf->SetFont('DejaVu_times','',$fsz4-0.3);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, '*20. Работодатель - адрес и телефон Работодателя. Для студентов - наименование и адрес учебного заведения'.str_repeat(PHP_EOL, 2).' ', 1, 'L');
+$pdf->SetFont('DejaVu_timesB','',$fsz3+2);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, PHP_EOL.$fields['EmployerName']['Value'].', '.$fields['Employer_town']['Value'].', '.$fields['EmployerAddress']['Value'].' '.$fields['EmployerPhone']['Value'], 0, 'L');
+
+$y = $y + $h2*3;
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, '21. Основание(я) для поездки:'.
+    PHP_EOL.' □ Туризм                                       □ Служебная поездка                         □ Посещение родственников или друзей'.
+    PHP_EOL.' □ Культура                                    □ Спорт                   □ Обучение        □ Официальное посещение'.
+    PHP_EOL.' □ Медицинские причины            □ Транзитный проезд                         □ Аэропортный  транзит'.
+    PHP_EOL.' □ Другое (уточнить):'.PHP_EOL.' ', 1, 'L');
+$pdf->SetFont('DejaVu_timesB','',$fsz3+2);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1+$w2, $h2, PHP_EOL.' x', 0, 'L');
+
+$w1 = 85;
+$w2 = 85;
+$y = $y + $h2*6;
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, '22. Государство-член, являющееся целью поездки'.PHP_EOL.' ', 1, 'L');
+$pdf->SetFont('DejaVu_timesB','',$fsz3+2);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, PHP_EOL.'БОЛГАРИЯ', 0, 'C');
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h2, '23. Государство-член первого въезда'.PHP_EOL.' ', 1, 'L');
+$pdf->SetFont('DejaVu_timesB','',$fsz3+2);
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h2, PHP_EOL.'БОЛГАРИЯ', 0, 'C');
+
+$y = $y + $h2*2;
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, '24. Число запрашиваемых въездов'.PHP_EOL.'  □ Однократно    □ Двукратно     □ Многократно'.PHP_EOL.' ', 1, 'L');
+$pdf->SetFont('DejaVu_timesB','',$fsz3+2);
+$pdf->SetXY($x,$y);
+if($fields['VisaEntries']['Value'] == 0){
+    $pdf->MultiCell($w1, $h2, PHP_EOL.'  x', 0, 'L');
+}else{
+    $pdf->MultiCell($w1, $h2, PHP_EOL.'                              x', 0, 'L');
+}
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h2, '25. Продолжительность планируемого
+пребывания или транзитного проезда
+(Указать число дней)', 1, 'L');
+$pdf->SetFont('DejaVu_timesB','',$fsz3+2);
+$pdf->SetXY($x+$w1+$w2-20,$y);
+$pdf->MultiCell($w2, $h2, PHP_EOL.$fields['StayDuration']['Value'], 0, 'L');
+
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$y = $y + $h2*3;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell(200, $h2, '
+Поля,  отмеченные (*),  не заполняются членами семей граждан ЕС или ЕЭС или Швейцарии:  супруг(а),  ребенок или родственник по восходящей линии, иждивенец приглашающего лица, при реализации права на свободное передвижение. Члены семьи гражданина ЕС или ЕЭС или Швейцарии предоставляют документ, подтверждающий родство, и заполняют поля 34 и 35.
+(х)Поля 1-3 заполняются данными по документу о заграничных поездках. ', 0, 'L');
+
+$pdf->AddPage();
+$y = 15;
+$x = 5;
+$pdf->SetFont('DejaVu_times','',$fsz4-1);
+$w1 = 100;
+$w2 = 100;
+
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1+$w2, $h2, '26. Шенгенские визы, выданные за последние три года'.PHP_EOL.' □ Нет'.PHP_EOL.' □ Да    Дата(ы) их действия:'.PHP_EOL.' ', 1, 'L');
+$pdf->SetFont('DejaVu_timesB','',$fsz3+2);
+$pdf->SetXY($x,$y);
+$tmp = ($fields['PreviousShengenDateFrom1']['Value'] == '') ? ' x' : PHP_EOL.' x';
+$tmp2 = PHP_EOL.'                                                    ';
+$tmp3 = '';
+if(isset($fields['PreviousShengenDateFrom1']['Value']) && $fields['PreviousShengenDateTo1']['Value']){
+    $tmp3 .= $tmp2.$fields['PreviousShengenDateFrom1']['Value'].' - '.$fields['PreviousShengenDateTo1']['Value'].'   '.$fields['PreviousShengenState1']['Value'];
+}
+if(isset($fields['PreviousShengenDateFrom2']['Value']) && $fields['PreviousShengenDateTo2']['Value']){
+    $tmp3 .= $tmp2.$fields['PreviousShengenDateFrom2']['Value'].' - '.$fields['PreviousShengenDateTo2']['Value'].'   '.$fields['PreviousShengenState2']['Value'];
+}
+$pdf->MultiCell($w1+$w2, $h2, PHP_EOL.$tmp, 0, 'L');
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1+$w2, $h2, PHP_EOL.$tmp3, 0, 'L');
+
+$y = $y + $h2*4;
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1+$w2, $h2, '27. Предыдущее снятие отпечатков пальцев с целью подачи заявки на шенгенскую визу'.PHP_EOL.' □ Нет'.PHP_EOL.' □ Да    Дата снятия, если известна .....................................', 1, 'L');
+$pdf->SetFont('DejaVu_timesB','',$fsz3+2);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1+$w2, $h2, PHP_EOL.' x', 0, 'L');
+
+$y = $y + $h2*3;
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1+$w2, $h2, '28. Разрешение на въезд в государство, являющееся целью поездки, если применяется
+      Выдано (кем) .......................................................... Срок действия с ............................. по .............................', 1, 'L');
+
+$y = $y + $h2*2;
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, '29. Планируемая дата въезда в Республику Болгария'.str_repeat(PHP_EOL, 2).' ', 1, 'L');
+$pdf->SetFont('DejaVu_timesB','',$fsz3+2);
+$pdf->SetXY($x,$y+2);
+$pdf->MultiCell($w1, $h2, PHP_EOL.$fields['ArrivalDate']['Value']->format('d.m.Y'), 0, 'C');
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h2, '30. Планируемая дата выезда из Республики Болгария'.str_repeat(PHP_EOL, 2).' ', 1, 'L');
+$pdf->SetFont('DejaVu_timesB','',$fsz3+2);
+$pdf->SetXY($x+$w1,$y+2);
+$pdf->MultiCell($w2, $h2, PHP_EOL.$fields['DepartureDate']['Value']->format('d.m.Y'), 0, 'C');
+
+$y = $y + $h2*3;
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1+$w2, $h2, '* 31. Фамилия и имя приглашающего лица в Республике Болгария . Если нет такого(ких) - наименование гостиниц/ы или временный адрес(а) в Республике Болгария'.str_repeat(PHP_EOL, 2).' ', 1, 'L');
+$pdf->SetFont('DejaVu_timesB','',$fsz3+2);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1+$w2, $h2, str_repeat(PHP_EOL, 2).$fields['Hotel_lname']['Value'], 0, 'L');
+
+$y = $y + $h2*4;
+$w1 = 130;
+$w2 = 70;
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, 'Адрес и электронный адрес приглашающих (его) лиц(а), гостиниц(ы), временный адрес(а) '.str_repeat(PHP_EOL, 2).' ', 1, 'L');
+$pdf->SetFont('DejaVu_timesB','',$fsz3+2);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, str_repeat(PHP_EOL, 2).$fields['Hotel_address']['Value'].PHP_EOL.$fields['Hotel_email']['Value'], 0, 'L');
+
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h2, 'Телефон и факс'.str_repeat(PHP_EOL, 3).' ', 1, 'L');
+$pdf->SetFont('DejaVu_timesB','',$fsz3+2);
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h2, str_repeat(PHP_EOL, 2).$fields['Hotel_phones']['Value'].PHP_EOL.$fields['Hotel_faxes']['Value'], 0, 'L');
+
+$y = $y + $h2*4;
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, '* 32.  Наименование и адрес приглашающего(щих) обществ(а)/организаций'.str_repeat(PHP_EOL, 3).' ', 1, 'L');
+$pdf->SetFont('DejaVu_timesB','',$fsz3+2);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, PHP_EOL.$fields['Partner_partnerofficialname']['Value'].PHP_EOL.$fields['Partner_partneraddress']['Value'], 0, 'L');
+
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h2, 'Телефон и факс'.str_repeat(PHP_EOL, 3).' ', 1, 'L');
+$pdf->SetFont('DejaVu_timesB','',$fsz3+2);
+$pdf->SetXY($x+$w1,$y);
+$tmp = ($fields['Partner_phones']['Value'] != '') ? 'Тел: '.$fields['Partner_phones']['Value'] : '';
+$tmp2 = ($fields['Partner_faxes']['Value'] != '') ? 'Факс: '.$fields['Partner_faxes']['Value'] : '';
+$pdf->MultiCell($w2, $h2, PHP_EOL.$tmp.PHP_EOL.$tmp2, 0, 'L');
+
+$y = $y + $h2*4;
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1+$w2, $h2, 'Фамилия, имя, телефон, факс и электронный адрес контактного лица в обществе/организации'.str_repeat(PHP_EOL, 2).' ', 1, 'L');
+$pdf->SetFont('DejaVu_timesB','',$fsz3+2);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1+$w2, $h2, PHP_EOL.$fields['Partner_email']['Value'], 0, 'C');
+
+$w1 = 100;
+$w2 = 100;
+$y = $y + $h2*3;
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1+$w2, $h2, '*33. Расходы на поездку и содержание во время пребывания обеспечивает:'.str_repeat(PHP_EOL, 2).' ', 1, 'L');
+$y = $y + $h2*3;
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, PHP_EOL.' □ сам кандидат'.
+    str_repeat(PHP_EOL, 2).'Средства на содержание'.
+    PHP_EOL.' □ Наличные'.
+    PHP_EOL.' □ Дорожные чеки'.
+    PHP_EOL.' □ Кредитные карты'.
+    PHP_EOL.' □ Проплаченное место проживания'.
+    PHP_EOL.' □ Проплаченный транспорт'.
+    PHP_EOL.' □ Другое  (просьба указать)', 1, 'L');
+$pdf->SetFont('DejaVu_timesB','',$fsz3+2);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, '
+ x
+
+
+ x
+
+
+ x
+', 0, 'L');
+
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h2, PHP_EOL.' □ спонсор (приглашающее лицо,  общество, организация), указать'.
+    str_repeat(PHP_EOL, 2).' ...................................... □ указано в поле 31 или 32'.
+    PHP_EOL.' ...................................... □ иное (указать)'.str_repeat(PHP_EOL, 4).
+    ' ', 1, 'L');
+
+$y = $y + $h2*10;
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1+$w2, $h2, '34. Личные данные члена семьи, являющегося гражданином  ЕС или ЕЭС или Швейцарии'.PHP_EOL.' ', 1, 'L');
+
+$w1 = 60;
+$w2 = 50;
+$w3 = 90;
+$y = $y + $h2*2;
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1+$w2, $h2, 'Фамилия:'.str_repeat(PHP_EOL, 3).' ', 1, 'L');
+$pdf->SetXY($x+$w1+$w2,$y);
+$pdf->MultiCell($w3, $h2, 'Имя: '.str_repeat(PHP_EOL, 3).' ', 1, 'L');
+
+$y = $y + $h2*4;
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, 'Дата  рождения'.str_repeat(PHP_EOL, 4).' ', 1, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h2, 'Гражданство'.str_repeat(PHP_EOL, 4).' ', 1, 'L');
+$pdf->SetXY($x+$w1+$w2,$y);
+$pdf->MultiCell($w3, $h2, 'Номер документа для поездок или личной карты'.str_repeat(PHP_EOL, 4).' ', 1, 'L');
+
+$w1 = 100;
+$w2 = 100;
+$y = $y + $h2*5;
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1+$w2, $h2, '35.  Степень родства с  гражданином ЕС или ЕЭС
+  □ супруг(а)                           □ ребенок                □ внук (внучка)
+  □ родственник по восходящей линии, иждивенец приглашающего лица', 1, 'L');
+
+$y = $y + $h2*3;
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, '36. Дата и место'.str_repeat(PHP_EOL, 7).' ', 1, 'L');
+$pdf->SetFont('DejaVu_timesB','',$fsz3+2);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, str_repeat(PHP_EOL, 3).$fields['DatePlace']['Value'], 0, 'L');
+
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h2, '37. Подпись (для малолетних / несовершеннолетних, подпись лица, осуществляющего права родителя / опекуна).'.str_repeat(PHP_EOL, 6).' ', 1, 'L');
+
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$y = $y + $h2*8;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1+$w2, $h2, '
+Поля,  отмеченные (*),  не заполняются членами семей граждан ЕС или ЕЭС или Швейцарии:  супруг(а),  ребенок или родственник по восходящей линии, иждивенец приглашающего лица, при реализации права на свободное передвижение. Члены семьи гражданина ЕС или ЕЭС или Швейцарии предоставляют документ, подтверждающий родство, и заполняют поля 34 и 35.
+(х)Поля 1-3 заполняются данными по документу о заграничных поездках. ', 0, 'L');
+
+$pdf->AddPage();
+$y = 15;
+$x = 5;
+$pdf->SetFont('DejaVu_times','',$fsz4+1.5);
+$w1 = 100;
+$w2 = 100;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1+$w2, $h2+0.5, 'Мне известно, что визовый сбор не подлежит возврату в случае отказа в выдаче визы.', 1, 'J');
+
+$y = $y + $h2*3;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1+$w2, $h2+0.5, 'Применимо при подаче заявления на визу для многократных въездов (см. поле № 24);
+
+Мне известно,  что я должен обладать подходящей страховкой для поездок за границу во время первого пребывания и во время последующих посещений территории стран-членов.', 1, 'J');
+
+$y = $y + $h2*7;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1+$w2, $h2+0.5, 'Мне известно и я ознакомлен/а,  что:  сбор данных,  указанных в данном заявлении на выдачу визы, использование моей фотографии и,  если необходимо,  снятие отпечатков пальцев являются обязательными для рассмотрения заявления для выдачи визы и все мои личные данные, указанные в заявлении на выдачу визы, как и моя фотография и отпечатки пальцев,  будут переданы в компетентные органы   государств-членов и будут обработаны с целью принятия  решения по запросу на получение визы.
+
+Вышеперечисленные данные,  равно как и данные относительно принятия решения по моему заявлению на выдачу визы,  или решение об аннуляции,  отмене или продлении срока действия уже выданной визы будут занесены и сохранены в   Визовую информационную систему (ВИС)  на период не более пяти лет,  в течение которого к данным будут иметь доступ визовые органы и компетентные органы для осуществления проверок виз на внешних границах стран-членов и на их территории,  миграционные службы и службы по предоставлению убежища в странах-членах,  чтобы осуществлялись проверки по выполнению условий законного въезда и пребывания на территории стран-членов, с целью идентификации лиц, не отвечающих или уже не отвечающих этим условиям,  для рассмотрения заявления с требованием предоставления убежища и для определения ответственности за такое рассмотрение. На определенных условиях данные будут в распоряжении определенных органов стран-членов   и Европола с целью предотвращения,  раскрытия и расследования террористических действий и других тяжких преступлений. Компетентным органом,  отвечающим за обработку данных,  является Министерство иностранных дел.
+
+Мне также известно, что я имею право быть осведомленным в каждой стране-члене о данных, касающихся меня, введенных в ВИС,  и о стране-члене,  отправившей данные,  и востребовать касающиеся меня данные,  которые неточные, чтобы они были исправлены, а незаконно обработанные данные, касающиеся меня - уничтожены. По моему настоянию орган, рассматривающий мое заявление на выдачу визы, будет меня информировать о способе, по которому я смогу применить свое право на проверку своих личных данных, чтобы они были изменены или уничтожены,  в том числе и о соответствующих мерах для защиты в судебном порядке в соответствии с национальным законодательством заинтересованного государства.  Национальный орган надзора (Комиссия по защите личных данных) будет содействовать мне и подсказывать, как реализовать эти мои права.
+
+Я заявляю,  что предоставленные мною сведения достоверные и полные.  Мне известно,  что в случае предоставления мною недостоверной информации это может стать причиной отклонения запроса о выдаче визы или аннуляции выданной визы,  а также возможно привлечение к уголовной ответственности в соответствии с законодательством государства-члена, которое рассматривает мое заявление на выдачу визы. Я обязуюсь покинуть территорию государства-члена до окончания срока действия визы,  если таковая будет выдана.   Я осведомлен/а,  что наличие визы является лишь одним из предварительных требований, предусмотренных для въезда на европейскую территорию государств-членов.  Сам факт выдачи визы не означает,  что я имею право на компенсацию,  если не отвечаю требованиям ст. 5,  часть 1  Регламента (ЕО) №562/2006 (Кодекс шенгенских границ),  и по этой причине мне могут отказать во въезде.  Предварительные требования для въезда будут вновь проверены на европейской территории государств-членов.
+'.' ', 1, 'J');
+
+$y = $y + $h2*47;
+$pdf->SetFont('DejaVu_times','',$fsz4);
+
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, 'Дата и место'.str_repeat(PHP_EOL, 9).' ', 1, 'L');
+$pdf->SetFont('DejaVu_timesB','',$fsz3+4);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, str_repeat(PHP_EOL, 3).$fields['DatePlace']['Value'], 0, 'L');
+
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h2, 'Расшифрованная подпись (для несовершеннолетних, расшифрованная подпись лица, осуществляющего права родителя / опекуна).'.str_repeat(PHP_EOL, 7).' ', 1, 'L');
+
+if(isset($INCLUDE_VERSA)){
+    $voucher = $fields['voucher'];
+    $pdf->AddPage();
+    $y = 5;
+    $x0 = 5;
+    $logo_w = 35;
+    $logo_h = 12;
+    $h2 = 6;
+    $fsz2 = 10;
+    $fsz3 = 8;
+    $pdf->Image(_ROOT.'data/hedit/Image/versa-logo-eng.jpg',$x, $y, $logo_w, $logo_h,'');
+    $x = $x0 + $logo_w + 10;
+    $pdf->SetFont('DejaVu_times','',$fsz3+3);
+    $pdf->SetXY($x, $y);
+    $pdf->MultiCell(0, $h2,
+        'HOST FIRM       '.$voucher['hotel']['Partner_partnerlname'].PHP_EOL.
+        'Tel:            '.$voucher['hotel']['Partner_phones']
+    , 0,'L',0);
+    $pdf->SetXY($x, $y);
+
+    $pdf->MultiCell(0, $h2,'REF: '.$voucher['CLAIM'], 0,'R',0);
+
+
+    $wr1 = 110;
+    $wr2 = 90;
+    $h2 = 3;
+    $y = $y + $logo_h + $h2;
+    $pdf->SetXY($x0,$y);
+    $pdf->SetFont('DejaVu_times','',$fsz2);
+    $pdf->MultiCell($wr1, $h2+1, '
+        Единый федеральный реестр туроператоров
+        серия МВТ № 001837
+        Россия, СПб, 191024, ул. 2-я Советская, 18, оф. 1.
+        Тел. (812) 324-71-05.    Факс (812) 324-71-09
+        E-mail: balkan@versa-travel.com  www.versa-travel.spb.ru
+
+        СПб ОАО «МДМ Банк»
+        Р/с 40702810600020001493
+        К/с 30101810800000000722
+        БИК 044030722
+        ОКПО 52167442, ОКОНХ 91620
+        ИНН 7802137274/КПП 780201001
+        Огрн 1027801548059
+        Реестровый номер МТ1 002194
+    ', 0,'L',0);
+    $pdf->SetXY($x0 + $wr1,$y);
+    $pdf->MultiCell($wr2, $h2+1, PHP_EOL.$voucher['hotel']['StateLName'].', '.$voucher['hotel']['TownLName'].', Отель '.$voucher['hotel']['HotelLName'].PHP_EOL.
+        PHP_EOL.
+        'Почтовый адрес: '.$voucher['hotel']['Partner_paddress'].PHP_EOL.
+        'Телефон: '.$voucher['hotel']['Partner_phones'].PHP_EOL.
+        'Факс: '.$voucher['hotel']['Partner_faxes'].PHP_EOL.
+        'email: '.$voucher['hotel']['Partner_email'].PHP_EOL.
+        'домашняя страница: '.$voucher['hotel']['Partner_www']
+    , 0,'L',0);
+    $pdf->SetXY($x0 + $wr1,$y);
+    $pdf->MultiCell($wr1,$h2+1, str_repeat(PHP_EOL, 15).' ', 0,'L',0);
+
+    $pdf->SetXY($x0,$pdf->GetY());
+    $pdf->MultiCell($wr1,$h2, 'Please provide the following services / ATT'.PHP_EOL.' ', 0,'L',0);
+
+    $wr1 = 55;
+    $wr2 = 105;
+    $wr3 = 40;
+    $h5 = 5;
+    $y0 = $pdf->GetY();
+    $pdf->SetXY($x0,$y0);
+
+    $pdf->SetFont('DejaVu_timesB','',$fsz2);
+    $pdf->SetWidths(array($wr1, $wr2));
+    $pdf->Row(array('HOTEL', $voucher['hotel']['HotelLName'].' Тел:'.$voucher['hotel']['HotelPhone']), $h5, 'L');
+    $pdf->Row(array('ADDRESS', $voucher['hotel']['HotelAddress']), $h5, 'L');
+    $pdf->Row(array('C-IN/C-OUT', $voucher['claiminfo']['DateBeg'] . '/' . $voucher['claiminfo']['DateEnd']), $h5, 'L');
+    $pdf->Row(array('NR OF NIGHTS/MEAL TYPE', $voucher['hotel']['Nights'] . '/' . $voucher['hotel']['MealLName']), $h5, 'L');
+    $pdf->Row(array('ROOM TYPE', $voucher['hotel']['RoomLName']), $h5, 'L');
+    $pdf->Row(array('ACCOMODATION TYPE', $voucher['hotel']['HtPlaceLName']), $h5, 'L');
+    $freights = array();
+    foreach($voucher['freights'] as $freight){
+        $freights[] = $freight['DateBeg'].' - '.$freight['FreightLName'];
+    }
+    $pdf->Row(array('NUMBER OF FLIGHT', implode(PHP_EOL,$freights)), $h5, 'L');
+    $insures = array();
+    foreach($voucher['insures'] as $insure){
+        $insures[] = $insure['DateBeg'].' / '.$insure['DateEnd'];
+    }
+    $pdf->Row(array('TRAVEL ISURANCE POLICY', implode(PHP_EOL,$insures)), $h5, 'L');
+    $services = array();
+    foreach($voucher['services'] as $service){
+        $services[] = $service['ServTypeLName'].': '.$service['ServiceLName'];
+    }
+    $pdf->Row(array('ADDITIONAL SERVICE', implode(PHP_EOL,$services)), $h5, 'L');
+    $y1 = $pdf->GetY();
+
+    $x = $x0+$wr1 + $wr2;
+    $pdf->SetXY($x, $y0);
+    foreach($voucher['hotel']['peoples'] as $room){
+        foreach($room as $people){
+            $pdf->SetXY($x, $pdf->GetY());
+            $pdf->MultiCell($wr3, $h5, $people['Human'].PHP_EOL.$people['LName'].PHP_EOL.$people['Born'], 1,'L',0);
+        }
+    }
+    if(isset($page1_url) && !empty($page1_url)){
+        $x = 5;
+        $y = $y1 + 2*$h2;
+        $pdf->Image(_ROOT.$page1_url, $x, $y, 130, 80);
+    }
+
+}
+?>

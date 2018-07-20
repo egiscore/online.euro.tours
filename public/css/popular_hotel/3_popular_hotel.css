@@ -1,0 +1,12 @@
+#popular_hotel .container.std {
+	width: 97%;
+}
+#popular_hotel .container.std td {
+	padding: 0 15px;
+}
+#popular_hotel table.res td.over {
+	background-color: #eeeeee;
+}
+#popular_hotel table.res td {
+	cursor: pointer;
+}

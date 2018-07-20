@@ -1,0 +1,2 @@
+<?php
+ class Opeople extends BaseType { public $inc; public $claim; public $order; public $people; public $common; public $wait; public $extrasettle; public $settled; public $docum; public $distributed; public $ddate; public $seat; public $odate; public $link; public $oinc; public $phpunit_test; public $placement_code; public $external_document; } 

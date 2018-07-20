@@ -1,0 +1,2 @@
+<?php
+ class Visa_Controller extends Samo_Controller { public function document() { if ($this->model->is_enabled()) { $response = Samo_Registry::get('response'); $doc = Samo_Request::intval('DOC'); if ($doc) { $this->model->SaveVisa(); if (false !== ($doc_file = $this->model->external_document($doc))) { $response->redirect_to($doc_file); return; } } $response->not_found(); } else { $this->view->error($this->messages['CL_DOC_PRINT_DISABLED']); } } } 

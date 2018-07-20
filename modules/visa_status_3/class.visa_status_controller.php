@@ -1,0 +1,2 @@
+<?php
+ class Visa_Status_Controller extends Samo_Controller { public function default_action() { $template = $this->model->get_template(); $result = $this->model->visa_status(); $this->view->assign('visa_status', $result) ->popup_template($template, $this->messages['PAGE_TITLE'], 500, 210); } } 

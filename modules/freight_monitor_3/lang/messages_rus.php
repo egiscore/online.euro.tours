@@ -1,0 +1,47 @@
+<?php
+$_messages = array (
+  'FREIGHT_AIRPORT_FROM' => 'А/П',
+  'FREIGHT_AIRPORT_FROM_RESULT' => 'А/П',
+  'FREIGHT_AIRPORT_TO' => 'А/П',
+  'FREIGHT_CLASS' => 'класс',
+  'FREIGHT_DATE' => 'дата',
+  'FREIGHT_AK' => 'А/К',
+  'FREIGHT_DATE_RESULT' => 'Вылет',
+  'FREIGHT_DELTA' => '+/-',
+  'FREIGHT_NAME_IN' => 'Рейс туда',
+  'FREIGHT_NAME_OUT' => 'Рейс обратно',
+  'FREIGHT_NIGHTS_FROM' => 'ночей',
+  'FREIGHT_NOPLACE' => '&nbsp;мест нет',
+  'FREIGHT_PLACES_AVAILABILITY_ECONOM' => 'Эконом',
+  'FREIGHT_PLACES_AVAILABILITY_BUSINES' => 'Бизнес',
+  'FREIGHT_REFRESH' => 'обновить',
+  'FREIGHT_STATE_TO' => 'страна',
+  'FREIGHT_STOP_ANY_NIGHTS' => 'Любая',
+  'FREIGHT_STOP_NIGHTS_ECONOM' => 'Стоп(эконом)',
+  'FREIGHT_STOP_NIGHTS_BUSINES' => 'Стоп(бизнес)',
+  'FREIGHT_TIME_FROM' => 'Время',
+  'FREIGHT_TIME_TO' => 'Время',
+  'FREIGHT_TOUR_NAME' => 'тур',
+  'FREIGHT_TOWNTO_NAME' => 'город прибытия',
+  'FREIGHT_TOWN_FROM' => 'город отправления',
+  'FREIGHT_TRANSPORT_IN' => 'Транспорт',
+  'FREIGHT_TRANSPORT_OUT' => 'Транспорт',
+  'FREIGHT_YESNOPLACE' => '&nbsp;мест мало',
+  'FREIGHT_YESPLACE' => '&nbsp;места есть',
+  'FREIGHT_TOWNFROM' => 'Город отправления',
+  'FREIGHT_TOWNTO' => 'Город прибытия',
+  'FREIGHT_AIRLINE' => 'Авиакомпания',
+  'PAGE_TITLE' => 'Проверка наличия мест на рейсах',
+  'noplace' => 'нет',
+  'requestplace' => 'по запросу',
+  'yesnoplace' => 'мало',
+  'yesplace' => 'есть',
+  'default' => '',
+  'FREIGHT_SELECT_TOUR' => 'Не выбран тур или город назначения',
+  'FREIGHT_FLEW' => 'уже улетел',
+);
+if (isset($messages) && is_array($messages)) {
+    $messages = array_merge($messages, $_messages);
+} else {
+    $messages = $_messages;
+}

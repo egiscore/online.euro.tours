@@ -1,0 +1,2 @@
+<?php
+ namespace Samo; use Phalcon\Session\Adapter; class Session extends Adapter { public $samoAuth; public function init() { $this->samoAuth = $this->get('samo_auth'); } public function hasAuth() { return !empty($this->samoAuth); } public function partPassInc() { return $this->samoAuth['PartPassInc']; } public function partner() { return $this->samoAuth['Partner']; } } 

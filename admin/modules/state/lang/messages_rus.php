@@ -1,0 +1,20 @@
+<?php
+$language['rus']['adm_state_rule_preview_permitions'] = "Права доступа к странам";
+$language['rus']['adm_state_manager'] = "Менеджер";
+$language['rus']['adm_state_rule'] = "Доступ к странам";
+$language['rus']['adm_state_only_view'] = "Только просмотр";
+$language['rus']['adm_state_full_permition'] = "Полный доступ";
+$language['rus']['adm_state_show_enable'] = "Доступна для показа на сайте";
+$language['rus']['adm_state_flag'] = "Флаг страны (формат gif)";
+$language['rus']['adm_state_about_state'] = "Описание страны";
+$language['rus']['adm_state_pictures'] = "Картинки";
+$language['rus']['adm_state_edit_state_caption'] = "Редактирование страны";
+$language['rus']['adm_state_view'] = "Страничка для страны выглядит так";
+$language['rus']['adm_state_big_picture'] = "Укажите большую картинку.";
+$language['rus']['adm_state_close'] = "Закрыть";
+$language['rus']['adm_state_delete_file'] = "Удалить выбранный файл";
+$language['rus']['adm_state_picture_text'] = "Надпись к картинке:";
+$language['rus']['adm_state_change'] = "Изменить";
+$language['rus']['adm_state_little_gif'] = "Маленькая картинка (gif)";
+$language['rus']['adm_state_big_jpeg'] = "Большая картинка (jpg)";
+$language['rus']['adm_state_download'] = "Загрузить";

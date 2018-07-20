@@ -1,0 +1,4 @@
+
+(function($){var container=samo.initModuleContainer('last_spo');samo.last_spo=function(){var _ROOT_URL=samo.ROUTES.last_spo.url,$module_container=container;$('.LAST_SPO_ALL_SPO',$module_container).append('<span class="link">'+samo.i18n('LAST_SPO_ALL_SPO')+'</span>');$('span.link',$module_container).bind('click',function(){window.location=getSpoURL();});samo.cache_controls($module_container);samo.spo_helpers(_ROOT_URL,$module_container);$('.STATEINC',$module_container).unbind('change');function getSpoURL(){var result={};result.DOLOAD=1;$('.TOWNFROMINC, .STATEINC',$module_container).each(function(){var name=this.name||$(this).attr('name');var value=$.controlValue(this);if(name&&value&&value!==0)
+result[name]=value;});return samo.ROUTES.spo.url+$.param(result);}}
+$(document).ready(samo.last_spo);})(samo.jQuery);

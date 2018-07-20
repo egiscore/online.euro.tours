@@ -1,0 +1,42 @@
+<?php
+
+$language['rus']['adm_search_tour_preview_permitions'] = "Права доступа к модулю 'Поиск тура'";
+$language['rus']['adm_search_tour_manager'] = "Менеджер";
+$language['rus']['adm_search_tour_rule'] = "Доступ";
+$language['rus']['adm_search_tour_only_view'] = "Только просмотр";
+$language['rus']['adm_search_tour_full_permition'] = "Полный доступ";
+
+$language['rus']['adm_search_tour_townfrom'] = "Город вылета";
+$language['rus']['adm_search_tour_state'] = "Страна назначения";
+$language['rus']['adm_search_tour_nights_from'] = "ночей от";
+$language['rus']['adm_search_tour_nights_till'] = "ночей до";
+$language['rus']['adm_search_tour_by_default'] = "По умолчанию";
+$language['rus']['adm_search_tour_min_people'] = "Минимальное количество взрослых на форме поиска";
+$language['rus']['adm_search_tour_max_people'] = "Максимальное количество взрослых на форме поиска";
+$language['rus']['adm_search_tour_min_child'] = "Минимальное количество детей на форме поиска";
+$language['rus']['adm_search_tour_max_child'] = "Максимальное количество детей на форме поиска";
+$language['rus']['adm_search_tour_allotment_moment_confirm'] = "Для моментального подтверждения использовать только жёсткие блоки";
+$language['rus']['adm_search_tour_places'] = 'Есть места на рейсах';
+$language['rus']['adm_search_tour_stop_selling'] = 'Нет остановки продажи';
+$language['rus']['adm_search_tour_moment_confirm'] = 'Мгновенное подтверждение';
+$language['rus']['adm_search_tour_child_in_bed'] = 'Все туристы на своих местах';
+$language['rus']['adm_search_tour_all_currency'] = 'Отображать все возможные валюты';
+$language['rus']['adm_search_tour_note'] = 'Примечание к турам';
+$language['rus']['adm_search_tour_adultcount'] = 'Количество взрослых, выбранное по умолчанию';
+$language['rus']['adm_search_tour_childcount'] = 'Количество детей, выбранное по умолчанию';
+$language['rus']['adm_search_tour_force_round'] = 'Округлять цены в результатах поиска';
+$language['rus']['adm_search_tourtype_filter'] = 'Отображать фильтр по типу тура';
+$language['rus']['adm_search_programtype_filter'] = 'Отображать фильтр по типу программы';
+$language['rus']['adm_search_incoming_filter'] = 'Отображать фильтр по принимающей стороне тура';
+$language['rus']['adm_search_ufilter'] = 'Отображать фильтр акций';
+$language['rus']['adm_config_and groups_and_types'] = 'И группы и типы';
+$language['rus']['adm_config_only_group'] = 'Только групы';
+$language['rus']['adm_config_only_types'] = 'Только типы';
+$language['rus']['adm_config_drop_down_list'] = 'Выпадающий список';
+$language['rus']['adm_config_multiple_choise'] = 'Множественный выбор';
+$language['rus']['adm_config_show_old_price'] = 'Отображать старую цену';
+$language['rus']['adm_config_group_by_hotel'] = 'По умолчанию группировать результаты поиска по гостинице';
+$language['rus']['adm_config_rec_on_page_default'] = "Кол-во отображаемых цен в модуле 'Поиск тура'";
+$language['rus']['adm_search_tour_child_small_ages'] = "Возраст младшего ребёнка по умолчанию";
+$language['rus']['adm_search_tour_child_middle_ages'] = "Возраст среднего ребёнка по умолчанию";
+$language['rus']['adm_search_tour_child_big_ages'] = "Возраст старшего ребёнка по умолчанию";

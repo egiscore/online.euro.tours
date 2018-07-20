@@ -1,0 +1,14 @@
+.kkb_kz_result {
+    padding: 30px !important;
+    display: inline-block;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.kkb_kz_result_fail {
+    color: red !important;
+}
+
+.kkb_kz_result_ok {
+    color: green !important;
+}

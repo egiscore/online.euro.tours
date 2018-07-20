@@ -1,0 +1,57 @@
+#choose-partpass, #recovery {
+    max-width: 90em;
+    margin: auto;
+}
+
+#recovery .description, #choose-partpass .description {
+    padding: 10px;
+    background-color: InfoBackground;
+    border: solid 1px #cdcdcd;
+    margin: 20px auto;
+}
+#recovery #search {
+    font-size: 13px;
+    width: 180px;
+    height: 18px;
+    line-height: 18px;
+    color: #333333;
+    border: 0;
+    border: 1px solid #999999;
+    border-radius: 4px;
+    padding-bottom: 2px;
+
+}
+#recovery .description {
+    width: 60em;
+}
+
+#recovery .registration-link {
+    margin: 20px auto;
+}
+
+#choose-partpass table.res {
+    width: 100%;
+}
+
+#choose-partpass table.res button {
+    width: 100px;
+}
+
+
+#choose-partpass table.res td {
+    padding: 5px 2px;
+}
+
+#partner_discount, #partner_curator {
+    margin: auto;
+    width: 960px;
+}
+
+#partner_discount table {
+    clear: left;
+    width: 100%;
+}
+
+#partner_curator .ui-icon {
+    display: inline-block;
+}

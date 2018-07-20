@@ -1,0 +1,2 @@
+<?php
+ function smarty_modifier_glue($array,$glue=", ",$type="html" ) { $array = (array)$array; $keys = array_keys($array); $first = reset($keys); if (is_numeric($first)) { return implode($glue,$array); } else { $return = array(); foreach ($array as $key => $value) { $value = new Samo_String($value); $return[] = sprintf((($type == 'json') ? '"%s": "%s"' : '%s = "%s"'), $key, $value->safehtml()); } return implode($glue,$return); } } ?>

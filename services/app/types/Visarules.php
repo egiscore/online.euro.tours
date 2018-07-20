@@ -1,0 +1,2 @@
+<?php
+ class Visarules extends BaseType { public $inc; public $state; public $citizenship; public $placeofborn; public $visa; public $allow; public $pvalid_more; public $adate; public $author; public $edate; public $user; public $phpunit_test; public $pvalid_check; public $note; } 

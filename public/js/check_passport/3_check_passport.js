@@ -1,0 +1,9 @@
+
+(function($){samo.check_passport=function(){var _ROOT_URL=samo.ROUTES.check_passport.url;var $module_container=$("#check_passport");var _controls=$module_container.find('select,input');var $checkIn=$module_container.find('.CHECKIN');var $pvalidDate=$module_container.find('.PVALIDDATE');var $stateInc=$module_container.find('.STATEINC');var $visaInc=$module_container.find('.VISAINC');var $visaOptions=$visaInc.find('option');var $check=$module_container.find('.load');var $result=$module_container.find('.result');var DOLOAD=(parseInt($.getParameter('DOLOAD',true,$module_container))==1);$module_container.find('.STATEINC,.TOWNFROMINC,.VISAINC,.CITIZENSHIP,.BORNPLACE,.NIGHTS').chosen({}).bind('change',clearResult);samo.cache_controls($module_container);$checkIn.datePicker();$pvalidDate.datePicker();$module_container.find('.TOWNFROMINC').bind('change',function(){$stateInc.find('option').remove();$visaOptions.remove();$.getScript(getParams('TOWNFROMINC'),true);});$check.click(function(){if(!$checkIn.val()){$checkIn.errorField(samo.i18n('REQUIRED_FIELD_EMPTY'));return false;}
+if(!$pvalidDate.val()){$pvalidDate.errorField(samo.i18n('REQUIRED_FIELD_EMPTY'));return false;}
+$.getScript(getParams('CHECK'),true);});samo.showResultCheck=function(msg,error,note){$result.html('');$result.removeClass('error')
+if(error){$result.addClass('error');}
+$result.html(msg);if(note){$result.append('<span class="ruleNote">'+note+'</span>');}};function clearResult(){samo.showResultCheck('');}
+function getParams(action){var useGET=arguments[1]||false;var result={};result.samo_action=action;_controls.each(function(){var name=this.name||$(this).attr('name');var value=$.controlValue(this,useGET);if(name&&value&&value!==0)
+result[name]=value;});return _ROOT_URL+$.param(result);}
+if(DOLOAD){$check.click();}};$(document).ready(samo.check_passport);})(samo.jQuery);

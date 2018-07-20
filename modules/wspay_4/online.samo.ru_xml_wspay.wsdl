@@ -1,0 +1,318 @@
+<?xml version="1.0"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://online.samo.ru/xml/wspay" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:ns="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:ns1="http://www.w3.org/2000/09/xmldsig#" name="WSPAY" targetNamespace="http://online.samo.ru/xml/wspay">
+    <wsdl:types>
+        <xsd:schema xmlns:tns="http://online.samo.ru/xml/wspay" targetNamespace="http://online.samo.ru/xml/wspay">
+            <xsd:import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" schemaLocation="oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
+            <xsd:element name="invoiceDataReq" type="tns:t_invoiceDataReq"/>
+            <xsd:complexType name="t_invoiceDataReq">
+                <xsd:sequence>
+                    <xsd:element name="INumber" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="invoiceDataRes" type="tns:t_invoiceDataRes"/>
+            <xsd:complexType name="t_invoiceDataRes">
+                <xsd:sequence>
+                    <xsd:element name="invoiceData" type="tns:t_invoiceDataAll" minOccurs="1" maxOccurs="1"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="invoiceConfirmReq" type="tns:t_invoiceConfirmReq"/>
+            <xsd:complexType name="t_invoiceConfirmReq">
+                <xsd:complexContent>
+                    <xsd:extension base="tns:t_invoiceDataReq">
+                        <xsd:sequence>
+                            <xsd:element name="Operation" type="xsd:int" minOccurs="0" maxOccurs="1"/>
+                        </xsd:sequence>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:element name="invoiceConfirmRes" type="tns:t_invoiceConfirmRes"/>
+            <xsd:complexType name="t_invoiceConfirmRes">
+                <xsd:complexContent>
+                    <xsd:extension base="tns:t_invoiceDataRes"/>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:complexType name="t_invoiceDataAll">
+                <xsd:complexContent>
+                    <xsd:extension base="tns:t_invoiceDataBase">
+                        <xsd:all>
+                            <xsd:element name="reservationData" type="tns:t_reservationData" minOccurs="1" maxOccurs="1"/>
+                        </xsd:all>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:complexType name="t_invoiceDataBase">
+                <xsd:attribute name="Id" type="xsd:int" use="required"/>
+                <xsd:attribute name="INumber" type="xsd:string" use="required"/>
+                <xsd:attribute name="IDate" type="xsd:date" use="required"/>
+                <xsd:attribute name="Payer" type="xsd:string" use="required"/>
+                <xsd:attribute name="PaspSer" type="xsd:string" use="optional"/>
+                <xsd:attribute name="PaspNumber" type="xsd:string" use="optional"/>
+                <xsd:attribute name="PaspWhen" type="xsd:date" use="optional"/>
+                <xsd:attribute name="PaspWhere" type="xsd:string" use="optional"/>
+                <xsd:attribute name="PaspCodeOrg" type="xsd:string" use="optional"/>
+                <xsd:attribute name="Address" type="xsd:string" use="optional"/>
+                <xsd:attribute name="ResSum" type="xsd:decimal" use="required"/>
+                <xsd:attribute name="ResCurrency" type="xsd:string" use="required"/>
+                <xsd:attribute name="PaySum" type="xsd:decimal" use="required"/>
+                <xsd:attribute name="PayCurrency" type="xsd:string" use="required"/>
+                <xsd:attribute name="ConfirmPay" type="xsd:boolean" use="required"/>
+                <xsd:attribute name="ConfirmDateTime" type="xsd:dateTime" use="optional"/>
+                <xsd:attribute name="Operation" type="xsd:string" use="optional"/>
+                <xsd:attribute name="OwnerINN" type="xsd:string" use="required"/>
+                <xsd:attribute name="TransactionId" type="xsd:string" use="optional"/>
+            </xsd:complexType>
+            <xsd:complexType name="t_reservationData">
+                <xsd:complexContent>
+                    <xsd:extension base="tns:t_reservationDataBase">
+                        <xsd:attribute name="Departure" type="xsd:string" use="required"/>
+                        <xsd:attribute name="Hotel" type="xsd:string" use="required"/>
+                        <xsd:attribute name="Town" type="xsd:string" use="required"/>
+                        <xsd:attribute name="State" type="xsd:string" use="required"/>
+                        <xsd:attribute name="Tourist" type="xsd:string" use="required"/>
+                        <xsd:attribute name="Buyer" type="xsd:string" use="optional"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:complexType name="t_reservationDataBase">
+                <xsd:attribute name="Number" type="xsd:int" use="required"/>
+                <xsd:attribute name="Tour" type="xsd:string" use="required"/>
+                <xsd:attribute name="StartDate" type="xsd:date" use="required"/>
+                <xsd:attribute name="EndDate" type="xsd:date" use="required"/>
+                <xsd:attribute name="Invoice" type="xsd:string" use="optional"/>
+                <xsd:attribute name="InvoiceDate" type="xsd:date" use="optional"/>
+                <xsd:attribute name="OwnerINN" type="xsd:string" use="required"/>
+            </xsd:complexType>
+            <xsd:element name="reservationDataReq" type="tns:t_reservationDataReq"/>
+            <xsd:complexType name="t_reservationDataReq">
+                <xsd:sequence>
+                    <xsd:element name="ReservationNumber" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+                    <xsd:element name="PassportNumber" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element name="PartnerLogin" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element name="PayCurrency" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="reservationDataRes" type="tns:t_reservationDataRes"/>
+            <xsd:complexType name="t_reservationDataRes">
+                <xsd:sequence>
+                    <xsd:element name="reservationData" type="tns:t_reservationDataAll" minOccurs="1" maxOccurs="1"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="t_reservationDataAll">
+                <xsd:complexContent>
+                    <xsd:extension base="tns:t_reservationData">
+                        <xsd:attributeGroup ref="tns:a_reservationDataDebt"/>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:attributeGroup name="a_reservationDataDebt">
+                <xsd:attribute name="ResDebt" type="xsd:decimal" use="required"/>
+                <xsd:attribute name="ResSum" type="xsd:decimal" use="required"/>
+                <xsd:attribute name="ResCurrency" type="xsd:string" use="required"/>
+                <xsd:attribute name="PayDebt" type="xsd:decimal" use="required"/>
+                <xsd:attribute name="PaySum" type="xsd:decimal" use="required"/>
+                <xsd:attribute name="PayCurrency" type="xsd:string" use="required"/>
+            </xsd:attributeGroup>
+            <xsd:element name="reservationPayReq" type="tns:t_reservationPayReq"/>
+            <xsd:complexType name="t_reservationPayReq">
+                <xsd:complexContent>
+                    <xsd:extension base="tns:t_reservationDataReq">
+                        <xsd:sequence>
+                            <xsd:element name="PaySum" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
+                            <xsd:element name="TransactionId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        </xsd:sequence>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:element name="reservationPayRes" type="tns:t_reservationPayRes"/>
+            <xsd:complexType name="t_reservationPayRes">
+                <xsd:complexContent>
+                    <xsd:extension base="tns:t_invoiceDataRes"/>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:element name="reservationDataSimpleReq" type="tns:t_reservationDataSimpleReq"/>
+            <xsd:complexType name="t_reservationDataSimpleReq">
+                <xsd:sequence>
+                    <xsd:element name="ReservationNumber" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="t_reservationDataSimple">
+                <xsd:complexContent>
+                    <xsd:extension base="tns:t_reservationDataBase"/>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:element name="reservationDataSimpleRes" type="tns:t_reservationDataSimpleRes"/>
+            <xsd:complexType name="t_reservationDataSimpleRes">
+                <xsd:sequence>
+                    <xsd:element name="reservationData" type="tns:t_reservationDataSimple" minOccurs="1" maxOccurs="1"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="reservationPaySimpleReq" type="tns:t_reservationPaySimpleReq"/>
+            <xsd:complexType name="t_reservationPaySimpleReq">
+                <xsd:complexContent>
+                    <xsd:extension base="tns:t_reservationDataSimpleReq">
+                        <xsd:sequence>
+                            <xsd:element name="PaySum" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
+                            <xsd:element name="TransactionId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                            <xsd:element name="PayCurrency" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                            <xsd:element name="Inn" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                        </xsd:sequence>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:element name="reservationPaySimpleRes" type="tns:t_reservationPaySimpleRes"/>
+            <xsd:complexType name="t_reservationPaySimpleRes">
+                <xsd:complexContent>
+                    <xsd:extension base="tns:t_invoiceDataSimpleRes"/>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:complexType name="t_invoiceDataSimpleRes">
+                <xsd:sequence>
+                    <xsd:element name="invoiceData" type="tns:t_invoiceDataSimple" minOccurs="1" maxOccurs="1"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="t_invoiceDataSimple">
+                <xsd:complexContent>
+                    <xsd:extension base="tns:t_invoiceDataBase">
+                        <xsd:all>
+                            <xsd:element name="reservationData" type="tns:t_reservationDataBase" minOccurs="1" maxOccurs="1"/>
+                        </xsd:all>
+                    </xsd:extension>
+                </xsd:complexContent>
+            </xsd:complexType>
+        </xsd:schema>
+    </wsdl:types>
+    <message name="invoiceDataRequest">
+        <part name="invoiceDataReq" element="tns:invoiceDataReq"/>
+    </message>
+    <message name="invoiceDataResponse">
+        <part name="invoiceDataRes" element="tns:invoiceDataRes"/>
+    </message>
+    <message name="invoiceConfirmRequest">
+        <part name="invoiceConfirmReq" element="tns:invoiceConfirmReq"/>
+    </message>
+    <message name="invoiceConfirmResponse">
+        <part name="invoiceConfirmRes" element="tns:invoiceConfirmRes"/>
+    </message>
+    <message name="reservationDataRequest">
+        <part name="reservationDataReq" element="tns:reservationDataReq"/>
+    </message>
+    <message name="reservationDataResponse">
+        <part name="reservationDataRes" element="tns:reservationDataRes"/>
+    </message>
+    <message name="reservationPayRequest">
+        <part name="reservationPayReq" element="tns:reservationPayReq"/>
+    </message>
+    <message name="reservationPayResponse">
+        <part name="reservationPayRes" element="tns:reservationPayRes"/>
+    </message>
+    <message name="reservationDataSimpleRequest">
+        <part name="reservationDataSimpleReq" element="tns:reservationDataSimpleReq"/>
+    </message>
+    <message name="reservationDataSimpleResponse">
+        <part name="reservationDataSimpleRes" element="tns:reservationDataSimpleRes"/>
+    </message>
+    <message name="reservationPaySimpleRequest">
+        <part name="reservationPaySimpleReq" element="tns:reservationPaySimpleReq"/>
+    </message>
+    <message name="reservationPaySimpleResponse">
+        <part name="reservationPaySimpleRes" element="tns:reservationPaySimpleRes"/>
+    </message>
+    <message name="security">
+        <part name="Security" element="wsse:Security"/>
+    </message>
+    <portType name="WSPAYPort">
+        <operation name="getInvoiceData">
+            <input message="tns:invoiceDataRequest"/>
+            <output message="tns:invoiceDataResponse"/>
+        </operation>
+        <operation name="confirmInvoice">
+            <input message="tns:invoiceConfirmRequest"/>
+            <output message="tns:invoiceConfirmResponse"/>
+        </operation>
+        <operation name="getReservationData">
+            <input message="tns:reservationDataRequest"/>
+            <output message="tns:reservationDataResponse"/>
+        </operation>
+        <operation name="payReservation">
+            <input message="tns:reservationPayRequest"/>
+            <output message="tns:reservationPayResponse"/>
+        </operation>
+        <operation name="getReservationDataSimple">
+            <input message="tns:reservationDataSimpleRequest"/>
+            <output message="tns:reservationDataSimpleResponse"/>
+        </operation>
+        <operation name="payReservationSimple">
+            <input message="tns:reservationPaySimpleRequest"/>
+            <output message="tns:reservationPaySimpleResponse"/>
+        </operation>
+    </portType>
+    <binding name="WSPAYBinding" type="tns:WSPAYPort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="getInvoiceData">
+            <soap:operation soapAction="http://online.samo.ru/xml/wspay#getInvoiceData"/>
+            <input>
+                <soap:header message="tns:security" part="Security" use="literal"/>
+                <soap:body use="literal" namespace="http://online.samo.ru/xml/wspay"/>
+            </input>
+            <output>
+                <soap:body use="literal" namespace="http://online.samo.ru/xml/wspay"/>
+            </output>
+        </operation>
+        <operation name="confirmInvoice">
+            <soap:operation soapAction="http://online.samo.ru/xml/wspay#confirmInvoice"/>
+            <input>
+                <soap:header message="tns:security" part="Security" use="literal"/>
+                <soap:body use="literal" namespace="http://online.samo.ru/xml/wspay"/>
+            </input>
+            <output>
+                <soap:body use="literal" namespace="http://online.samo.ru/xml/wspay"/>
+            </output>
+        </operation>
+        <operation name="getReservationData">
+            <soap:operation soapAction="http://online.samo.ru/xml/wspay#getReservationData"/>
+            <input>
+                <soap:header message="tns:security" part="Security" use="literal"/>
+                <soap:body use="literal" namespace="http://online.samo.ru/xml/wspay"/>
+            </input>
+            <output>
+                <soap:body use="literal" namespace="http://online.samo.ru/xml/wspay"/>
+            </output>
+        </operation>
+        <operation name="payReservation">
+            <soap:operation soapAction="http://online.samo.ru/xml/wspay#payReservation"/>
+            <input>
+                <soap:header message="tns:security" part="Security" use="literal"/>
+                <soap:body use="literal" namespace="http://online.samo.ru/xml/wspay"/>
+            </input>
+            <output>
+                <soap:body use="literal" namespace="http://online.samo.ru/xml/wspay"/>
+            </output>
+        </operation>
+        <operation name="getReservationDataSimple">
+            <soap:operation soapAction="http://online.samo.ru/xml/wspay#getReservationDataSimple"/>
+            <input>
+                <soap:header message="tns:security" part="Security" use="literal"/>
+                <soap:body use="literal" namespace="http://online.samo.ru/xml/wspay"/>
+            </input>
+            <output>
+                <soap:body use="literal" namespace="http://online.samo.ru/xml/wspay"/>
+            </output>
+        </operation>
+        <operation name="payReservationSimple">
+            <soap:operation soapAction="http://online.samo.ru/xml/wspay#payReservationSimple"/>
+            <input>
+                <soap:header message="tns:security" part="Security" use="literal"/>
+                <soap:body use="literal" namespace="http://online.samo.ru/xml/wspay"/>
+            </input>
+            <output>
+                <soap:body use="literal" namespace="http://online.samo.ru/xml/wspay"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="WSPAYService">
+        <documentation/>
+        <port name="WSPAYPort" binding="tns:WSPAYBinding">
+            <soap:address location="${onlineurl}modules/wspay_4/server.php"/>
+        </port>
+    </service>
+</wsdl:definitions>

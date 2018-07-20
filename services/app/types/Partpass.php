@@ -1,0 +1,2 @@
+<?php
+ class Partpass extends BaseType { public $inc; public $partner; public $alias; public $psw; public $partnergroup = -2147483647; public $administrator = 0; public $fullname; public $occupation; public $male; public $born; public $phones; public $faxes; public $email; public $note; public $ddate; public $cdate; public $ldate; public $internet = 1; public $mode; public $dontshowall; public $online_access = 1; public $online_deleted = 0; public $id; public $deposit = 0; public $oinc; public $phpunit_test; public $login_failures; } 

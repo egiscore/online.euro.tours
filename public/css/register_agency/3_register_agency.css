@@ -1,0 +1,24 @@
+#register_agency {
+    margin: auto !important;
+    width: 64em;
+}
+
+#register_agency .std {
+    width: 60%;
+}
+
+#register_agency label.required, #register_agency .register_by_inn {
+    font-weight: bold;
+}
+
+#register_agency div.label {
+    margin-top: -15px;
+}
+
+#register_agency .left_column {
+    width: 170px;
+}
+
+#register_agency .register_by_inn {
+    text-transform: capitalize;
+}

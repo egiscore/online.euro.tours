@@ -1,0 +1,258 @@
+<?php
+$pdf = new tFPDF();
+$pdf->AddPage();
+$pdf->AddFont('DejaVu_times','','DejaVuSerif.ttf',true);
+
+$y = 15;
+$x = 10;
+$fsz1 = 14;
+$h1 = 5;
+$fsz2 = 10;
+$h2 = 3;
+$fsz3 = 8;
+$fsz4 = 6;
+$h3 = 2;
+
+$pdf->SetFillColor(255, 255, 255);
+$pdf->SetXY($x,0);
+
+$pdf->SetFont('DejaVu_times','',$fsz3);
+
+$w1 = 20;
+$w2 = 50;
+
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h1, 'DATE:', 1, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h1, $fields['DatePlace']['Value'], 1, 'L');
+
+$w1 = 70;
+$w2 = 120;
+
+$y = $y + $h1*3;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, 'GUEST DETAILS', 0, 'L');
+
+$y = $y + $h2;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h1, 'FIRST NAME (Mr. / Ms. / Miss):', 1, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h1, $fields['FirstLName']['Value'], 1, 'L');
+
+$y = $y + $h1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h1, 'FAMILY NAME:', 1, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h1, $fields['LastLName']['Value'], 1, 'L');
+
+$y = $y + $h1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h1, 'HUSBAND NAME:', 1, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h1, isset($fields['HusbandName']['Value']) ? $fields['HusbandName']['Value'] : '', 1, 'L');
+
+$y = $y + $h1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h1, 'FATHER’S NAME:', 1, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h1, isset($fields['FatherName']['Value']) ? $fields['FatherName']['Value'] : '', 1, 'L');
+
+$y = $y + $h1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h1, 'MOTHER’S NAME:', 1, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h1, isset($fields['MotherName']['Value']) ? $fields['MotherName']['Value'] : '', 1, 'L');
+
+$y = $y + $h1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h1, 'PLACE OF BIRTH:', 1, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h1, isset($fields['BirthPlace']['Value']) ? $fields['BirthPlace']['Value'] : '', 1, 'L');
+
+$y = $y + $h1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h1, 'NATIONALITY:', 1, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h1, $fields['NATIONALITY']['Value'], 1, 'L');
+
+$y = $y + $h1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h1, 'PROFESSION:', 1, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h1, (isset($fields['Occupation_Text']['Value']) ? $fields['Occupation_Text']['Value'] : ''), 1, 'L');
+$y = $y + $h1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h1, 'DATE OF BIRTH:', 1, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h1, ((isset($fields['BornDate']['Value']) && $fields['BornDate']['Value'] != '') ? date('d-m-Y',$fields['BornDate']['Value']) : ''), 1, 'L');
+
+$y = $y + $h1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h1, 'PASSPORT NO:', 1, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h1, isset($fields['Passport']['Value']) ? $fields['Passport']['Value'] : '', 1, 'L');
+
+$y = $y + $h1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h1, 'PASSPORT TYPE:', 1, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h1, 'NORMAL', 1, 'L');
+
+$y = $y + $h1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h1, 'DATE OF ISSUE:', 1, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h1, ((isset($fields['PGivenDate']['Value']) && $fields['PGivenDate']['Value'] != '') ? date('d-m-Y',$fields['PGivenDate']['Value']) : ''), 1, 'L');
+
+$y = $y + $h1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h1, 'DATE OF EXPIRY:', 1, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h1, ((isset($fields['PValid']['Value']) && $fields['PValid']['Value'] != '') ? date('d-m-Y',$fields['PValid']['Value']) : ''), 1, 'L');
+
+
+$y = $y + $h1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h1, 'PLACE OF ISSUE:', 1, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h1, (isset($fields['PassportIssuedBy']['Value']) ? $fields['PassportIssuedBy']['Value'] : ''), 1, 'L');
+
+$y = $y + $h1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h1, 'ADDRESS:'.PHP_EOL.' ', 1, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h1, PHP_EOL.' ', 1, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h1, (isset($fields['Address']['Value']) ? $fields['Address']['Value'] : ''), 0, 'L');
+
+$y = $y + $h1*2;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h1, 'ARRIVAL AIRPORT:', 1, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h1, 'DUBAI', 1, 'L');
+
+$y = $y + 2*$h1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, 'ACCOMPANIED BY (CHILD/DOB)', 0, 'L');
+
+$y = $y + $h2;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h1, 'NAME:', 1, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h1, (isset($fields['ChildName1']['Value']) ? $fields['ChildName1']['Value'] : ''), 1, 'L');
+
+$y = $y + $h1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h1, 'DATE OF BIRTH:', 1, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h1, (isset($fields['ChildBorn1']['Value']) ? $fields['ChildBorn1']['Value'] : ''), 1, 'L');
+
+$y = $y + $h1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h1, 'PLACE OF BIRTH:', 1, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h1, (isset($fields['ChildBirthPlace1']['Value']) ? $fields['ChildBirthPlace1']['Value'] : ''), 1, 'L');
+
+$y = $y + $h1+1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h1, 'NAME:', 1, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h1, (isset($fields['ChildName2']['Value']) ? $fields['ChildName2']['Value'] : ''), 1, 'L');
+
+$y = $y + $h1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h1, 'DATE OF BIRTH:', 1, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h1, (isset($fields['ChildBorn2']['Value']) ? $fields['ChildBorn2']['Value'] : ''), 1, 'L');
+
+$y = $y + $h1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h1, 'PLACE OF BIRTH:', 1, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h1, (isset($fields['ChildBirthPlace2']['Value']) ? $fields['ChildBirthPlace2']['Value'] : ''), 1, 'L');
+
+$w1 = 35;
+$w2 = 20;
+$w3 = 25;
+$w4 = 35;
+$w5 = 30;
+$w6 = 45;
+$y = $y + 2*$h1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1+$w2, $h2, 'FLIGHT DETAILS', 0, 'L');
+
+$y = $y + $h2;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h1, 'ARRIVAL DATE:', 1, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h1, ((isset($fields['ArrivalInfo']['Value']['datebeg']) && $fields['ArrivalInfo']['Value']['datebeg'] != '') ? date('d-m-Y', $fields['ArrivalInfo']['Value']['datebeg']) : ''), 1, 'L');
+$pdf->SetXY($x+$w1+$w2,$y);
+$pdf->MultiCell($w3, $h1, 'FLIGHT NO:', 1, 'L');
+$pdf->SetXY($x+$w1+$w2+$w3,$y);
+$pdf->MultiCell($w4, $h1, (isset($fields['ArrivalInfo']['Value']['FreightLName']) ? $fields['ArrivalInfo']['Value']['FreightLName'] : ''), 1, 'L');
+$pdf->SetXY($x+$w1+$w2+$w3+$w4,$y);
+$pdf->MultiCell($w5, $h1, 'ARRIVAL FROM:', 1, 'L');
+$pdf->SetXY($x+$w1+$w2+$w3+$w4+$w5,$y);
+$pdf->MultiCell($w6, $h1, (isset($fields['ArrivalInfo']['Value']['TownSrcLName']) ? $fields['ArrivalInfo']['Value']['TownSrcLName'] : ''), 1, 'L');
+
+$y = $y + $h1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h1, 'DEPARTURE DATE:', 1, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h1, ((isset($fields['DepartureInfo']['Value']['datebeg']) && $fields['DepartureInfo']['Value']['datebeg'] != '') ? date('d-m-Y', $fields['DepartureInfo']['Value']['datebeg']) : ''), 1, 'L');
+$pdf->SetXY($x+$w1+$w2,$y);
+$pdf->MultiCell($w3, $h1, 'FLIGHT NO:', 1, 'L');
+$pdf->SetXY($x+$w1+$w2+$w3,$y);
+$pdf->MultiCell($w4, $h1, (isset($fields['DepartureInfo']['Value']['FreightLName']) ? $fields['DepartureInfo']['Value']['FreightLName'] : ''), 1, 'L');
+$pdf->SetXY($x+$w1+$w2+$w3+$w4,$y);
+$pdf->MultiCell($w5, $h1, 'DEPARTURE TO:', 1, 'L');
+$pdf->SetXY($x+$w1+$w2+$w3+$w4+$w5,$y);
+$pdf->MultiCell($w6, $h1, (isset($fields['DepartureInfo']['Value']['TownSrcLName']) ? $fields['DepartureInfo']['Value']['TownSrcLName'] : ''), 1, 'L');
+
+$w1 = 95;
+$w2 = 95;
+$y = $y + 2*$h1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1+$w2, $h2, '', 0, 'C');
+
+$y = $y + 2*$h2;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1+$w2, $h2, '* COMPANYS USE ONLY', 0, 'L');
+
+$y = $y + $h2;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h1, 'APPLICATION NO:', 1, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h1, 'AGENT:', 1, 'L');
+
+$y = $y + $h1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h1, 'POSTED DATE:', 1, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h1, 'REF NO:', 1, 'L');
+
+$y = $y + $h1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h1, 'SIGNATURE', 1, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h1, 'SIGNATURE', 1, 'L');
+
+$w1 = 60;
+$w2 = 60;
+$w3 = 70;
+$y = $y + 2*$h1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h1, 'ACCOUNTING USE ONLY', 1, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h1, 'VZA NO:', 1, 'L');
+$pdf->SetXY($x+$w1+$w2,$y);
+$pdf->MultiCell($w3, $h1, 'SIGNATURE', 1, 'L');
+
+$w1 = 95;
+$w2 = 95;
+$y = $y + 5*$h1;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h1, 'SIGNATURE:', 0, 'L');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h1, 'Date: '.$fields['DatePlace']['Value'], 0, 'R');
+?>

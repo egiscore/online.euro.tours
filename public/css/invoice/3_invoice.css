@@ -1,0 +1,32 @@
+body {text-align: center;}
+strong {
+    font-weight:bold;
+}
+em {
+    font-style:italic;
+}
+div#resultset {
+    margin-top: 15px;
+    width: 640px;
+    margin: auto;
+    text-align: left;
+}
+#kupli_prodaji_table {
+    font-size: 12px;
+    width: 100%;
+}
+
+#kupli_prodaji_table td{
+    padding: 3px;
+}
+.sign_table {
+    font-size: 12px;
+    width: 100%;
+}
+@media print {
+}
+PRE.P{
+    margin:0;
+    text-align:left;
+}
+

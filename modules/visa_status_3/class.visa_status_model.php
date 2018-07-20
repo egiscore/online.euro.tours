@@ -1,0 +1,2 @@
+<?php
+ class Visa_Status_Model extends Samo_Claim { protected $auth_required = array('agency', 'person'); public function visa_status() { $people = Samo_Request::intval('PEOPLE'); if ($people) { $sql = $this->db->formatExec('<OFFICEDB>.dbo.up_WEB_3_visa_status', ['People' => $people]); return $this->db->fetchRow($sql); } return false; } public function get_template() { $result = _ROOT . '/data/visa_status/template.tpl'; if (!file_exists($result)) { $result = _ROOT . '/templates/visa_status/install.tpl'; } return $result; } } 

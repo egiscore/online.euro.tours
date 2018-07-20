@@ -1,0 +1,2 @@
+<?php
+ class OnlinePaymentReturn extends BaseType { public $inc; public $rs; public $bik; public $recipient_name; public $summa; public $currency; public $currencyVal; public $claim_from; public $claim_to; public $payment; public $external_document; public $doctype; public $doc_loaded; public $document_status; public $status_date; public $status_note; public function transform($param = false) { if ($param && is_array($param)) { $this->currency = $param[$this->currency]; } $this->status_date = $this->status_date->format(); } } 

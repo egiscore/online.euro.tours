@@ -1,0 +1,6 @@
+
+(function($){samo.edit_tourist=function(){var $module_container=$('#edit_tourist');samo.tourist_helpers($module_container);$module_container.find('.checkForm').unbind("click").bind("click",function(e){if(!check_fields()){e.stopPropagation();e.preventDefault();}});$module_container.find('form').bind('submit',function(e){e.stopPropagation();e.preventDefault();if(check_fields()){var action=($module_container.data('layout'))?this.action+'&is_layout=1':this.action;$.post(action,$(this).serialize(),null,'script');}
+return false;});function check_fields(){var is_ok=true;samo.field.clear_errors($module_container);$module_container.find('.required').not('label').each(function(){if(!$(this).val().length){is_ok=samo.field.error(samo.i18n('REQUIRED_FIELD_EMPTY'),this);return false;}});if(is_ok){$module_container.find('.date').each(function(){if(is_ok&&!$.valid_date(this)){is_ok=false;return false;}});}
+return is_ok;}
+check_fields();}
+if($('#edit_tourist').data('layout')){$(document).ready(samo.edit_tourist);}})(samo.jQuery);

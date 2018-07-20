@@ -1,0 +1,2 @@
+<?php
+ use Phalcon\Mvc\Controller; class ErrorsController extends Controller { public function show404Action($message = 'Entity not found') { $this->view->disable(); $this->response->setStatusCode(404); $this->response->setJsonContent(['error' => $message])->send(); } public function show401Action() { $this->view->disable(); } public function show500Action($message = 'Application return error') { $this->view->disable(); $this->response->setStatusCode(500); $this->response->setJsonContent(['error' => $message])->send(); } } 

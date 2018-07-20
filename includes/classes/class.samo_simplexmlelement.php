@@ -1,0 +1,2 @@
+<?php
+ class Samo_SimpleXMLElement extends Andr_Xml { public function addStringAttribute($name, $value, $namespace = null) { if ($value) { if (!preg_match("/^[a-zA-Z0-9]+$/", $value)) { $value = Samo_String::set($value)->trim()->utf8(); } return $this->addAttribute($name, $value, $namespace); } } public function addAttribute($name, $value = null, $namespace = null) { if ('null' !== $value && !$value instanceof NullDateTime) { if ($value instanceof Samo_Datetime) { $value = $value->format('xml'); } parent::addAttribute($name, $value, $namespace); } return $this; } } 

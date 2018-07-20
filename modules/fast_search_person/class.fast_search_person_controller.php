@@ -1,0 +1,2 @@
+<?php
+ class Fast_Search_Person_Controller extends Fast_Search_Controller { public function default_action() { try { $routes = Samo_Registry::get('routes'); $routes['fast_search']['url'] = $routes['fast_search_person']['url']; $routes['search_tour']['url'] = $routes['search_tour_person']['url']; Samo_Registry::set('routes', $routes); parent::default_action(); } catch (Bron_Exception $e) { $this->view->error($e->getMessage()); } } } 

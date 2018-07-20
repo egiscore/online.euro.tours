@@ -1,0 +1,2 @@
+<?php
+function smarty_modifier_date_format($timestamp, $format = '', $default_date = '') { if (empty($format)) { $format = 'date'; } else { $format = strip_tags(str_replace(array('%d', '%m', '%Y', '%y', '%H', '%M', '%F', '&nbsp;'), array('d', 'm', 'Y', 'y', 'H', 'i', 'f', '&#160;'), $format)); } if (!$timestamp instanceof Samo_Datetime) { try { $timestamp = Samo_Datetime::parse($timestamp); } catch (Samo_Exception $e) { $timestamp = Samo_Datetime::null(); } } return $timestamp->format($format); } 

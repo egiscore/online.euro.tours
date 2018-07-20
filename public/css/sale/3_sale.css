@@ -1,0 +1,38 @@
+#sale .res {
+    margin-top: 10px;
+    width: 100%;
+}
+#sale a.icq {
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+}
+
+#sale a.mail,  #sale a.www {
+    text-decoration: none;
+    color: green;
+    font-weight: bold;
+}
+
+#sale .panel {
+    text-align: left;
+}
+
+#sale .resultset {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#sale .res .label {
+    width: 100px;
+}
+
+
+.partner-info table.res tbody tr:nth-child(odd) td {
+    background-color: #eee;
+}
+
+#sale #map_canvas {
+    width: auto;
+    height: 400px;
+}

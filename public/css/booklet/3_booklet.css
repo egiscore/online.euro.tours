@@ -1,0 +1,55 @@
+@import url("../print.css");
+table.booklet, table.booklet td, table.booklet th  {    
+    border: 1px solid #6589BE;    
+}
+
+table.booklet {
+    border-collapse: collapse;
+    width: 640px;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+table.booklet td, table.booklet th  {
+    padding: 4px;
+    font-size: 9px;    
+}
+
+table.booklet thead th  {
+    text-align: center;
+    font-weight: bold;
+    font-size: 10px;
+}
+
+table.booklet td.o_pcount {
+    width: 40px;
+    text-align: center;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-weight: bold !important;
+}
+
+h2 {
+    font-size: 14px;
+}
+
+h3 {
+    font-size: 13px;
+}
+
+#resultset {
+    width: 640px;
+    margin: auto;
+    text-align: left;
+}
+#resultset  p {
+    text-indent: 15px;
+}
+#buttons {
+    text-align: center;
+}
+
+body {
+    text-align: center;
+}

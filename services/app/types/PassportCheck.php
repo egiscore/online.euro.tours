@@ -1,0 +1,2 @@
+<?php
+ use Samo\Datetime; class PassportCheck extends BaseType { public $isok; public $valid_date; public $rule_note; public $allow; public function transform() { $this->isOk = $this->isok; $this->visaRequired = $this->allow ? 1 : 0; $this->allow = ($this->isok && $this->allow < 2) ? 1 : 0; $this->validDate = $this->valid_date; $this->ruleNote = $this->rule_note; unset($this->valid_date, $this->rule_note, $this->isok); } } 

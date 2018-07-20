@@ -1,0 +1,2 @@
+<?php
+ use Phalcon\Exception as Ex; use Samo\Config\Settings; class ResultManager { protected $settings; public function __construct(Settings $settings) { $this->settings = $settings; } public function usort(&$array, $name) { if (is_array($array)) { if (count($array) > 1) { $langNameField = $this->settings->getLangNameField(); usort( $array, function ($a, $b) use ($name, $langNameField) { return strnatcmp($a[$name . $langNameField], $b[$name . $langNameField]); } ); } } else { throw new Ex('As an argument, an array is expected in ResultManager::usort'); } } } 

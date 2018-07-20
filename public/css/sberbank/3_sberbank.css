@@ -1,0 +1,47 @@
+
+.sberbank_ok_result {
+    color: #76A84F;
+}
+
+.sberbank_error_result {
+    color: brown;
+}
+
+body, html {
+    font-family: Tahoma, Arial;
+    padding: 0px;
+    margin: 0px;
+}
+
+.sberbank_line {
+    background-color: #76A84F;
+    height: 5px;
+    font-size: 1px;
+    padding: 0px !important;
+}
+
+.sberbank_header {
+    font-size: 20px;
+    color: #76A84F;
+    font-weight: bold;
+    height: 40px;
+    padding: 20px 20px 20px 50px;
+    text-shadow: 1px 1px 1px #3E562A;
+}
+
+.sberbank_content {
+    background-color: #F6F6F6;
+    font-weight: bold;
+    padding-top: 30px;
+    text-align: center;
+    vertical-align: top;
+}
+
+table {
+    border-collapse: collapse;
+    border: none;
+}
+
+table td {
+    padding: 10px;
+}

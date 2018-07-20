@@ -1,0 +1,1 @@
+{extends file="../search_tour/stats.tpl"}

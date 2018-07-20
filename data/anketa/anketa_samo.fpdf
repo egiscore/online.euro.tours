@@ -1,0 +1,130 @@
+<?php
+function get_text_from_combobox($combobox, $inc){
+    $tmp = '';
+    foreach($combobox as $prof){
+        if($prof['Inc'] == $inc){
+            $tmp = $prof['Name'];
+            break;
+        }
+    }
+    return $tmp;
+}
+
+$pdf = new tFPDF();
+$pdf->AddPage();
+$pdf->AddFont('DejaVu_times','','DejaVuSerif.ttf',true);
+
+$y = 15;
+$x = 5;
+$fsz1 = 14;
+$h1 = 5;
+$fsz2 = 10;
+$h2 = 3;
+$fsz3 = 8;
+$fsz4 = 6;
+$h3 = 2;
+
+$pdf->SetFont('DejaVu_times','',$fsz1);
+$pdf->SetFillColor(255, 255, 255);
+$pdf->SetXY($x,$y);
+$w1 = 30;
+$w2 = 140;
+$w3 = 30;
+$pdf->MultiCell($w1, $h2, PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.' ', 1, 'L');
+//$pdf->Image(_ROOT.'data/hedit/Image/shengen.jpg',$x+2,$y+10,25,15,'');
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h2, PHP_EOL.PHP_EOL.'Бесплатная тестовая анкета'.PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.' ', 1, 'C');
+$pdf->SetXY($x+$w1+$w2,$y);
+$pdf->MultiCell($w3, $h2, PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.'FOTO'.PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.' ', 1, 'C');
+if(isset($photo_url) && !empty($photo_url)){
+    $pdf->Image(_ROOT.$photo_url,$x+$w1+$w2+3,$y+1, 20+3);
+}
+
+$pdf->SetFont('DejaVu_times','',$fsz2);
+$pdf->SetXY($x+$w1,$y);
+$pdf->MultiCell($w2, $h2, PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.''.PHP_EOL.'Бесплатная анкета', 0, 'C');
+
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$y = $y + $h2*12;
+
+$w1 = 200;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, 'Фамилия'.PHP_EOL.' ', 1, 'L');
+$pdf->SetFont('DejaVu_times','',$fsz3+2);
+$pdf->SetXY($x+30,$y+2);
+$pdf->MultiCell($w1, $h2, $fields['LastLName']['Value'], 0, 'L');
+
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$y = $y + $h2*2;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, 'Имя / имена'.PHP_EOL.' ', 1, 'L');
+$pdf->SetFont('DejaVu_times','',$fsz3+2);
+$pdf->SetXY($x+30,$y+2);
+$pdf->MultiCell($w1, $h2, $fields['FirstLName']['Value'], 0, 'L');
+
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$y = $y + $h2*2;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, 'Дата рождения (день - месяц - год)'.PHP_EOL.PHP_EOL.' ', 1, 'L');
+$pdf->SetFont('DejaVu_times','',$fsz3+2);
+$pdf->SetXY($x,$y+2);
+$pdf->MultiCell($w1, $h2, '                                         '.date('d-m-Y',$fields['BornDate']['Value']), 0, 'L');
+
+$y = $y + $h2*3;
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, 'Гражданство в настоящее время'.PHP_EOL.PHP_EOL.' ', 1, 'L');
+$pdf->SetFont('DejaVu_times','',$fsz3+2);
+$pdf->SetXY($x,$y);
+//$pdf->MultiCell($w1, $h2, PHP_EOL.'     '.$fields['Citizenship']['Value'], 0, 'L');
+
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$y = $y + $h2*3;
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, 'Фамилия при рождении (предыдущая / -ие фамилия / -и) (х)'.PHP_EOL.' ', 1, 'L');
+$pdf->SetFont('DejaVu_times','',$fsz3+2);
+$pdf->SetXY($x+75,$y+2);
+$pdf->MultiCell($w1, $h2, $fields['BirthSurName']['Value'], 0, 'L');
+
+$y = $y + $h2*2;
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, 'Место рождения'.PHP_EOL.PHP_EOL.PHP_EOL.'Страна рождения'.PHP_EOL.PHP_EOL.' ', 1, 'L');
+$pdf->SetFont('DejaVu_times','',$fsz3+2);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, PHP_EOL.$fields['BirthPlace']['Value'].PHP_EOL.PHP_EOL.PHP_EOL.get_text_from_combobox($fields['BirthCountry']['Variants'], $fields['BirthCountry']['Value']), 0, 'L');
+
+$y = $y + $h2*6;
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, 'Пол        □ Мужской          □ Женский', 1, 'L');
+$pdf->SetFont('DejaVu_times','',$fsz3+2);
+$pdf->SetXY($x,$y);
+if($fields['sex']['Value'] == 1){
+    $pdf->MultiCell($w1, $h2, '         x', 0, 'L');
+}else{
+    $pdf->MultiCell($w1, $h2, '                          x', 0, 'L');
+}
+
+$y = $y + $h2;
+$pdf->SetFont('DejaVu_times','',$fsz4);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, 'Семейное положение'.PHP_EOL.'         □ Холост / не замужем                      □ Женат / замужем                        □ не проживает с супругом'.PHP_EOL.'         □ Разведен/-а                           □ Вдовец / вдова                         □ Иное (уточнить)', 1, 'L');
+$pdf->SetFont('DejaVu_times','',$fsz3+2);
+$dx = 0;
+$dy = 0;
+switch ($fields['MaritalStatus']['Value']){
+    case 0: break;
+    case 1: $dx = 41; break;
+    case 2: $dx = 80; break;
+    case 3: $dy = 3; break;
+    case 4: $dx = 34; $dy = 3; break;
+}
+$pdf->SetXY($x+$dx,$y+$dy);
+$pdf->MultiCell($w1, $h2, PHP_EOL.'     x', 0, 'L');
+
+$y = $y + $h2*4;
+$pdf->SetFont('DejaVu_times','',$fsz3+2);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell($w1, $h2, PHP_EOL.PHP_EOL.PHP_EOL.'И другие поля из анкеты и из туриста'.PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.' ', 1, 'C');
+?>

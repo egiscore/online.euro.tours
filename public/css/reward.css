@@ -1,0 +1,25 @@
+#invoice_reward  fieldset {
+    margin: auto;
+}
+
+#invoice_reward  fieldset div.row {
+    clear: both;
+    margin-bottom: 4px;
+    text-align: left;
+}
+
+#invoice_reward  fieldset div.row label {
+    width: 65%;
+    margin-right: 1.6%;
+    margin-right: "10px";
+}
+
+#invoice_reward  fieldset div.row input{
+    width: 23%;
+    width: "21%";
+}
+
+#invoice_reward  fieldset div.row label, #invoice_reward  fieldset div.row input, #invoice_reward fieldset div.row span.input {
+    float: left;
+    text-align: left;
+}

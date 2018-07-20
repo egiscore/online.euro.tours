@@ -1,0 +1,27 @@
+span.warn {
+    color: red;
+    font-weight: bold;
+}
+.samo_container table.res {
+    width: 97%;
+}
+.check_c {
+    max-height: 400px;
+    overflow: auto;
+}
+#check_confirm {
+    text-align: center;
+}
+#check_confirm .container {
+    width: 420px;
+    white-space: nowrap;
+}
+#check_confirm .frm-input {
+    width: 200px;
+}
+#check_confirm .frm-input.CLAIM {
+    width: 100px;
+}
+#check_confirm .load {
+    margin: 0;
+}

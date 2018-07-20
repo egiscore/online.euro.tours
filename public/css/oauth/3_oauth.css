@@ -1,0 +1,16 @@
+#oauth {
+    width: 800px;
+    margin: auto;
+}
+
+#oauth ul.menu li {
+    display: block;
+    float: left;
+    margin-right: 20px;
+}
+#oauth ul.menu {
+    width: 400px;
+    display: block;
+    margin:  auto;
+    clear: left;
+}

@@ -1,0 +1,2 @@
+<?php
+ setlocale(LC_CTYPE, 'ru_RU.cp1251', 'ru_RU.CP1251', 'rus_RUS', 'ru_RU', 'rus_RUS.CP1251', 'Russian_Russia.1251'); setlocale(LC_NUMERIC, 'en_US', 'en_US.utf-8'); $folder_site = _ROOT; if (!class_exists('Samo_Request', false)) { include_once _ROOT . 'includes/classes/class.samo_url.php'; include_once _ROOT . 'includes/classes/class.samo_request.php'; } $http_site = Samo_Request::scheme() . '://' . Samo_Request::host() . WWWROOT; $ALIAS = ($page = Samo_Request::find('page')) ? strtolower(filter_var(trim($page), FILTER_SANITIZE_STRING)) : 'home'; 

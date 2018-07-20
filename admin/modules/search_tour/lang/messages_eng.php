@@ -1,0 +1,42 @@
+<?php
+
+$language['eng']['adm_search_tour_preview_permitions'] = "Access rights for 'Search tour' module";
+$language['eng']['adm_search_tour_manager'] = "Manager";
+$language['eng']['adm_search_tour_rule'] = "Access";
+$language['eng']['adm_search_tour_only_view'] = "Only view";
+$language['eng']['adm_search_tour_full_permition'] = "Full access";
+
+$language['eng']['adm_search_tour_townfrom'] = "Town from";
+$language['eng']['adm_search_tour_state'] = "State";
+$language['eng']['adm_search_tour_nights_from'] = "Nights from";
+$language['eng']['adm_search_tour_nights_till'] = "Nights till";
+$language['eng']['adm_search_tour_by_default'] = "default";
+$language['eng']['adm_search_tour_min_people'] = "Minimum number of adults";
+$language['eng']['adm_search_tour_max_people'] = "Maximum number of adults";
+$language['eng']['adm_search_tour_min_child'] = "Minimum number of children";
+$language['eng']['adm_search_tour_max_child'] = "Maximum number of children";
+$language['eng']['adm_search_tour_allotment_moment_confirm'] = "Only allotment blocks for moment confirmation";
+$language['eng']['adm_search_tour_places'] = 'Freight available';
+$language['eng']['adm_search_tour_stop_selling'] = 'No stop sales';
+$language['eng']['adm_search_tour_moment_confirm'] = 'Momentary confirmation';
+$language['eng']['adm_search_tour_child_in_bed'] = 'All tourists in their places';
+$language['eng']['adm_search_tour_all_currency'] = 'Show all currency';
+$language['eng']['adm_search_tour_note'] = 'Tour notes';
+$language['eng']['adm_search_tour_adultcount'] = 'Number of adults by default';
+$language['eng']['adm_search_tour_childcount'] = 'Number of children by default';
+$language['eng']['adm_search_tour_force_round'] = 'Rounding prices in the search results';
+$language['eng']['adm_search_tourtype_filter'] = 'Display filter round type';
+$language['eng']['adm_search_programtype_filter'] = 'Display filter by program type';
+$language['eng']['adm_search_incoming_filter'] = 'Display filter for the host side of the tour';
+$language['eng']['adm_search_ufilter'] = 'Display filter "Actions"';
+$language['eng']['adm_config_and groups_and_types'] = 'And groups and types';
+$language['eng']['adm_config_only_group'] = 'Only group';
+$language['eng']['adm_config_only_types'] = 'Only types';
+$language['eng']['adm_config_drop_down_list'] = 'Drop-down list';
+$language['eng']['adm_config_multiple_choise'] = 'Multiple choise';
+$language['eng']['adm_config_show_old_price'] = 'Show old price';
+$language['eng']['adm_config_group_by_hotel'] = 'By default, group search results for a hotel';
+$language['eng']['adm_config_rec_on_page_default'] = "Quantity of displayed prices in 'Prices' module'";
+$language['eng']['adm_search_tour_child_small_ages'] = "Age of the youngest child by default";
+$language['eng']['adm_search_tour_child_middle_ages'] = "Age of the average child by default";
+$language['eng']['adm_search_tour_child_big_ages'] = "Age of the oldest child by default";

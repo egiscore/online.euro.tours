@@ -1,0 +1,2 @@
+<?php
+function smarty_function_hotel_availability($params, &$smarty) { $result = ''; if (isset($params['value']) && '' != $params['value']) { $messages = Samo_Registry::get('messages'); $arr = str_split($params['value']); foreach ($arr as $symbol) { $result .= '<span title="' . $messages['TOUR_SEARCH_PRICE_STATS_HOTEL_MONITOR_' . $symbol] . '" class="hotel_availability helpalt hotel_availability_' . $symbol . '"></span>'; } } return $result; } 

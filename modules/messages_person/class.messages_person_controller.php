@@ -1,0 +1,2 @@
+<?php
+class Messages_Person_Controller extends Messages_Controller { public function construct() { if (isset($_SESSION['samo_auth']['Person']) && 1 == $_SESSION['samo_auth']['Person']) { parent::construct(); $this->view->module('messages'); } else { throw new Samo_Exception('Access Denied', 403); } } } 

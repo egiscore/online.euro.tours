@@ -1,0 +1,136 @@
+#money_back {
+    width: 850px;
+    margin: 0 auto;
+}
+
+#money_back .panel {
+    width: 460px;
+    margin: 0 auto;
+}
+
+#money_back .panel table.res {
+    margin: 0;
+    width: 460px;
+}
+
+#money_back td {
+    padding: 8px;
+}
+
+#money_back input.summ {
+    margin: 0;
+}
+
+#money_back select.cur {
+    width: auto;
+    margin: 0 0 0 -3px;
+    border-radius: 0;
+    padding: 0 2px;
+    font-size: 13px;
+    line-height: initial;
+    height: auto;
+    border-left: none;
+}
+
+#money_back .result {
+    height: 25px;
+}
+
+#money_back .progress-bar {
+    text-align: left;
+    height: 20px;
+    width: 90%;
+    margin: 3px auto 5px;
+    background: white;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#money_back .progress-bar span {
+    display: inline-block;
+    height: 100%;
+    background-color: #777;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset;
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset;
+    -webkit-transition: width .4s ease-in-out;
+    -moz-transition: width .4s ease-in-out;
+    -ms-transition: width .4s ease-in-out;
+    -o-transition: width .4s ease-in-out;
+    transition: width .4s ease-in-out;
+}
+
+#money_back .blue span {
+    background-color: #366383;
+}
+
+#money_back .shine span {
+    position: relative;
+}
+
+#money_back .shine span::after {
+    content: '';
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #fff;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-animation: animate-shine 2s ease-out infinite;
+    -moz-animation: animate-shine 2s ease-out infinite;
+}
+
+@-webkit-keyframes animate-shine {
+    0% {
+        opacity: 0;
+        width: 0;
+    }
+    50% {
+        opacity: .5;
+    }
+    100% {
+        opacity: 0;
+        width: 95%;
+    }
+}
+
+@-moz-keyframes animate-shine {
+    0% {
+        opacity: 0;
+        width: 0;
+    }
+    50% {
+        opacity: .5;
+    }
+    100% {
+        opacity: 0;
+        width: 95%;
+    }
+}
+#money_back .paymentsList tbody tr.transition td{
+    -moz-transition: background 1.5s ease-in-out;
+    -ms-transition: background 1.5s ease-in-out;
+    transition: background 1.5s ease-in-out;
+}
+#money_back .paymentsList tbody tr.highlight td {
+    background-color: InfoBackground;
+    -moz-transition: background 1.0s ease-in-out;
+    -ms-transition: background 1.0s ease-in-out;
+    transition: background 1.0s ease-in-out;
+}
+
+#money_back .download-link, #money_back .paymentsList {
+    display: none;
+}
+
+#money_back .progressTd {
+    width: 175px;
+}

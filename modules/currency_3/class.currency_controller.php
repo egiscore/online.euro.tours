@@ -1,0 +1,2 @@
+<?php
+ class Currency_Controller extends Samo_Controller { protected $is_embedable = true; public function default_action() { $rates = $this->model->todayRates(); $this->view->assign('rates', $rates); parent::default_action(); } public function history() { $history = $this->model->history(); $this->view->assign('history', $history); $first = reset($history); $currencyAlias = $first['currency']; $this->view->popup_template('history.tpl', sprintf($this->messages['CURRENCY_HISTORY_TITLE'], $currencyAlias), 900, 800); } } 

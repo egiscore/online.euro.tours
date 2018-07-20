@@ -1,0 +1,2 @@
+<?php
+ function get_partners($db) { $sql = OFFICE_SQLSERVER . '.' . OFFICEDB . ".dbo.sp_executesql N'select Inc as PartnerInc, Name as " . "PartnerName from Partner where inc > 0 and parttype <> 1 order by PartnerName'"; return $db->fetchAll($sql); } 

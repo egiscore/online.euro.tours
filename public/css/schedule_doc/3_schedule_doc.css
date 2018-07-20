@@ -1,0 +1,13 @@
+#schedule_doc .controls {
+    margin: auto;
+    width:  80%;
+}
+#schedule_doc select {
+    width: 180px;
+}
+#schedule_doc .std {
+    width: auto;
+}
+#schedule_doc .std th {
+    padding-left: 5px;
+}

@@ -1,0 +1,2 @@
+<?php
+ $query = array(); $query['get_module_param'] = "exec ".OFFICE_SQLSERVER . ".".OFFICEDB.".dbo.sp_executesql N'select Inc, Name, LName, Path, File_Include from [dbo].[online_modules] where Alias = '%s' ' "; 

@@ -1,0 +1,85 @@
+.d1 {
+    margin-right: 30px;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.d2 {
+    font-size: 16px;
+    font-weight: bold;
+
+}
+
+.payment_container {
+    width: 100%;
+    margin-bottom: 15px !important;
+}
+
+.payment_container td {
+    border-bottom-style: none !important;
+}
+
+.payment_container button {
+    margin: 5px auto;
+}
+
+.payment_methods {
+    font-size: 18px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+}
+
+.payment_owner {
+    text-align: center;
+}
+
+#div_owner_list {
+    text-align: left;
+    max-height: 400px;
+    overflow: auto;
+}
+
+#pay_variant table {
+    width: 100%;
+}
+
+.owner_name {
+    display: block;
+    font-size: 18px;
+    height: 26px;
+    line-height: 26px;
+    padding: 0 10px;
+}
+
+.samo_container form.pay_variant table {
+    border-collapse: collapse;
+    border: none;
+}
+.samo_container form.pay_variant table td {
+    text-align: right;
+}
+.samo_container form.pay_variant table td.center {
+    text-align: center;
+    padding-top: 10px;
+}
+.samo_container form.pay_variant .frm-input {
+    width: 115px;
+    margin-right: 0;
+}
+
+.samo_container form.pay_variant .acquiring-amount-comment {
+    text-align: right;
+    color: #555;
+    font-size: 0.9em;
+}
+
+#pay_variant .panel.pay_variant {
+    padding: 10px;
+}
+
+#pay_variant .panel.pay_variant.empty {
+    background-color: #FAEBD7;
+    font-size: 15pt;
+    font-weight: bold;
+}

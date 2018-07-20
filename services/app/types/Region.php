@@ -1,0 +1,2 @@
+<?php
+ class Region extends BaseType { public $inc; public $state; public $alias; public $name; public $lname; public $phprefix; public $stamp; public $phpunit_test; public $adate; public $edate; public $author; public $user; } 

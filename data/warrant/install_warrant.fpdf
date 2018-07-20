@@ -1,0 +1,73 @@
+<?php
+$pdf->AddPage();
+$pdf->SetAutoPageBreak(0);
+$pdf->AddFont('font','','courier.php');
+$pdf->AddFont('fontb','','courierb.php');
+
+$y = 15;
+$x = 5;
+$fsz1 = 14;
+$h2 = 6;
+
+$pdf->SetFont('fontb','',$fsz1);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell(200, $h2, 'Доверенность', 0, 'C');
+$pdf->SetFont('font','',$fsz1);
+$pdf->MultiCell(200, $h2, '
+Дата выдачи:
+Доверенность действительна: с              по
+Организация:
+
+ИНН:
+Город:
+Адрес:
+
+Доверенное лицо:
+Паспорт:
+Кем выдан:
+
+Код подразделения:
+Дата выдачи:
+
+'.$warrant['name'].' действуя на основании данной доверенности, может производить оплату туристического продукта, получение и подписание перевозочных и бухгалтерских документов за '.$warrant['PartnerName'].'.
+
+Подпись ____________ ('.$warrant['name'].')
+                      удостоверяем.
+
+
+
+Руководитель организации _____________________ (подпись)
+
+М.П.
+', 0, 'L');
+$pdf->SetFont('fontb','',$fsz1);
+$pdf->SetXY($x,$y);
+$pdf->MultiCell(200, $h2, '
+
+              '.$warrant['DateBeg'].'
+                                '.$warrant['DateBeg'].'       '.$warrant['DateEnd'].'
+               '.$warrant['PartnerName'].'
+', 0, 'L');
+$pdf->SetXY($x,$y);
+$pdf->MultiCell(200, $h2, str_repeat(PHP_EOL, 5).'
+      '.$warrant['PartnerInn'].'
+        '.$warrant['PartnerTown'].'
+        '.$warrant['PartnerAddress'].'
+', 0, 'L');
+$pdf->SetXY($x,$y);
+$pdf->MultiCell(200, $h2, str_repeat(PHP_EOL, 9).'
+                  '.$warrant['name'].'
+           '.$warrant['PSerie'].' №'.$warrant['PNumber'].'
+', 0, 'L');
+$pdf->SetXY($x,$y);
+$pdf->MultiCell(200, $h2, str_repeat(PHP_EOL, 11).'
+             '.$warrant['PWhere'].'
+', 0, 'L');
+$pdf->SetXY($x,$y);
+$pdf->MultiCell(200, $h2, str_repeat(PHP_EOL, 13).'
+                      '.$warrant['PCodeOrg'].'
+               '.$warrant['PWhen'].'
+', 0, 'L');
+
+
+?>

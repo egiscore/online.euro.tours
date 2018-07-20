@@ -1,0 +1,10 @@
+#profile_person.recovery .description, #profile_person.resultset .description {
+    padding: 10px;
+    background-color: InfoBackground;
+    border: solid 1px #cdcdcd;
+    margin: 20px auto;
+}
+
+#profile_person.recovery .description {
+    width: 60em;
+}

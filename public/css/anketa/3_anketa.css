@@ -1,0 +1,192 @@
+#anketa  fieldset {
+    margin: auto;
+}
+#anketa  fieldset div.row {
+    clear: both;
+    margin-bottom: 4px;
+    text-align: left;
+}
+#anketa  fieldset div.row label {
+    height: 18px;
+    margin-right: 1.6%;
+    margin-right: "10px";
+    width: 38%;
+}
+#anketa  fieldset div.row input, #anketa fieldset div.row select {
+    width: 59%;
+    width: "58%";
+}
+#anketa  fieldset div.row label, #anketa fieldset div.row input, #anketa fieldset div.row select, #anketa fieldset div.row span.input {
+    float: left;
+    text-align: left;
+}
+#anketa  div.save {
+    text-align: center;
+}
+#anketa input.date {
+    padding-right: 0;
+    background-image: none;
+    width: 7em;
+}
+#anketa .photo_note{
+    padding-left: 5px;
+}
+#anketa .anketa_rule{
+    text-align: left;
+}
+#anketa .helpalt img{
+    vertical-align: middle;
+}
+
+#anketa .panel td {
+    padding-bottom: 10px !important;
+    vertical-align: top;
+}
+
+#anketa .left_column {width: 300px; padding: 1px !important; line-height: 16px; text-align: left; }
+
+/*
+ * imgAreaSelect style
+ */
+
+.imgareaselect-border1 {
+    background: url(../../pict/crop/border-anim-v.gif) repeat-y left top;
+}
+
+.imgareaselect-border2 {
+    background: url(../../pict/crop/border-anim-h.gif) repeat-x left top;
+}
+
+.imgareaselect-border3 {
+    background: url(../../pict/crop/border-anim-v.gif) repeat-y right top;
+}
+
+.imgareaselect-border4 {
+    background: url(../../pict/crop/border-anim-h.gif) repeat-x left bottom;
+}
+
+.imgareaselect-border1, .imgareaselect-border2,
+.imgareaselect-border3, .imgareaselect-border4 {
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+}
+
+.imgareaselect-handle {
+    background-color: #fff;
+    border: solid 1px #000;
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+}
+
+.imgareaselect-outer {
+    background-color: #000;
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+}
+
+#td_photo .imagearea {
+    border: 1px solid;
+}
+
+.samo_container .td_photo img {
+    border: 1px solid;
+    padding: 3px;
+}
+.samo_container .samo-edtor {
+    margin-right: 20px
+}
+.samo_container .samo-edtor .rotate img {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+}
+.samo_container .samo-edtor .panel {
+    width: 100%;
+    height: 26px;
+    text-align: center;
+}
+.samo_container .samo-edtor .inner-offset {
+    overflow: hidden;
+}
+.samo_container .samo-edtor .inner .rotate, .samo_container .samo-edtor .inner .rotate img {
+    position: relative;
+}
+.samo_container .samo-edtor .area-select {
+    position: absolute;
+}
+.samo_container .samo-edtor .icon, .samo_container .samo-edtor .ctrl  {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.samo_container .samo-edtor .ctrl_rotate {
+    background: url('../../pict/arrow_rotate_clockwise.png') no-repeat transparent;
+    margin-left: -21px;
+    position: relative;
+    right: -22px;
+    cursor: n-resize;
+}
+.samo_container .samo-edtor .container {
+    overflow: hidden;
+}
+.samo_container .samo-edtor-red .container {
+    background: #ffbbbb;
+}
+.samo_container .samo-edtor-red .panel {
+    background: #f17878;
+}
+.samo_container .samo-edtor-red .inner {
+    opacity: 0.8;
+}
+.samo_container .samo-edtor .panel .rotate_left {
+    float: none;
+    background: url('../../pict/shape_rotate_anticlockwise.png') no-repeat transparent;
+}
+.samo_container .samo-edtor .panel .rotate_right {
+    float: none;
+    background: url('../../pict/shape_rotate_clockwise.png') no-repeat transparent;
+}
+.samo_container .samo-edtor .panel .rotate_angle {
+    height: 24px;
+    margin: 2px 5px 0px;
+    width: 40px;
+}
+.samo_container .samo-edtor .panel .rotate_angle input {
+    width: 40px !important;
+    margin: 0;
+}
+.samo_container .samo-edtor .ctrl_zoom-in {
+    background: url('../../pict/zoom_in.png') no-repeat transparent;
+    float: right;
+    right: -24px;
+    top: -42px;
+}
+.samo_container .samo-edtor .ctrl_zoom-out {
+    background: url('../../pict/zoom_out.png') no-repeat transparent;
+    float: right;
+    margin-left: -21px;
+    right: -24px;
+    top: -21px;
+}
+
+.samo_container #td_photo .ctrl_rotate:hover, .samo_container #td_photo .ctrl_rotate.hand, .samo_container #td_photo .ctrl_zoom-in:hover, .samo_container #td_photo .ctrl_zoom-out:hover {
+    opacity: 1;
+}
+
+.samo_container .print-container {
+    width: 200px;
+    margin: 0 auto;
+    line-height: 16px;
+}
+.samo_container span.progressbar {
+    display: inline-block;
+    height: 16px;
+    line-height: 16px;
+}
+#anketa .doc-requirements {
+    margin-top: 10px;
+    font-weight: bold;
+}

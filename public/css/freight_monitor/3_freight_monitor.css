@@ -1,0 +1,159 @@
+.samo_container .controls {
+    width: 920px;
+}
+.samo_container .panel table{
+    width: 100%;
+}
+.samo_container .n1 {
+    width: 30%;
+}
+.samo_container .n2 {
+    width: 70%;
+}
+
+#freight_monitor .panel {
+    width: 400px;
+}
+
+#freight_monitor select {
+    width: 400px;
+}
+
+#freight_monitor .std td {
+    padding: 2px;
+    vertical-align: middle;
+    height: 30px;
+}
+
+#freight_monitor .resultset .std td {
+    line-height: 30px;
+}
+
+#freight_monitor .std td table {
+    margin-left: 5px;
+}
+
+#freight_monitor input.spin-button{
+    width: 75px !important;
+    font-size: inherit;
+}
+
+#freight_monitor .PORTFROMINC{
+}
+
+#freight_monitor .resultset{    
+    margin: auto;
+    margin-top: 1em;
+}
+
+#freight_monitor .resultset table td.splitter, #freight_monitor .resultset table th.splitter {
+    background-color:   silver;
+    border-bottom:  medium none;
+    padding: 0;
+    width:  1px;
+    background-image: none;
+}
+
+#freight_monitor .resultset table td.red {
+    color: red;
+    text-align: center !important;
+}
+
+#freight_monitor .resultset .res td, #freight_monitor .resultset .res th {
+    font-size: 12px;
+    white-space: nowrap;
+}
+#freight_monitor .resultset .res td.flew {
+    opacity: 0.4;
+}
+#freight_monitor .resultset .res td span.flew {
+    background: url(../../pict/freight.gif);
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    float: right;
+    opacity: 0.4;
+}
+
+#freight_monitor div.fr_monitor_lengend {
+    margin-top: 15px;
+    text-align: center;	
+}
+#freight_monitor .noplace, #freight_monitor .yesnoplace, #freight_monitor .yesplace, #freight_monitor .requestplace {
+    white-space: nowrap;
+    text-align: center;
+}
+
+#freight_monitor .noplace {
+    border-bottom: 1px solid #CC5050;
+    width: 60px;
+    font-size: 11px !important;
+}
+#freight_monitor .yesnoplace {
+    border-bottom: 1px solid #aa9527;
+    width: 60px;
+    font-size: 11px !important;
+}
+#freight_monitor .yesplace {
+    border-bottom: 1px solid #4eb443;
+    width: 60px;
+    font-size: 11px !important;
+}
+#freight_monitor .requestplace {
+    border-bottom: 1px solid #666666;
+    width: 60px;
+    font-size: 11px !important;
+}
+
+
+#freight_monitor .w130 {width: 130px;}
+#freight_monitor .w120 {width: 120px;}
+#freight_monitor .w100 {width: 100px;}
+#freight_monitor .w50 {width: 50px;}
+
+#freight_monitor .whitespace {
+    text-align: right;
+    padding-right: 5px;
+    width: 90px;
+}
+
+#freight_monitor .normalspace {
+    text-align: right;
+    padding-right: 5px;
+}
+
+#freight_monitor .controllers {
+    width: 140px;
+    text-align: left;
+    padding: 0 5px !important;
+}
+
+#freight_monitor .normalspace_mini {
+    text-align: right;
+    padding-right: 5px;
+}
+
+#freight_monitor .controllers_mini {
+    text-align: center;
+    padding: 0 5px !important;
+}
+
+#freight_monitor .freight_btn {
+    text-align: center;
+}
+
+#freight_monitor .freight_btn button {
+    width: 142px;
+}
+
+#freight_monitor .date_selected {
+    background-color: #F4CBAA;
+    border-bottom: 1px solid #B7A08D;
+}
+#freight_monitor .date_near {
+    background-color: #F4DFFD;
+}
+
+#freight_monitor .resultset th:nth-child(1) {
+    width: 110px;
+}

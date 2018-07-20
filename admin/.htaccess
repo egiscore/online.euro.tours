@@ -1,0 +1,13 @@
+<IfModule mod_dir.c>
+    DirectoryIndex index.php index.html index.htm
+</IfModule>
+<IfModule mod_php5.c>
+    php_value default_charset "windows-1251"
+    php_flag allow_call_time_pass_reference 1
+    php_value memory_limit -1
+    php_flag magic_quotes_gpc Off
+    php_value display_errors Off
+    php_value error_reporting 0
+    php_value upload_max_filesize 10M
+    php_value post_max_size 10M
+</IfModule>

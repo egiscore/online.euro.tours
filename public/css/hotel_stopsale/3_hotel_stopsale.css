@@ -1,0 +1,14 @@
+#hotel_stopsale {
+    width: 80em;
+}
+.samo_container .resultset{
+    margin: auto;
+}
+
+#hotel_stopsale td.gray {
+    background-color: #eee;
+}
+#hotel_stopsale select{
+    width:270px;
+
+}

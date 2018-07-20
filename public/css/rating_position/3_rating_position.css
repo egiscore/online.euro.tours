@@ -1,0 +1,13 @@
+#rating_position {
+    width: 600px;
+    margin: 0 auto;
+}
+#rating_position .b{
+    font-weight: bold;
+}
+#rating_position .red{
+    color: red;
+}
+#rating_position .panel legend {
+    color: black;
+}

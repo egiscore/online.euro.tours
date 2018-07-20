@@ -1,0 +1,62 @@
+table#currency {
+    width: 200px;
+}
+table#currency thead th {
+    text-align: center;
+}
+table#currency thead th.first {
+    width: 100px;
+}
+
+#currency .rate {
+    cursor: pointer;
+}
+
+#currency thead .rate:after {
+    opacity: 0.3;
+    content: '__';
+    color: transparent;
+    display: inline-block;
+    background-image: url('../../pict/currate.png');
+    background-repeat: no-repeat;
+}
+#currency thead .rate:hover:after {
+    opacity: 1;
+}
+
+#currency .rate-down:before, #currency-history .rate-down:before {
+    content: '\2193';
+    color: red;
+    display: inline-block;
+    font-weight: bold;
+}
+
+#currency .rate-up:before, #currency-history .rate-up:before {
+    content: '\2191';
+    color: green;
+    display: inline-block;
+    font-weight: bold;
+}
+
+#currency-chart {
+    height: 300px;
+    background-image: url('../../pict/preloader.gif');
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+#currency-history-container {
+    vertical-align: top;
+}
+
+#currency-history tr:nth-child(n+12) {
+    display: none;
+}
+
+#currency-history thead th {
+    text-align: center;
+}
+
+#currency-history tbody td:nth-last-child(1) {
+    text-align: right;
+}

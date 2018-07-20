@@ -1,0 +1,2 @@
+<?php
+ function smarty_function_cached_include_php($params, &$smarty) { if (!isset($params['file'])) { throw new Exception('required parameter "file" not set'); } $cacheName = SMARTY_COMPILE_DIR. '/' . md5($params['file']).'.php'; $lifetime = (isset($params['lifetime'])) ? $params['lifetime'] : 3600; $cache = Samo_Registry::get('cache'); if (false === ($result = $cache->get($cacheName))) { $pwd = getcwd(); chdir(_ROOT); ob_start(); include $params['file']; $result = ob_get_clean(); chdir($pwd); $cache->set($cacheName,$result,$lifetime); } return $result; } ?>

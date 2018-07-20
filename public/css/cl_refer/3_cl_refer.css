@@ -1,0 +1,382 @@
+#cl_refer .controls {
+    width: 960px;
+    margin: auto;
+}
+
+#cl_refer .w100 {
+    width: 100px !important;
+}
+
+#cl_refer .cl input {
+    width: 100%;
+}
+
+#cl_refer .cl_refer_result {
+    margin-top: 1em;
+}
+
+#cl_refer td.cl_alink, #cl_refer .block_cancel_claim {
+    line-height: 1.4em;
+    vertical-align: top;
+    border-bottom-width: 0px;
+}
+
+#cl_refer div.toggle_orders {
+    CURSOR: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#cl_refer td.orders {
+    vertical-align: top;
+}
+
+#cl_refer div.orders {
+    display: none;
+}
+
+#cl_refer table.tbl_orders, #cl_refer table.tbl_peoples {
+    width: 100% !important;
+}
+
+#cl_refer table.tbl_orders img {
+    border: 0px;
+}
+
+#cl_refer .resultset {
+    padding: 0 1em;
+}
+
+#cl_refer .PARTNER {
+    width: 55em;
+    margin: auto;
+}
+
+#cl_refer .PARTNER div.title_left {
+    width: 13em;
+}
+
+#cl_refer .PARTNER .TOURINC {
+    width: 40em;
+}
+
+#cl_refer .cl_alink .link, #cl_refer .block_cancel_claim .link {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#cl_refer .cl_alink .link:first-letter {
+    text-transform: uppercase;
+}
+
+#cl_refer td.block_cancel_claim {
+    height: 0px;
+    vertical-align: bottom;
+    border-bottom-width: 1px;
+}
+
+#cl_refer td.block_cancel_claim .cancel_claim {
+    border-top: 1px solid #888;
+    padding: 7px 0 0 0;
+    background: url(../../pict/cross.png) no-repeat 100% 11px;
+}
+
+#cl_refer select.curr {
+    width: 50px;
+}
+
+#cl_refer td.num {
+    font-weight: bold;
+}
+
+#cl_refer td.num a {
+    font-weight: normal;
+    color: red;
+}
+
+#cl_refer .claim {
+    color: #ffffff;
+    font-size: 1.3em;
+    text-decoration: underline;
+}
+
+#cl_refer table.cl_refer_result th, #cl_refer table.cl_refer_result td {
+    white-space: normal;
+    text-align: left;
+}
+
+#e_doc {
+    max-height: 500px;
+    overflow: auto;
+}
+
+#messages th, #messages td {
+    vertical-align: top;
+}
+
+.samo_container table thead.pay_time_limit th {
+    background: #CC3333;
+    background-repeat: repeat-x;
+    background-position: top;
+}
+
+.samo_container table.deposit {
+    width: 65%;
+}
+
+#cl_refer input.FIO {
+    width: 100%;
+}
+
+.samo_container div.partner_info {
+    overflow: auto;
+    height: 490px;
+    padding-right: 6px;
+}
+
+#cl_refer .left_side {
+    padding-top: 8px;
+    vertical-align: top;
+    width: 260px;
+}
+
+#cl_refer .right_side div {
+    margin-left: 10px;
+}
+
+#cl_refer .right_side table, #cl_refer .left_side table {
+    width: 100%;
+}
+
+#cl_refer .line_30 {
+    height: 30px;
+    line-height: 30px;
+    vertical-align: middle;
+}
+
+#cl_refer .right_side {
+    border-left: 1px solid #aaaaaa;
+    padding-left: 10px;
+    vertical-align: top;
+}
+
+#cl_refer .right_side td {
+    padding-left: 10px;
+    height: 30px;
+    vertical-align: middle;
+}
+
+#cl_refer td.label_filter {
+    padding-left: 10px;
+}
+
+.samo_container .controls .cl_refer_btn {
+    text-align: right;
+    padding-bottom: 10px;
+}
+
+.samo_container fieldset div.frm-row strong.frm-value {
+    background: none;
+    line-height: 18px;
+}
+
+.samo_container .partner_info table {
+    width: 100%;
+}
+
+#cl_refer .partnercomment, #cl_refer .claim_banner {
+    padding: 5px;
+}
+
+#cl_refer .num span {
+    display: block;
+}
+
+#cl_refer .num span img {
+    display: none;
+    margin-right: 5px;
+}
+
+#cl_refer .claim-payment-overdue, #cl_refer .timelimit {
+    font-weight: bold;
+    color: red;
+}
+
+.partner_info .left_column {
+    width: 180px;
+}
+
+.samo_container span.paymentschedule {
+    height: auto;
+}
+
+.samo_container table.cl_referer_cost {
+    width: 100%;
+}
+
+.samo_container .cost .title {
+    float: left;
+}
+
+.samo_container .cost p {
+    display: inline-block;
+}
+
+#cl_refer .hotel_note, #cl_refer .freight_note, #cl_refer .service_note {
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+#cl_refer .resultset td.doc_status_1 {
+    font-weight: bold;
+    color: #008000;
+}
+
+#cl_refer .resultset td.doc_status_2 {
+    font-weight: bold;
+}
+
+#cl_refer .cl_paid .claim-status, #cl_refer .cl_penaltypaid .claim-status {
+    color: #008000;
+}
+
+#cl_refer .cl_cancel .claim-status {
+    color: #ff0000;
+}
+
+#cl_refer .cl_partpaid .claim-status {
+    color: #cc9900;
+}
+
+#cancel_claim select.cancel_claim_reason_select {
+    width: 380px;
+}
+
+#cancel_claim {
+    max-height: 500px;
+    overflow: auto;
+}
+
+#E_DOC_TYPE {
+    width: 93%;
+}
+
+#type_note {
+    margin: auto;
+    text-align: justify;
+    width: 97%;
+}
+
+#cl_refer .type_note_x {
+    text-align: justify;
+}
+
+#cl_refer tr.flash td {
+    -webkit-transition: background 1.0s ease-in-out;
+    -moz-transition: background 1.0s ease-in-out;
+    -ms-transition: background 1.0s ease-in-out;
+    transition: background 1.0s ease-in-out;
+}
+
+#cl_refer tr.blink-once td {
+    background-color: InfoBackground !important;
+    -webkit-transition: background 1.5s ease-in-out;
+    -moz-transition: background 1.5s ease-in-out;
+    -ms-transition: background 1.5s ease-in-out;
+    transition: background 1.5s ease-in-out;
+}
+
+.samo_container #cl_refer span.frplacement {
+    display: inline-block;
+    background: url('../../pict/seat.png') no-repeat bottom;
+    width: 16px;
+    height: 19px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.samo_container #cl_refer span.frplacement.pulse {
+    background-image: url('../../pict/seat.empty.png');
+}
+
+.samo_container #e_doc table.res thead th.ids {
+    width: 16px;
+}
+
+.samo_container #e_doc table.res thead th.doccategory {
+    width: 155px;
+}
+
+.samo_container #e_doc table.res thead th.action {
+    width: 120px;
+}
+
+#cl_refer .left {
+    float: left;
+    display: inline-block !important;
+}
+
+#cl_refer .right {
+    float: right;
+    display: inline-block !important;
+}
+
+#cl_refer .spomessage {
+    padding: 4px;
+    margin: 4px 0;
+}
+
+#cl_refer .spomessage .ui-icon {
+    float: left;
+    margin-right: 0.3em;
+}
+
+#cl_refer select.controllers {
+    width: 250px;
+}
+
+.cl_refer ~ #modalContainer .partner_info .chosen-container .chosen-drop {
+    border-bottom: 0;
+    border-top: 1px solid #aaa;
+    top: auto;
+    bottom: 40px;
+}
+
+.cl_refer ~ #modalContainer .partner_info .chosen-container.chosen-with-drop .chosen-single {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+    background-image: none;
+}
+
+.cl_refer ~ #modalContainer .partner_info .chosen-container.chosen-with-drop .chosen-drop {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    box-shadow: none;
+
+    margin-bottom: -16px;
+}
+
+.cl_refer ~ #modalContainer .partner_info .chosenDown .chosen-container .chosen-drop {
+    top: 40px;
+    bottom: auto;
+}
+
+.odd .green {
+    color: darkgreen;
+}
+
+.even .green {
+    color: lightgreen;
+}
+
+.samo_container .frplacement span.icon {
+    background-image: none;
+}

@@ -1,0 +1,44 @@
+h1,h2,h3,h4,h5,h6 {
+    font-weight: bold !important;
+}
+
+h2 {
+    font-size: 14px;
+}
+
+h3 {
+    font-size: 13px;
+}
+
+#resultset {
+    width: 640px;
+    margin: auto;
+    text-align: left;
+}
+
+#resultset  p {
+    text-indent: 15px;
+}
+#buttons {
+    text-align: center;
+}
+
+body {
+    text-align: center;
+}
+
+@media print {
+    #resultset {
+        width: auto;
+    }
+    #resultset * {
+            font-family: Times New Roman !important;   
+            font-size: 20px !important;
+    }
+    #buttons {
+        display: none;
+    }
+}
+.tourist {
+    width: 100%;
+}

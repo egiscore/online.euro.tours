@@ -1,0 +1,9 @@
+'use strict';(function($){samo.sberbank=function(){var $cont=$('#sberbank_cont');var _ROOT_URL=samo.ROUTES.sberbank.url;if(-1!==_ROOT_URL.indexOf('?')){_ROOT_URL+='&';}
+function checkAmount(){var amo=$('input[name=amount]');var val=amo.val();val=parseFloat(val.replace(',','.'));var err=false;if(isNaN(val)||val==0){val=0;err=samo.i18n('NO_CLAIM_PAYMENT');}else{var m=parseFloat(amo.data('max')).toFixed(2);if(val>m){err=samo.i18n('PAYER_AMOUNT_BIG')+' '+m;}
+m=parseFloat(amo.data('min')).toFixed(2);if(val<m){err=samo.i18n('PAYER_AMOUNT_LITTLE')+' '+m;}}
+amo.val(val);if(err){amo.addClass('error');}else{amo.removeClass('error');}
+if(err){amo.errorField(err);}
+return!err?true:false;}
+$cont.find('input[name=amount]').bind('blur',checkAmount);$('#sberbank_submit').bind('click',function(){makePost();return false;}).bind('ajaxStart',function(){$(this).prop('disabled',true);}).bind('ajaxStop',function(){$(this).removeProp('disabled');});function makePost(){if(!checkAmount())return false;var params={};params.samo_action='GET_POST_DATA';params.CLAIM=samo.CLAIM;$cont.find('input,textarea').each(function(i,e){params[e.name]=e.value;});$.getScript(_ROOT_URL+$.param(params));return true;}
+samo.submitSberbankForm=function(url){url=samo.parseURL(url);var $f=$('#sberbank_link');$f.attr('action',url.protocol+'://'+url.host+((parseInt(url.port)&&url.port!='80')?':'+url.port:'')+url.path);$f.find('input').remove();var $i;for(var k in url.params){$i=$('<input>').attr('name',k).attr('type','hidden').val(url.params[k]);$f.prepend($i);}
+setTimeout(function(){$('#sberbank_pay_variant_form').find('input,button').prop('disabled',true);},200);$f.show().submit();};if($.getParameter('DOPAY',true)==1){$('#sberbank_submit').click();}};})(samo.jQuery);

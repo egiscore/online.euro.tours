@@ -1,0 +1,20 @@
+<?php
+$language['eng']['adm_state_rule_preview_permitions'] = "Rights for access to countries";
+$language['eng']['adm_state_manager'] = "Manager";
+$language['eng']['adm_state_rule'] = "Access to countries";
+$language['eng']['adm_state_only_view'] = "Only view";
+$language['eng']['adm_state_full_permition'] = "Full access";
+$language['eng']['adm_state_show_enable'] = "Available for display on the site";
+$language['eng']['adm_state_flag'] = "Country flag (gif format)";
+$language['eng']['adm_state_about_state'] = "Description of the country";
+$language['eng']['adm_state_pictures'] = "Pictures";
+$language['eng']['adm_state_edit_state_caption'] = "Edit country";
+$language['eng']['adm_state_view'] = "Page for the country is as follows:";
+$language['eng']['adm_state_big_picture'] = "Specify the big picture.";
+$language['eng']['adm_state_close'] = "Close";
+$language['eng']['adm_state_delete_file'] = "Delete selected file";
+$language['eng']['adm_state_picture_text'] = "Label for picture:";
+$language['eng']['adm_state_change'] = "Change";
+$language['eng']['adm_state_little_gif'] = "Small picture (gif)";
+$language['eng']['adm_state_big_jpeg'] = "Big picture (jpg)";
+$language['eng']['adm_state_download'] = "Download";

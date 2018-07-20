@@ -1,0 +1,28 @@
+#bonus_manager {
+    margin: auto;
+    width: 960px;
+}
+#bonus_manager fieldset legend {
+    display: block;
+}
+#bonus_manager legend{
+    text-align: left;
+}
+#bonus_manager_detail{
+    margin-top: 10px;
+}
+
+#bonus_manager .MAX_AMOUNT {
+    width: 60px;
+    text-align: right;
+}
+
+#pay_variant #bonus_manager {
+    width: 100% !important;
+}
+#bonus_manager fieldset.panel {
+    width: 100%;
+}
+.samo_container table.bonus_manager_detail td.active {
+    background-color: #b4ddac;
+}

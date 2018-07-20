@@ -1,0 +1,2 @@
+<?php
+ $maxlifetime = intval(ini_get('session.gc_maxlifetime')); $maxlifetime = ($maxlifetime) ? $maxlifetime : 1440; define("SESSION_TIME", $maxlifetime / 60); unset($maxlifetime); ini_set('default_charset','windows-1251'); 

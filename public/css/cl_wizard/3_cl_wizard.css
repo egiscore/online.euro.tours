@@ -1,0 +1,190 @@
+#cl_wizard .std.container{
+    width: 750px;
+    text-align: center;
+}
+#cl_wizard .samo_container .std{
+    border-spacing: 10px !important;
+    width: 100%;
+}
+.samo_container #cl_wizard table.res {
+    width: 100%;
+}
+.samo_container div.title_left {
+    width: 100%;
+    margin-top: 0px;
+    padding: 0px;
+}
+.bold{
+    font-weight: bold;
+}
+.d_vis {
+    display: block;
+}
+.d_none {
+    display: none;
+}
+#cl_wizard .td_panel select {
+    width: 110px;
+}
+#cl_wizard .td_panel select.TOURINC {
+    width: 220px;
+}
+#NEWCLAIM {
+    width: "170px";
+}
+#edit_tourist  fieldset div.row, #edit_order  fieldset div.row {
+    clear: both;
+    margin-bottom: 4px;
+}
+#edit_tourist  fieldset div.row label, #edit_order fieldset div.row label {
+    margin-right: 1.6%;
+    margin-right: "10px";
+    margin-top: 3px;
+}
+#edit_tourist  fieldset div.row label {
+    width: 38%;
+}
+#edit_order fieldset div.row label {
+    width: 28%;
+}
+#edit_tourist  fieldset div.row input,  #edit_tourist  fieldset div.row select, #edit_tourist  fieldset div.row div.sex {
+    width: 60%;
+    width: "58%";
+}
+#edit_tourist  fieldset div.row label, #edit_tourist  fieldset div.row input, #edit_tourist  fieldset div.row select, #edit_tourist  fieldset div.row div.sex, #edit_tourist fieldset div.row span.input,
+#edit_order  fieldset div.row label, #edit_order  fieldset div.row input, #edit_order  fieldset div.row select, #edit_order fieldset div.row span.input {
+    float: left;
+    text-align: left;
+}
+#edit_tourist div.sex label, #edit_tourist  div.sex input {
+    float: none !important;
+    width: auto !important;
+}
+#edit_tourist div.sex label {
+    margin-right: 20px;
+    padding-left: 4px;
+}
+#edit_tourist div.save {
+    text-align: center;
+}
+#edit_tourist input.date {
+    padding-right: 0;
+    background-image: none;
+}
+
+#edit_order table td:nth-child(1) {
+    width: 90px !important;
+}
+
+#edit_order fieldset div.row input,  #edit_order  fieldset div.row select  {
+    width: 100%;
+}
+
+#ORDER_ADD_INFANT {
+    margin-top: 3px;
+    width: 20px !important;
+}
+#ORDER_COUNT {
+    width: 100% !important
+}
+#OPEOPLES {
+    margin-top: 3px;
+    width: 100%;
+}
+#ALL_PEOPLE_DIV, #OPEOPLE_BTN, #OPEOPLE {
+    float:left;
+}
+#ALL_PEOPLE_DIV {
+    width: 40%;
+}
+#ORDER_ALL_TOURIST {
+    width: 180px;
+    height: 130px;
+}
+#OPEOPLE {
+    height: 130px;
+    overflow: auto;
+    width: 60%;
+}
+#OPEOPLE div.opeople_btn, #OPEOPLE div.order {
+    float:left;
+    margin-bottom: 3px;
+    margin-bottom: "0px";
+    margin-top: 3px !important;
+}
+#OPEOPLE div.opeople_btn {
+    width: 18%;
+}
+#OPEOPLE div.order {
+    width: 80%;
+    width: "78%";
+}
+#OPEOPLE div.div_order {
+    border: 1px;
+    border-color: #DEDEDE;
+    border-style: solid;
+    margin-bottom: 6px !important;
+    margin-left: 5px;
+    width: 97%;
+    width: "100%";
+}
+.finish_opeople {
+    border: 1px;
+    border-color: #DEDEDE;
+    border-style: solid;
+    margin-bottom: 3px !important;
+    margin-top: 3px !important;
+    white-space: nowrap;
+    padding: 0 5px !important;
+}
+#CLAIMPRICE{
+    font-size:17px;
+    font-weight: bold;
+}
+.warning {
+    border: 1px solid blue;
+    margin: auto !important;
+    padding-left: 10px !important;
+    text-align: left;
+    width: 50%;
+}
+.warning_stop {
+    border: 1px solid red;
+    margin: auto !important;
+    margin-top: 10px !important;
+    padding-left: 10px !important;
+    text-align: left;
+}
+.red {
+    color: red;
+    font-weight: bold;
+}
+.blue {
+    color: blue;
+    font-weight: bold;
+}
+#FIELDSET_NOTE {
+    margin: auto;
+}
+#NOTECLAIM {
+    width: 100%;
+    height: 55px;
+    resize: vertical;
+}
+
+#CLW_NIGHTS {
+    width: 40px;
+}
+
+#cl_wizard table.top_menu td {
+    text-align: center;
+    padding: 5px;
+}
+
+#ADD_TOURIST_BUTTON {
+    margin: 5px 0;
+}
+
+#OPEOPLE .order .order_opeople {
+    height: 55px;
+}

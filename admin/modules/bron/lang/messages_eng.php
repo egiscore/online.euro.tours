@@ -1,0 +1,32 @@
+<?php
+
+$language['eng']['adm_bron_manager'] = "Manager";
+$language['eng']['adm_bron_rule'] = "Access";
+$language['eng']['adm_bron_only_view'] = "Only view";
+$language['eng']['adm_bron_full_permition'] = "Full access";
+$language['eng']['adm_bron_rule_preview_permitions'] = "Access rights for 'Bron' module";
+$language['eng']['adm_agreement_text'] = "Agreement (shown before save reservation)";
+$language['eng']['adm_bron_owner'] = "Owner reservation and contract";
+$language['eng']['adm_bron_check_agreement_date'] = "Disable booking if the date of registration partner has not yet come, or the date of termination of activity partner has already passed.";
+$language['eng']['adm_bron_show_cost_service_required'] = "Show price for required srvices";
+$language['eng']['adm_bron_autofill_human'] = "Autofill field MR/MRS/CHD/INF";
+$language['eng']['adm_bron_freight_cross_classes'] = "Allow to book different classes of seats on flights";
+$language['eng']['adm_bron_insignificant_agreement'] = "Do not check a contract";
+$language['eng']['adm_bron_required_agreement'] = "The contract must exist";
+$language['eng']['adm_bron_owner_select'] = "Required contract with selected reservation's owner";
+$language['eng']['adm_bron_seat_youngest_infant_with_adult'] = "Seat the youngest infant with an adult";
+$language['eng']['adm_bron_calculated_claim_text'] = "Terms of creation draft reservation";
+$language['eng']['adm_config_today_bron'] = "Allow reservations with today's tour beginning date";
+$language['eng']['adm_config_used_in_bron'] = "Used in 'Reservation' module";
+$language['eng']['adm_config_internet_partner_commission'] = "Partner having additional commission described";
+$language['eng']['adm_config_freight_stoptime'] = "Deny book for n hours before departure";
+$language['eng']['adm_config_children_place_inavia'] = "Allow the possibility of selecting a separate place for the additional infant in the transport";
+$language['eng']['adm_bron_enable_price_calendar'] = "Display a low price calendar";
+$language['eng']['adm_config_contacts_bron'] = "Fill out the contact information agent";
+$language['eng']['adm_bron_contracts_no'] = "No";
+$language['eng']['adm_bron_contracts_yes'] = "Yes";
+$language['eng']['adm_bron_contracts_required'] = "Required";
+$language['eng']['adm_config_reklama_bron'] = "To ask 'where did You hear about us?'";
+$language['eng']['adm_bron_reklama_no'] = "No";
+$language['eng']['adm_bron_reklama_yes'] = "Yes";
+$language['eng']['adm_bron_reklama_required'] = "Required";

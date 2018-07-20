@@ -1,0 +1,92 @@
+#fast_search {
+    margin: 0;
+    display: block !important;
+}
+
+#fast_search .n1 {
+    width: 305px;
+}
+
+#fast_search td {
+    text-align: right;
+    font-size: 12px;
+}
+
+#fast_search td.l {
+    text-align: left;
+}
+#fast_search td.b select {
+    width: 215px;
+}
+
+#fast_search td.l select, #fast_search td.l .price {
+    width: 88px;
+}
+
+#fast_search td.r {
+    padding-right: 5px;
+}
+#fast_search td.r select {
+    width: 60px;
+}
+
+#fast_search .PRICE_MAX {
+    width: 84px;
+}
+
+#fast_search .load {
+    padding: 1px 8px;
+}
+#fast_search .small_shadow {
+    -moz-background-size: 100%;
+    -webkit-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+}
+
+#fast_search .submit {
+    text-align: right;
+}
+
+#fast_search .submit input {
+    margin: 0px;
+}
+
+/* <SEARCHMODES> */
+
+#fast_search.search_tour .searchmodes .searchmode_tour,
+#fast_search.search_hotel .searchmodes .searchmode_hotel {
+    padding: 5px 10px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+#fast_search.search_tour .searchmodes .searchmode_tour a.searchmode_button,
+#fast_search.search_hotel .searchmodes .searchmode_hotel a.searchmode_button {
+    display: inline;
+    padding: 0;
+    border: 0;
+    background-color: inherit;
+    box-shadow: none;
+    text-decoration: none;
+    color: inherit;
+    cursor: default;
+}
+
+#fast_search.search_hotel .townfrom-filter,
+#fast_search.search_tour .category-filter {
+    display: none;
+}
+
+#fast_search.search_tour .townfrom-filter,
+#fast_search.search_hotel .category-filter  {
+    display: table-row;
+}
+.NIGHTS_TILL_chosen,.ADULT_chosen,.CHILD_chosen,.CURRENCY_chosen{
+    max-width: 87px;
+}
+.TOWNFROMINC_chosen,.STATEINC_chosen,.TOURINC_chosen,.HOTELS_chosen,.STARS_chosen{
+    max-width: 233px;
+}
+
+/* </SEARCHMODES> */

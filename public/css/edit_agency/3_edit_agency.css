@@ -1,0 +1,84 @@
+#edit_agency .partner_info {
+    margin: auto !important;
+    width: 960px;
+}
+
+#edit_agency .links {
+    margin-bottom: 10px;
+}
+
+#edit_agency .partpass_edit {
+    margin: 5px 0;
+}
+
+#edit_agency .partpass_edit.small {
+    margin: 0;
+    font-size: 70%;
+    padding: 5px 10px;
+}
+
+#edit_agency table.res {
+    width: 100%;
+}
+
+#login div.label {
+    margin-top: -15px;
+}
+
+#login label.required {
+    font-weight: bold;
+}
+
+#edit_agency .left_column {
+    width: 170px;
+}
+
+#edit_agency .bik_bank_name {
+    width: 70%;
+    float: left;
+}
+
+#edit_agency .bik_bank_bik {
+    width: 130px;
+    float: right;
+    text-align: right;
+}
+
+#edit_agency .bik_bank_bik input {
+    width: 100px;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+#edit_agency input.date, #login input.date {
+    padding-right: 0;
+    background-image: none;
+}
+
+#edit_agency span.frm-value {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB7klEQVR42mNgQAPJycnx/f3961euXPl0+fLlL1pbW7ckAAEDMSAyMjL9/v37z169evX/6dOn71+8ePHm2bNn/48ePfo1Nja2AK/miIiIwjNnzuw6fvJ4PVBxi5ubWzMIp6SkLLhz986vnTt33nd1da3CaYCXl1fXkydP/tfV1R328PBQgImD2JWVlccePnz438/PbwpOA3x8fCYAnf0/KytrJbpcWlraRpCcv7//bAZcAGQAyO9AJ69AlwMG7IbHjx/hNuD///+MYWFhM96+ffs/MytrPZDPcuXKY6ErV64IAQOVIzU1dRuQ/g8Mp0UgtRgGRMfFhdc1Nv7r6Oz639nV9WvSpClf+ydMAOMJEyd97ent+zlx4mRg+DT+A7owBsMAYPRtnTl73v/9Bw79v3X7zv+Hjx7/f/T4yf/7Dx79v3f/wf+79+7/37Fz9/8Fi5b9j09IOohhQHBo+BFiDYiKjj2LYUBYmBvRBsTHuGEaEB9tTrQBMVEmmAYkxxFvQJCfBaYBEeFBRBsQERGOaUB0dAzYgIOHj/2/euP5/2fPP/3//OXL/7fvPv6/9+ADEL/6f+DQ4f8rVq8HxkICpgFBQUG1wESyLSYmZld8fPw+YMo7CMSHQHRiYuIBYG7eGx0dvRMU3SEhIQ3IiQkAiPLDTeUJ9zUAAAAASUVORK5CYII=');
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-color: white;
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #999;
+    border-radius: 5px;
+    padding: 1px 2px;
+    font-size: 13px;
+    line-height: 18px;
+    height: 22px;
+}
+
+#edit_agency span.frm-value.request-changes {
+    cursor: pointer;
+}
+
+.samo_container .request-changes {
+    max-height: 600px;
+    overflow-y: auto;
+}
+#basicModalContent .request-changes {
+    min-height: 380px;
+}

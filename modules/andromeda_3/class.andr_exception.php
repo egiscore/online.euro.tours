@@ -1,0 +1,2 @@
+<?php
+ class Andr_Exception extends Exception { public function __construct($code = 0, $message = null) { $errorMessages = __loadMessages(); if (is_array($message)) { $toMessage = $message; if (isset($message['message'])) { $message = $message['message']; unset($toMessage['message']); } } if (isset($errorMessages) && isset($errorMessages[$code])) { $message = $errorMessages[$code]; } if (isset($toMessage)) { $message = @andrVSprintF($message, $toMessage); } $message = ($message != '') ? $message : 'Unknown error!!!'; return parent::__construct($message, $code); } } 

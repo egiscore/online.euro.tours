@@ -1,0 +1,2 @@
+<?php
+ class Remove_Artefacts extends UpdateModel { public $title = 'Purge old images'; public function make() { $return = 0; $root = _ROOT . 'data/tickets/'; if (file_exists($root) && is_dir($root)) { $files = glob($root . '*'); if ($files && count($files)) { $return = count($files); foreach ($files as $file) { @unlink($file); $return--; } } @rmdir($root); } return $return; } } 

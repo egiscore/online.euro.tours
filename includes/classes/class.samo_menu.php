@@ -1,0 +1,2 @@
+<?php
+ class Samo_Menu { public function __construct() { Samo_Registry::set('controller', $this); } public function default_action() { Samo_Registry::get('view')->render('layout'); } public function before_output() { } public function after_output() { } } 

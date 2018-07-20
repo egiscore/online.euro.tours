@@ -1,0 +1,354 @@
+#tickets {
+    width: 100%;
+}
+#tickets table.two_col {
+    width: 100%;
+	max-width: 1280px;
+}
+#tickets table.two_col td.col {
+    vertical-align: top;
+    padding: 10px 10px 0 10px;
+}
+#tickets table.two_col td.col.form {
+    padding-right: 0;
+}
+#tickets .formError {
+    max-width: 400px;
+}
+#tickets .form {
+    width: 305px;
+    padding: 10px 0 0 10px;
+    text-align: center;
+}
+#tickets.fast {
+    margin: 0;
+}
+#tickets.fast .form {
+    padding: 0;
+    margin: 0;
+}
+#tickets .form .block {
+    border: none;
+    border-bottom: 1px solid #CCCCCC;
+    text-align: left;
+}
+#tickets .form .block.no_margin {
+    margin-top: -15px;
+}
+#tickets .form .block.no_title {
+    padding: 1px 0 0 0;
+}
+#tickets .form .block .title {
+    color: #606060;
+    padding: 6px 0px 6px;
+    cursor: pointer;
+    font-size: 18px;
+    text-align: center;
+}
+#tickets .form .container {
+    width: auto;
+    height: auto;
+    text-align: left !important;
+    padding-bottom: 3px !important;
+}
+#tickets .form .block .legend {
+	white-space: nowrap;
+	width: 129px;
+	text-align: right !important;
+}
+#tickets .form .location {
+	width: 100%;
+}
+#tickets .form .location .legend {
+	text-align: left !important;
+}
+#tickets .form .location .right {
+	float: right;
+}
+#tickets .form .block td.left {
+	text-align: left;
+}
+#tickets .form .location td {
+	text-align: left;
+	padding: 5px 10px 0 !important;
+}
+#tickets .form .location .margin_top td {
+	padding-top: 15px !important;
+}
+#tickets .form .location .port_revert {
+	height: 16px;
+	width: 14px;
+	float: right;
+	position: relative;
+	background: url('../../pict/arraws.png') no-repeat 99% 50%;
+	top: 24px;
+	right: -2px;
+	cursor: pointer;
+}
+#tickets .form .location .combobox {
+	margin: 5px 14px 5px 0;
+}
+#tickets .form .container .other select {
+	width: 114px;
+}
+#tickets .form .no_padding td {
+	padding-top: 0 !important;
+}
+#tickets .resultset .no_background {
+	background: none !important;
+	border: none;
+}
+#tickets .load {
+	float: right;
+}
+
+.samo_container {
+    display: block !important;
+}
+#tickets input.price {
+    width: 70px;
+    margin-right: 0;
+}
+#tickets td.panel {
+    vertical-align: middle;
+    border: 0 !important;
+}
+#tickets label.hidden {
+  visibility: hidden;
+}
+#tickets .resultset td {
+	height: 44px;
+}
+#tickets .resultset tr.splitter td, #tickets .resultset td.splitter, #tickets .resultset th.splitter {
+	border-bottom: medium none;
+	padding: 0;
+	background-image: none;
+	font-size: 3px;
+}
+#tickets .resultset td.splitter, #tickets .resultset th.splitter {
+	background-color: #C0C0C0;
+	width: 3px;
+}
+#tickets .resultset tr.splitter td {
+	background: none;
+	height: 20px;
+}
+#tickets .resultset .port_alias {
+	border-bottom: 1px dashed #222;
+	cursor: help;
+}
+#tickets .resultset .port_alias:hover {
+	border: none;
+}
+#tickets td.td_price .price {
+    font-style: italic;
+}
+#tickets td.td_price .bron {
+    font-weight: bold;
+    font-style: normal;
+    cursor: pointer;
+}
+#tickets td.td_price {
+    white-space: nowrap;
+    padding: 0;
+    vertical-align: middle;
+    border: none;
+    background: none;
+}
+#tickets td.td_price span.price_button {
+    background-color: #ffffff;
+    background-image: url('../../pict/buy_button.png') !important;
+    background-position: center top;
+    padding: 2px;
+    padding-top: 42px;
+    text-align: center;
+    min-width: 90px;
+    margin-left: 5px;
+    display: block;
+}
+
+#tickets .std{
+    margin: auto;
+    border-spacing: 0px !important;
+}
+#tickets table td, .samo_container table th{
+    font-family: inherit;
+    vertical-align: middle;
+}
+#tickets .resultset table th {
+	text-transform: capitalize;
+}
+#tickets .resultset th.small {
+	width: 100px;
+}
+#tickets .resultset .class {
+	padding-right: 0;
+	vertical-align: bottom;
+}
+#tickets .resultset .class div {
+	padding: 2px 5px;
+	margin: 4px 0 0 -5px;
+}
+#tickets .resultset span.label {
+	font-size: 80%;
+	color: #767676;
+}
+#tickets table.res {
+    width: 100%;
+	border: none;
+}
+#tickets table.one_col {
+	max-width: 540px;
+	float: left;
+}
+#tickets .panel td {
+    padding: 5px 10px !important;
+	text-align: right;
+}
+#tickets .panel .select {
+    width: 81px;
+}
+#tickets .panel .direction_right {
+    width: 70%;
+    text-align: left;
+}
+#tickets .panel .tour_left {
+    width: 115px !important;
+    text-align: right;
+}
+#tickets .panel.tab2 .tour_left {
+    width: 106px !important;
+}
+#tickets .panel .tour_right {
+    width: 80%;
+    text-align: left;
+}
+#tickets .user_info td {
+    padding: 3px 10px;
+}
+#tickets .description, #tickets .description2, #tickets .description3, #tickets .description4 {
+    width: 85px;
+    text-align: right;
+}
+#tickets .description2 {
+    width: 95px;
+}
+#tickets .description3 {
+    width: 65px;
+}
+#tickets .description4 {
+    width: 50px;
+}
+#tickets .user_info .col, #tickets .user_info .empty {
+    padding: 0;
+}
+#tickets .user_info .col {
+    width: 445px;
+}
+#tickets .form .age_wrapper {
+    display: block;
+    float: left;
+    box-sizing: border-box;
+    width: 33.3%;
+    text-align: center;
+}
+#tickets .form .age_wrapper:first-child {
+    text-align: left;
+}
+#tickets .form .age_wrapper:last-child {
+    text-align: right;
+}
+#tickets .form .age {
+    width: 90%;
+    margin: 0px;
+}
+#tickets .from {
+    width: 20px;
+    text-align: right;
+}
+#tickets .calendar {
+    width: 93px !important;
+}
+#tickets .count {
+    width: 70px;
+}
+#tickets td.shadow {
+    padding: 0;
+}
+#tickets .footer {
+    vertical-align: middle;
+    padding: 5px 0px;
+}
+#tickets .footer input {
+    margin-right: 5px;
+}
+#tickets .footer .left {
+    display: inline-block;
+    margin-right: 20px;
+    margin-top: 5px;
+
+}
+#tickets .footer .right {
+    float: right;
+    display: inline-block;
+}
+
+#tickets .resultset {
+	margin: 0;
+	padding: 0 15px;
+}
+#tickets .empty_cell {
+    width: 10px;
+}
+#tickets .spin {
+    width: 48%;
+}
+#tickets .Zebra_DatePicker_Icon_Wrapper {
+    font-size: 14px;
+}
+
+#tickets select.ADULT, #tickets select.CHILD {
+    max-width: 54px;
+    width: 54px;
+}
+
+#tickets select.CURRENCYINC {
+    max-width: 147px;
+    width: 147px;
+}
+
+#tickets select.CLASS {
+    max-width: 111px;
+    width: 111px;
+}
+
+#tickets select.period {
+    max-width: 54px;
+    width: 54px;
+}
+
+#tickets SELECT.AIRLINE {
+    width: 281px;
+}
+
+#tickets select.age {
+    max-width: 42px;
+    width: 42px !important;
+}
+
+#tickets .pcount_wrapper {
+    display: inline-block;
+    width: 48%;
+}
+
+#tickets .pcount_label, #tickets .AGE1_chosen, #tickets .AGE2_chosen, #tickets .AGE3_chosen {
+    visibility: hidden;
+}
+
+#tickets .form .location td.calendar_container {
+    padding-right: 0px !important;
+}
+
+#tickets tr.most-relevant td {
+    background-color: yellow;
+}

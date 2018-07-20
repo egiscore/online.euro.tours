@@ -1,0 +1,35 @@
+<IfModule mod_php5.c>
+    php_flag short_open_tag On
+    php_flag allow_call_time_pass_reference Off
+    php_flag zend.ze1_compatibility_mode Off
+    php_flag display_errors Off
+    php_flag mssql.datetimeconvert Off
+    php_flag mssql.allow_persistent Off
+    php_value error_reporting 0
+    php_value default_charset "windows-1251"
+	php_flag magic_quotes_gpc Off
+	php_value mbstring.internal_encoding null
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteRule  ^default.php.*$        -    [L]
+    RewriteCond  %{REQUEST_FILENAME}    !-d
+    RewriteCond  %{REQUEST_FILENAME}    !-f
+    RewriteRule  ^(.+)    default.php?page=$1    [QSA,L]
+    SetEnv FRIENDLY_URLS 1
+    SetEnvIf Authorization "(.*)" PHP_AUTH_DIGEST=$1
+</IfModule>
+
+<IfModule mod_autoindex.c>
+    Options -Indexes
+</IfModule>
+
+<IfModule mod_dir.c>    
+    DirectoryIndex default.php
+</IfModule>
+
+<IfModule core.c>                       
+    FileETag none
+</IfModule>
+

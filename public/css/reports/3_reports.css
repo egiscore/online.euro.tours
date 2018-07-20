@@ -1,0 +1,39 @@
+#reports {
+    width: 960px;
+    margin: 0 auto;
+}
+
+#reports .reportsInfo {
+    padding: 10px;
+    text-align: left;
+}
+
+#reports .noReports {
+    text-align: center;
+    font-weight: bold;
+}
+
+#reports .reportParams table {
+    width: 100%;
+}
+
+#reports .reportParams input.frm-input.date {
+    width: 102px;
+}
+
+#reports .reportParams select.select {
+    width: auto;
+}
+
+#reports .getReport {
+    display: none;
+}
+
+#reports button.getReport {
+    margin: 10px auto;
+}
+
+#reports .downloadLinkBlock {
+    text-align: center;
+}
+
